@@ -5,6 +5,10 @@ import java.util.List;
 public class CombinationsPicker {
     private static List<int[]> values = new ArrayList<>();
 
+    public static List<int[]> getValues() {
+        return values;
+    }
+
     public void iSNaturalNum(int n) {
 
         if (n > 0) {

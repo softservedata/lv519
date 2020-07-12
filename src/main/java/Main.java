@@ -4,6 +4,6 @@ public class Main {
         ConsoleInput input = new ConsoleInput();
         CombinationsPicker valuePicker = new CombinationsPicker();
         valuePicker.iSNaturalNum(input.intInput());
-        valuePicker.displayOptions(true);
+        valuePicker.displayOptions(false);
     }
 }
