@@ -4,6 +4,10 @@ import java.util.List;
 public class Pyth {
     private static List<int[]> values = new ArrayList<>();
 
+    public static List<int[]> getValues() {
+        return values;
+    }
+
     public void iSNaturalNum(int n) {
 
         if (n > 0) {
@@ -22,7 +26,7 @@ public class Pyth {
         for (c = 0; c <= n; c++) {
             for (b = 0; b <= c; b++) {
                 for (a = 0; a <= b; a++) {
-                    if (a * a + b * b == c * c) {
+                    if ((a * a + b * b == c * c) && (a != 0 && b != 0 && c != 0)) {
                         values.add(new int[]{a, b, c});
                     }
                 }
