@@ -1,19 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pyth {
+public class PythagoreanTriple {
 
-    public List<PythTrianglDTO> iSNaturalNum(int n) {
+    public List<PythagoreanTripleDTO> findAllOptions(int n) {
 
         if (n <= 0) {
             throw new IllegalArgumentException("Please chose natural number");
         }
         return findPossibleValues(n);
-
     }
 
-    private List<PythTrianglDTO> findPossibleValues(int n) {
-        List<PythTrianglDTO> values = new ArrayList<>();
+    private List<PythagoreanTripleDTO> findPossibleValues(int n) {
+        List<PythagoreanTripleDTO> values = new ArrayList<>();
         int a;
         int b;
         int c;
@@ -21,13 +20,12 @@ public class Pyth {
             for (b = 0; b <= c; b++) {
                 for (a = 0; a <= b; a++) {
                     if ((a * a + b * b == c * c) && (a != 0 && b != 0 && c != 0)) {
-                        values.add(new PythTrianglDTO(a, b, c));
+                        values.add(new PythagoreanTripleDTO(a, b, c));
                     }
                 }
             }
         }
         return values;
     }
-
 
 }

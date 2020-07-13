@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        ConsoleInput in = new ConsoleInput();
-        Pyth calc = new Pyth();
-        in.printValues(calc.iSNaturalNum(in.intInput()));
+        ConsoleInputOutput in = new ConsoleInputOutput();
+        PythagoreanTriple calc = new PythagoreanTriple();
+        in.printValues(calc.findAllOptions(in.intInput()));
     }
 
 }

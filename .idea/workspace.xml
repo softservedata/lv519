@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86dedd51-7507-4b0f-abe4-cd5e49714d40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInputOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PythTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pyth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PythTrianglDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTripleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PythTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInput.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/PythTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Pyth.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PythTrianglDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PythTest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,40 +84,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
+      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.checkMaxNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.checkNegativeNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="checkMaxNum" />
+      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
+      <option name="METHOD_NAME" value="checkNegativeNum" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.checkMinNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.checkNumThree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="checkMinNum" />
+      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
+      <option name="METHOD_NAME" value="checkNumThree" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.checkNaturalFive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.checkNumTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="checkNaturalFive" />
+      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
+      <option name="METHOD_NAME" value="checkNumTwo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,10 +126,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PythTest.checkMaxNum" />
-        <item itemvalue="JUnit.PythTest.checkMinNum" />
-        <item itemvalue="JUnit.PythTest" />
-        <item itemvalue="JUnit.PythTest.checkNaturalFive" />
+        <item itemvalue="JUnit.PythagoreanTripleTest" />
+        <item itemvalue="JUnit.PythagoreanTripleTest.checkNumThree" />
+        <item itemvalue="JUnit.PythagoreanTripleTest.checkNumTwo" />
+        <item itemvalue="JUnit.PythagoreanTripleTest.checkNegativeNum" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +145,8 @@
       <updated>1594578343547</updated>
       <workItem from="1594578345329" duration="93000" />
       <workItem from="1594588651061" duration="4645000" />
-      <workItem from="1594623766978" duration="7905000" />
+      <workItem from="1594623766978" duration="9883000" />
+      <workItem from="1594639043947" duration="7216000" />
     </task>
     <servers />
   </component>

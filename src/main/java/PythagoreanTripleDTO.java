@@ -1,11 +1,11 @@
 import java.util.Objects;
 
-public class PythTrianglDTO {
+public class PythagoreanTripleDTO {
     int a;
     int b;
     int c;
 
-    public PythTrianglDTO(int a, int b, int c) {
+    public PythagoreanTripleDTO(int a, int b, int c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -27,7 +27,7 @@ public class PythTrianglDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PythTrianglDTO that = (PythTrianglDTO) o;
+        PythagoreanTripleDTO that = (PythagoreanTripleDTO) o;
         return a == that.a &&
                 b == that.b &&
                 c == that.c;
