@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86dedd51-7507-4b0f-abe4-cd5e49714d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__Arquillian_JUnit_Release.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/JunitTestSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PythTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PythTrianglDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Pyth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pyth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JunitTestSuite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PythTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ConsoleInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Pyth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Pyth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JunitTestSuite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PythTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JunitTestSuite">
+  <component name="RunManager" selected="JUnit.PythTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="554V2" />
@@ -77,40 +80,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsoleInputTest.intInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConsoleInputTest" />
-      <option name="METHOD_NAME" value="intInput" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JunitTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JunitTestSuite" />
+      <option name="MAIN_CLASS_NAME" value="PythTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.iSNaturalNumNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythTest.checkNaturalFive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="iSNaturalNumNegative" />
+      <option name="METHOD_NAME" value="checkNaturalFive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.iSNaturalNumZerp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PythTest.checkNaturalTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="iSNaturalNumZerp" />
+      <option name="METHOD_NAME" value="checkNaturalTwo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PythTest.checkNegativeNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="554V2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PythTest" />
+      <option name="METHOD_NAME" value="checkNegativeNum" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JunitTestSuite" />
-        <item itemvalue="JUnit.ConsoleInputTest.intInput" />
-        <item itemvalue="JUnit.PythTest.iSNaturalNumZerp" />
-        <item itemvalue="JUnit.PythTest.iSNaturalNumNegative" />
+        <item itemvalue="JUnit.PythTest" />
+        <item itemvalue="JUnit.PythTest.checkNaturalFive" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PythTest.checkNaturalTwo" />
+        <item itemvalue="JUnit.PythTest.checkNegativeNum" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +140,8 @@
       <option name="presentableId" value="Default" />
       <updated>1594578343547</updated>
       <workItem from="1594578345329" duration="93000" />
-      <workItem from="1594588651061" duration="3413000" />
+      <workItem from="1594588651061" duration="4645000" />
+      <workItem from="1594623766978" duration="3445000" />
     </task>
     <servers />
   </component>

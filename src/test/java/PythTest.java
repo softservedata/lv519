@@ -3,33 +3,65 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class PythTest {
 
     @Test
-    public void iSNaturalNum() {
+    public void checkNaturalNum() {
         Pyth calc = new Pyth();
-        calc.iSNaturalNum(15);
-        int[][] expected = new int[][]
-                {
-                        {3, 4, 5},
-                        {6, 8, 10},
-                        {5, 12, 13},
-                        {9, 12, 15}
-                };
-
-        int[][] actual = new int[][]
-                {
-                        calc.getValues().get(0),
-                        calc.getValues().get(1),
-                        calc.getValues().get(2),
-                        calc.getValues().get(3)
-                };
-        Assert.assertArrayEquals(expected,actual);
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(15);
+        List<PythTrianglDTO> expected = new ArrayList<>();
+        expected.add(new PythTrianglDTO(3, 4, 5));
+        expected.add(new PythTrianglDTO(6, 8, 10));
+        expected.add(new PythTrianglDTO(5, 12, 13));
+        expected.add(new PythTrianglDTO(9, 12, 15));
+        Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void checkNaturalFive() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(5);
+        List<PythTrianglDTO> expected = new ArrayList<>();
+        expected.add(new PythTrianglDTO(3, 4, 5));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkNumOne() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(1);
+        List<PythTrianglDTO> expected = new ArrayList<>();
+        Assert.assertEquals(expected, actual);
+    }
+//to do add 2 and 3
+    @Test
+    public void checkNumFour() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(4);
+        List<PythTrianglDTO> expected = new ArrayList<>();
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkNegativeNum() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(-1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkZeroNum() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(0);
+    }
+/*-
     @Test()
     public void iSNaturalNumNegative() {
         String consoleOutput =null;
@@ -69,4 +101,5 @@ public class PythTest {
         String expected = "Please chose natural number";
         assertEquals(expected.trim(),consoleOutput.trim());
     }
+    */
 }

@@ -2,24 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pyth {
-    private static List<int[]> values = new ArrayList<>();
 
-    public static List<int[]> getValues() {
-        return values;
-    }
+    public List<PythTrianglDTO> iSNaturalNum(int n) {
 
-    public void iSNaturalNum(int n) {
-
-        if (n > 0) {
-            findPossibleValues(n);
-            printValues();
-        } else {
-            System.out.println("Please chose natural number");
+        if (n <= 0) {
+            throw new IllegalArgumentException("Please chose natural number");
         }
+        return findPossibleValues(n);
 
     }
 
-    private void findPossibleValues(int n) {
+    private List<PythTrianglDTO> findPossibleValues(int n) {
+        List<PythTrianglDTO> values = new ArrayList<>();
         int a;
         int b;
         int c;
@@ -27,21 +21,13 @@ public class Pyth {
             for (b = 0; b <= c; b++) {
                 for (a = 0; a <= b; a++) {
                     if ((a * a + b * b == c * c) && (a != 0 && b != 0 && c != 0)) {
-                        values.add(new int[]{a, b, c});
+                        values.add(new PythTrianglDTO(a, b, c));
                     }
                 }
             }
         }
-
-
+        return values;
     }
 
-    private void printValues() {
-        for (int[] value : values) {
-            System.out.printf("a = %d \t", value[0]);
-            System.out.printf("b = %d \t", value[1]);
-            System.out.printf("c = %d \n", value[2]);
-        }
-        if (values.isEmpty()) System.out.println("No matches");
-    }
+
 }
