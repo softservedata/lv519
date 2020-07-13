@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86dedd51-7507-4b0f-abe4-cd5e49714d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PythTrianglDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pyth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pyth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/JunitTestSuite.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PythTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ConsoleInput.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Pyth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Pyth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/JunitTestSuite.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/PythTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +13,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="555V2" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PythTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="554V2" />
@@ -89,6 +85,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PythTest.checkMaxNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="554V2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PythTest" />
+      <option name="METHOD_NAME" value="checkMaxNum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PythTest.checkMinNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="554V2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PythTest" />
+      <option name="METHOD_NAME" value="checkMinNum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PythTest.checkNaturalFive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="554V2" />
       <option name="PACKAGE_NAME" value="" />
@@ -99,33 +115,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythTest.checkNaturalTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="checkNaturalTwo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PythTest.checkNegativeNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythTest" />
-      <option name="METHOD_NAME" value="checkNegativeNum" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PythTest.checkMaxNum" />
+        <item itemvalue="JUnit.PythTest.checkMinNum" />
         <item itemvalue="JUnit.PythTest" />
         <item itemvalue="JUnit.PythTest.checkNaturalFive" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PythTest.checkNaturalTwo" />
-        <item itemvalue="JUnit.PythTest.checkNegativeNum" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +137,7 @@
       <updated>1594578343547</updated>
       <workItem from="1594578345329" duration="93000" />
       <workItem from="1594588651061" duration="4645000" />
-      <workItem from="1594623766978" duration="3445000" />
+      <workItem from="1594623766978" duration="7905000" />
     </task>
     <servers />
   </component>

@@ -24,7 +24,7 @@ public class PythTest {
     }
 
     @Test
-    public void checkNaturalFive() {
+    public void checkNumFive() {
         Pyth calc = new Pyth();
         List<PythTrianglDTO> actual = calc.iSNaturalNum(5);
         List<PythTrianglDTO> expected = new ArrayList<>();
@@ -61,6 +61,12 @@ public class PythTest {
         Pyth calc = new Pyth();
         List<PythTrianglDTO> actual = calc.iSNaturalNum(0);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkMaxNum() {
+        Pyth calc = new Pyth();
+        List<PythTrianglDTO> actual = calc.iSNaturalNum(Integer.MAX_VALUE+1);
+    }
 /*-
     @Test()
     public void iSNaturalNumNegative() {
@@ -71,7 +77,7 @@ public class PythTest {
             PrintStream capture = new PrintStream(outputStream);
             System.setOut(capture);
             Pyth calc = new Pyth();
-            calc.iSNaturalNum(-15);
+            in.printValues(calc.iSNaturalNum(-15));
             capture.flush();
             consoleOutput = outputStream.toString();
             System.setOut(originalOut);
