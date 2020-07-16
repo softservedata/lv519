@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OneOptionPickerTest {
-//  !!! Assert.assertEquals(expected, actual);
+//  !!! Assert.assertEquals(actual, expected );
     @Test
     public void testValueThree() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(3,true);
         List<CombinationsDTO> expected = new ArrayList<>();
         expected.add(new CombinationsDTO(1,1,1));
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected );
     }
 
     @Test
@@ -22,7 +22,7 @@ public class OneOptionPickerTest {
         List<CombinationsDTO> actual = picker.findCombinations(9,true);
         List<CombinationsDTO> expected = new ArrayList<>();
         expected.add(new CombinationsDTO(1,2,2));
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected );
     }
 
     @Test
@@ -30,7 +30,7 @@ public class OneOptionPickerTest {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(1,true);
         List<CombinationsDTO> expected = new ArrayList<>();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected );
     }
 
     @Test

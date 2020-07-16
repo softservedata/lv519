@@ -22,7 +22,7 @@ public class AllOptionsPickerTest {
         expected.add(new CombinationsDTO(1,2,2));
         expected.add(new CombinationsDTO(2,1,2));
         expected.add(new CombinationsDTO(2,2,1));
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(actual, expected );
     }
 
     @Test
@@ -30,14 +30,14 @@ public class AllOptionsPickerTest {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(1,false);
         List<CombinationsDTO> expected = new ArrayList<>();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected );
     }
     @Test
     public void testNoMatchesValueTwo() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(2,false);
         List<CombinationsDTO> expected = new ArrayList<>();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected );
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
