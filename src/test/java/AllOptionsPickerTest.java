@@ -1,23 +1,32 @@
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AllOptionsPickerTest {
-
+/*        <parameter name =  "entryData1" value="*9"/>
+        <parameter name =  "entryData2" value="1"/>
+        <parameter name =  "entryData3" value="2"/>
+        <parameter name =  "entryData4" value="-1"/>
+        <parameter name =  "entryData5" value="0"/>*/
     @Test
-    public void testValueThree() {
-         CombinationsPicker picker = new CombinationsPicker();
-         List<CombinationsDTO> actual = picker.findCombinations(3,false);
+    @Parameters("entryData1")
+        public void testValueThree(int entryData1) {
+            CombinationsPicker picker = new CombinationsPicker();
+            List<CombinationsDTO> actual = picker.findCombinations(entryData1, false);
+
          List<CombinationsDTO> expected = new ArrayList<>();
          expected.add(new CombinationsDTO(1,1,1));
          Assert.assertEquals(expected,actual);
     }
     @Test
-    public void testValueNine() {
+    @Parameters("entryData2")
+    public void testValueThree(int entryData2) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(9,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData2, false);
+
         List<CombinationsDTO> expected = new ArrayList<>();
         expected.add(new CombinationsDTO(1,2,2));
         expected.add(new CombinationsDTO(2,1,2));
@@ -25,41 +34,52 @@ public class AllOptionsPickerTest {
         Assert.assertEquals(actual, expected );
     }
 
+
     @Test
-    public void testNoMatchesValueOne() {
+    @Parameters("entryData2")
+    public void testValueThree(int entryData2) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(1,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData2, false);
+
         List<CombinationsDTO> expected = new ArrayList<>();
         Assert.assertEquals(actual, expected );
     }
     @Test
-    public void testNoMatchesValueTwo() {
+    @Parameters("entryData3")
+    public void testValueThree(int entryData3) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(2,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData3, false);
+
         List<CombinationsDTO> expected = new ArrayList<>();
         Assert.assertEquals(actual, expected );
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
-    public void testValueNegative() {
+
+    @Test
+    @Parameters("entryData4")
+    public void testValueThree(int entryData4) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(-1,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData4, false);
+
     }
-    @Test(expectedExceptions = IllegalArgumentException.class)
-    public void testValueZero() {
+    @Test
+    @Parameters("entryData5")
+    public void testValueThree(int entryData5) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(0,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData5, false);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
-    public void testOverMaxValue() {
+    @Test
+    @Parameters("entryData6")
+    public void testValueThree(int entryData6) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(Integer.MAX_VALUE+1,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData6, false);
     }
-    @Test(expectedExceptions = IllegalArgumentException.class)
-    public void tesIntegerMin() {
+    @Test
+    @Parameters("entryData7")
+    public void testValueThree(int entryData7) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(Integer.MIN_VALUE,false);
+        List<CombinationsDTO> actual = picker.findCombinations(entryData7, false);
     }
 
 
