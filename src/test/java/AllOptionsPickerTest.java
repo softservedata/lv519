@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,23 +40,23 @@ public class AllOptionsPickerTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testValueNegative() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(-1,false);
     }
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testValueZero() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(0,false);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testOverMaxValue() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(Integer.MAX_VALUE+1,false);
     }
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void tesIntegerMin() {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(Integer.MIN_VALUE,false);

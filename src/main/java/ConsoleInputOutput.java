@@ -6,15 +6,14 @@ public class ConsoleInputOutput {
 
     int intInput() {
         Scanner in = new Scanner(System.in);
-        int n = 0;
-        while (n <= 0) {
+        int  n = 0;
+        while (n <= 0 ) {
             try {
                 System.out.println("please chose integer positive number");
                 n = in.nextInt();
             } catch (InputMismatchException e) {
                 e.printStackTrace();
                 System.out.println("please chose integer value");
-                intInput();
             }
         }
         in.close();
