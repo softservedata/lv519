@@ -6,26 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllOptionsPickerTest {
-/*        <parameter name =  "entryData1" value="*9"/>
-        <parameter name =  "entryData2" value="1"/>
-        <parameter name =  "entryData3" value="2"/>
-        <parameter name =  "entryData4" value="-1"/>
-        <parameter name =  "entryData5" value="0"/>*/
     @Test
-    @Parameters("entryData1")
-        public void testValueThree(int entryData1) {
+    @Parameters("entryData0")
+        public void testValueThree(String entryData0) {
             CombinationsPicker picker = new CombinationsPicker();
-            List<CombinationsDTO> actual = picker.findCombinations(entryData1, false);
+        System.out.println(Integer.parseInt(entryData0));
+            List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData0), false);
 
          List<CombinationsDTO> expected = new ArrayList<>();
          expected.add(new CombinationsDTO(1,1,1));
          Assert.assertEquals(expected,actual);
     }
     @Test
-    @Parameters("entryData2")
-    public void testValueThree(int entryData2) {
+    @Parameters("entryData1")
+    public void testValueNine(String entryData1) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData2, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData1), false);
 
         List<CombinationsDTO> expected = new ArrayList<>();
         expected.add(new CombinationsDTO(1,2,2));
@@ -35,51 +31,50 @@ public class AllOptionsPickerTest {
     }
 
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     @Parameters("entryData2")
-    public void testValueThree(int entryData2) {
+    public void testValueOne(String entryData2) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData2, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData2), false);
 
         List<CombinationsDTO> expected = new ArrayList<>();
         Assert.assertEquals(actual, expected );
     }
-    @Test
+    @Test()
     @Parameters("entryData3")
-    public void testValueThree(int entryData3) {
+    public void testValueTwo(String entryData3) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData3, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData3), false);
 
         List<CombinationsDTO> expected = new ArrayList<>();
         Assert.assertEquals(actual, expected );
     }
 
-
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     @Parameters("entryData4")
-    public void testValueThree(int entryData4) {
+    public void testValueNegtive(String entryData4) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData4, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData4), false);
 
     }
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     @Parameters("entryData5")
-    public void testValueThree(int entryData5) {
+    public void testValueZero(String entryData5) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData5, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData5), false);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     @Parameters("entryData6")
-    public void testValueThree(int entryData6) {
+    public void testValeUnderMaxInt(String entryData6) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData6, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData6), false);
     }
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     @Parameters("entryData7")
-    public void testValueThree(int entryData7) {
+    public void testValueMin(String entryData7) {
         CombinationsPicker picker = new CombinationsPicker();
-        List<CombinationsDTO> actual = picker.findCombinations(entryData7, false);
+        List<CombinationsDTO> actual = picker.findCombinations(Integer.parseInt(entryData7), false);
     }
 
 
