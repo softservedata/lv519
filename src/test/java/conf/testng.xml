@@ -1,38 +1,51 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Suite1">
-    <test name = "test1">
-        <parameter name =  "entryData0" value="3"/>
-        <parameter name =  "entryData1" value="9"/>
-        <parameter name =  "entryData2" value="1"/>
-        <parameter name =  "entryData3" value="2"/>
-        <parameter name =  "entryData4" value="-1"/>
-        <parameter name =  "entryData5" value="0"/>
-        <parameter name =  "entryData6" value="Integer.MAX_VALUE+1"/>
-        <parameter name =  "entryData7" value="Integer.MIN_VALUE"/>
-<!-- expected testValueThree -->
-        <parameter name =  "testValueThreeExpX" value="1"/>
-        <parameter name =  "testValueThreeExpY" value="1"/>
-        <parameter name =  "testValueThreeExpZ" value="1"/>
-<!-- expected testValueNine -->
-        <parameter name =  "firstValueNineX" value="1"/>
-        <parameter name =  "firstValueNineY" value="2"/>
-        <parameter name =  "firstValueNineZ" value="2"/>
+<suite name="Suite1">
+    <listeners>
+        <listener class-name="conf.CustomListener"/>
+        <listener class-name = "conf.CustomReporter"/>
+    </listeners>
+        <test name="test1">
 
-        <parameter name =  "secondValueNineX" value="2"/>
-        <parameter name =  "secondValueNineY" value="1"/>
-        <parameter name =  "secondValueNineZ" value="2"/>
+            <!--   <parameter name =  "AllCombinations" value="false"/>
+               <parameter name =  "OneCombination" value="true"/>
+               <parameter name =  "entryData0" value="3"/>
+               <parameter name =  "entryData1" value="9"/>
+               <parameter name =  "entryData2" value="1"/>
+               <parameter name =  "entryData3" value="2"/>
+               <parameter name =  "entryData4" value="-1"/>
+               <parameter name =  "entryData5" value="0"/>
+               <parameter name =  "entryData6" value="Integer.MAX_VALUE+1"/>
+               <parameter name =  "entryData7" value="Integer.MIN_VALUE"/>
+       &lt;!&ndash; expected testValueThree &ndash;&gt;
+               <parameter name =  "testValueThreeExpX" value="1"/>
+               <parameter name =  "testValueThreeExpY" value="1"/>
+               <parameter name =  "testValueThreeExpZ" value="1"/>
+       &lt;!&ndash; expected testValueNine &ndash;&gt;
+               <parameter name =  "firstValueNineX" value="1"/>
+               <parameter name =  "firstValueNineY" value="2"/>
+               <parameter name =  "firstValueNineZ" value="2"/>
 
-        <parameter name =  "thirdValueNineX" value="2"/>
-        <parameter name =  "thirdValueNineY" value="2"/>
-        <parameter name =  "thirdValueNineZ" value="1"/>
+               <parameter name =  "secondValueNineX" value="2"/>
+               <parameter name =  "secondValueNineY" value="1"/>
+               <parameter name =  "secondValueNineZ" value="2"/>
 
+               <parameter name =  "thirdValueNineX" value="2"/>
+               <parameter name =  "thirdValueNineY" value="2"/>
+               <parameter name =  "thirdValueNineZ" value="1"/>-->
+            <groups>
+                <run>
+                    <include name="returnValue"/>
+                    <include name="noMatches"/>
+                    <include name="negativeTests"/>
 
-        <classes>
-            <class name = "AllOptionsPickerTest"/>
-            <class name = "OneOptionPickerTest"/>
-        </classes>
+                </run>
+            </groups>
+            <classes>
+                <class name="OptionsPickerTest"/>
+            </classes>
+
 
     </test>
 </suite>

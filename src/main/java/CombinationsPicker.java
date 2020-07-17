@@ -10,7 +10,6 @@ public class CombinationsPicker {
         return oneOptions(n, oneCombination);
     }
 
-
     private List<CombinationsDTO> oneOptions(int n, boolean isOne) {
         boolean isRunning = true;
         List<CombinationsDTO> values = new ArrayList<>();
