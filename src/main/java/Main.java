@@ -3,6 +3,6 @@ public class Main {
 
         ConsoleInputOutput inputOutout = new ConsoleInputOutput();
         CombinationsPicker valuePicker = new CombinationsPicker();
-        inputOutout.printCombinations(valuePicker.findCombinations(inputOutout.intInput(),true));
+        inputOutout.printCombinations(valuePicker.findCombinations(inputOutout.intInput(),false));
     }
 }
