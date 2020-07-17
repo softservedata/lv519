@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        ConsoleInputOutput inputOutout = new ConsoleInputOutput();
+        ConsoleIO inputOutout = new ConsoleIO();
 
         inputOutout.printCombinations(new CombinationsPicker().findCombinations(inputOutout.intInput(),false));
 

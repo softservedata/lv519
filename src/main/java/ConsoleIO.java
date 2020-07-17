@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleInputOutput {
+public class ConsoleIO {
 
     int intInput() {
         Scanner in = new Scanner(System.in);
