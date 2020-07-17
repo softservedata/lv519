@@ -1,8 +1,7 @@
 import org.testng.Assert;
-        import org.testng.annotations.*;
-
-        import java.util.ArrayList;
-        import java.util.List;
+import org.testng.annotations.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OptionsPickerTest {
     //  !!! Assert.assertEquals(expected,actual );
