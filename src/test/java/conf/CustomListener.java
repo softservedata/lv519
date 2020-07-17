@@ -1,12 +1,7 @@
 package conf;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
-
 import java.util.Arrays;
-import java.util.List;
 
 public class CustomListener extends TestListenerAdapter {
     private int m_count = 0;

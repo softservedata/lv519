@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CombinationsPicker {
     public List<CombinationsDTO> findCombinations(int n, boolean oneCombination) {
         if (n <= 0) {

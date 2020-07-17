@@ -6,7 +6,7 @@
         <listener class-name="conf.CustomListener"/>
         <listener class-name = "conf.CustomReporter"/>
     </listeners>
-        <test name="test1">
+        <test name="AllGroupsTest">
 
             <!--   <parameter name =  "AllCombinations" value="false"/>
                <parameter name =  "OneCombination" value="true"/>

@@ -1,12 +1,8 @@
-
 import org.testng.Assert;
-import org.testng.IReporter;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+        import org.testng.annotations.*;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class OptionsPickerTest {
     //  !!! Assert.assertEquals(expected,actual );
@@ -27,7 +23,6 @@ public class OptionsPickerTest {
     public Object[][] NegativeData() {
         return new Object[][]{{-1, true}, {-2, true}, {0, true}, {Integer.MAX_VALUE + 1, true}, {Integer.MIN_VALUE, true}};
     }
-
 
     @Test(groups = {"returnValue"}, dataProvider = "dataProvider")
     @Parameters({"entryData", "OneCombination", "x", "y", "z"})
