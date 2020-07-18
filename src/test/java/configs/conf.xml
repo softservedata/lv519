@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1">
+    <!--<listeners>
+        <listener class-name="conf.CustomListener"/>
+        <listener class-name = "conf.CustomReporter"/>
+    </listeners>-->
+    <test name="AllGroupsTest">
+        <groups>
+            <run>
+                <include name="returnValue"/>
+                <include name="noMatches"/>
+                <include name="NegativeTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="PythagoreanTripleTest"/>
+        </classes>
+
+
+    </test>
+</suite>

@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86dedd51-7507-4b0f-abe4-cd5e49714d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" afterDir="false" />
+    <list default="true" id="e08f76a1-94a8-40f9-a04b-9ba9223d202f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/configs/conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__Arquillian_JUnit_Release.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInputOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInputOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pyth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PythTrianglDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTripleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PythTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInputOutput.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Pyth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PythTrianglDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/PythTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PythagoreanTriple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PythagoreanTriple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="555V2" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit4 Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,26 +33,24 @@
         <option name="mavenHome" value="C:/apache-maven-3.6.3-bin/apache-maven-3.6.3" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
-  <component name="ProjectId" id="1eb7GXaggsRtjA8qPbBlBiBbolR" />
+  <component name="ProjectId" id="1eply3BIkyIvwzz5Y48nCT0EU9o" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="xpath.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pavel\IdeaProjects\_555V2\src\test\java\configs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -76,60 +65,86 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="554V2" />
+      <module name="555V2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
+    <configuration name="C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="555V2" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/configs/conf.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PythagoreanTripleTest" type="TestNG" nameIsGenerated="true">
+      <module name="555V2" />
+      <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest.checkNegativeNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
+    <configuration name="PythagoreanTripleTest.canFindTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="555V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="checkNegativeNum" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="canFindTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest.checkNumThree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
+    <configuration name="PythagoreanTripleTest.checkNaturalNum" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="555V2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
+      <option name="METHOD_NAME" value="checkNaturalNum" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PythagoreanTripleTest.checkNumThree" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="555V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
       <option name="METHOD_NAME" value="checkNumThree" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PythagoreanTripleTest.checkNumTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="554V2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="checkNumTwo" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" />
+        <item itemvalue="TestNG.PythagoreanTripleTest.canFindTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PythagoreanTripleTest" />
-        <item itemvalue="JUnit.PythagoreanTripleTest.checkNumThree" />
-        <item itemvalue="JUnit.PythagoreanTripleTest.checkNumTwo" />
-        <item itemvalue="JUnit.PythagoreanTripleTest.checkNegativeNum" />
+        <item itemvalue="TestNG.PythagoreanTripleTest.checkNaturalNum" />
+        <item itemvalue="TestNG.PythagoreanTripleTest.checkNumThree" />
       </list>
     </recent_temporary>
   </component>
@@ -138,15 +153,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="86dedd51-7507-4b0f-abe4-cd5e49714d40" name="Default Changelist" comment="" />
-      <created>1594578343547</created>
+      <changelist id="e08f76a1-94a8-40f9-a04b-9ba9223d202f" name="Default Changelist" comment="" />
+      <created>1595026665625</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1594578343547</updated>
-      <workItem from="1594578345329" duration="93000" />
-      <workItem from="1594588651061" duration="4645000" />
-      <workItem from="1594623766978" duration="9883000" />
-      <workItem from="1594639043947" duration="7216000" />
+      <updated>1595026665625</updated>
+      <workItem from="1595026667049" duration="12035000" />
+      <workItem from="1595078492691" duration="1357000" />
     </task>
     <servers />
   </component>

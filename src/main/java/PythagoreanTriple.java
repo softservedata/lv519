@@ -4,12 +4,12 @@ import java.util.List;
 public class PythagoreanTriple {
 
     public List<PythagoreanTripleDTO> findAllOptions(int n) {
-
         if (n <= 0) {
             throw new IllegalArgumentException("Please chose natural number");
         }
         return findPossibleValues(n);
     }
+
 
     private List<PythagoreanTripleDTO> findPossibleValues(int n) {
         List<PythagoreanTripleDTO> values = new ArrayList<>();
@@ -27,5 +27,4 @@ public class PythagoreanTriple {
         }
         return values;
     }
-
 }

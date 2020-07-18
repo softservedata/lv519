@@ -2,19 +2,19 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleInputOutput {
+public class ConsoleIO {
     int intInput() {
         Scanner in = new Scanner(System.in);
         int n = 0;
-        while (n<=0){
-        try {
-            System.out.println("a*a + b*b = c*c a <= b <= c <= n, please enter n to find all a,b,c");
-            n = in.nextInt();
-        } catch (InputMismatchException e) {
-            e.printStackTrace();
-            System.out.println("please chose integer value");
-            intInput();
-        }}
+        while (n <= 0) {
+            try {
+                System.out.println("a*a + b*b = c*c a <= b <= c <= n, please enter n to find all a,b,c");
+                n = in.nextInt();
+            } catch (InputMismatchException e) {
+                e.printStackTrace();
+                System.out.println("please chose integer value");
+            }
+        }
         in.close();
         return n;
     }
