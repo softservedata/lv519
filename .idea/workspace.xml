@@ -12,6 +12,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -54,9 +61,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml">
+  <component name="RunManager" selected="TestNG.PythagoreanTripleTest.canFindTestV">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="555V2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="safdgh" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="safdgh" />
       <module name="555V2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,11 +105,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest.canFindTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.canFindTestV" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="555V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="canFindTest" />
+      <option name="METHOD_NAME" value="canFindTestV" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -103,23 +117,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest.checkNaturalNum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.canFindTestV2" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="555V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="checkNaturalNum" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PythagoreanTripleTest.checkNumThree" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="555V2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="checkNumThree" />
+      <option name="METHOD_NAME" value="canFindTestV2" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -129,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" />
-        <item itemvalue="TestNG.PythagoreanTripleTest.canFindTest" />
+        <item itemvalue="TestNG.PythagoreanTripleTest.canFindTestV" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="TestNG.PythagoreanTripleTest.checkNaturalNum" />
-        <item itemvalue="TestNG.PythagoreanTripleTest.checkNumThree" />
+        <item itemvalue="TestNG.PythagoreanTripleTest.canFindTestV2" />
+        <item itemvalue="Application.safdgh" />
+        <item itemvalue="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +154,7 @@
       <workItem from="1595104354298" duration="1081000" />
       <workItem from="1595123581292" duration="932000" />
       <workItem from="1595183421175" duration="2124000" />
-      <workItem from="1595189449475" duration="433000" />
+      <workItem from="1595189449475" duration="3746000" />
     </task>
     <servers />
   </component>

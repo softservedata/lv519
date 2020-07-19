@@ -2,14 +2,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PythagoreanTripleTest {
+
     @BeforeGroups(value = {"returnValue"})
     @DataProvider(name = "dataProvider")
     public Object[][] testData() {
-        return new Object[][]{{15, 3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15}};
+        return new Object[][]{{15,
+                "3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15"}, {20, "3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15, 8, 15, 17, 12, 16, 20"}};
     }
 
     @BeforeGroups(value = "noMatches")
@@ -25,19 +28,25 @@ public class PythagoreanTripleTest {
     }
 
 
-
     @Test(groups = {"returnValue"}, dataProvider = "dataProvider")
-    public void canFindTest(int entryData, int a0, int b0, int c0,int a1, int b1, int c1,int a2, int b2, int c2,int a3, int b3, int c3) {
+    public void canFindTestV(int entryData, String expResultData) {
+        String[] expectedDataStringArray = expResultData.trim().replaceAll("\\s+","").split(",");
+        int[] expectedDataArray = new int[expectedDataStringArray.length];
+        for (int i = 0; i < expectedDataStringArray.length; i++) {
+            try {
+                expectedDataArray[i] = Integer.parseInt(expectedDataStringArray[i]);
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+            }
+        }
         PythagoreanTriple calc = new PythagoreanTriple();
         List<PythagoreanTripleDTO> actual = calc.findAllOptions(entryData);
         List<PythagoreanTripleDTO> expected = new ArrayList<>();
-        expected.add(new PythagoreanTripleDTO(a0, b0, c0));
-        expected.add(new PythagoreanTripleDTO(a1, b1, c1));
-        expected.add(new PythagoreanTripleDTO(a2, b2, c2));
-        expected.add(new PythagoreanTripleDTO(a3, b3, c3));
+        for (int i = 0; i < expectedDataArray.length; i += 3) {
+            expected.add(new PythagoreanTripleDTO(expectedDataArray[i], expectedDataArray[i + 1], expectedDataArray[i + 2]));
+        }
         Assert.assertEquals(expected, actual);
     }
-
 
     @Test(groups = {"noMatches"}, dataProvider = "NoMatchesDataProvider")
     public void checkNumOne(int entryData) {
