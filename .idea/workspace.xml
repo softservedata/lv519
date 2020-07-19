@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e08f76a1-94a8-40f9-a04b-9ba9223d202f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/configs/conf.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__Arquillian_JUnit_Release.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConsoleInputOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsoleIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PythagoreanTriple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ConsoleInputOutput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PythagoreanTriple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PythagoreanTriple.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -159,7 +148,11 @@
       <option name="presentableId" value="Default" />
       <updated>1595026665625</updated>
       <workItem from="1595026667049" duration="12035000" />
-      <workItem from="1595078492691" duration="1357000" />
+      <workItem from="1595078492691" duration="2392000" />
+      <workItem from="1595104354298" duration="1081000" />
+      <workItem from="1595123581292" duration="932000" />
+      <workItem from="1595183421175" duration="2124000" />
+      <workItem from="1595189449475" duration="433000" />
     </task>
     <servers />
   </component>
