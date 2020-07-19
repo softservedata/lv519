@@ -8,7 +8,10 @@ public class OptionsPickerTest {
     @BeforeGroups(value = {"returnValue"})
     @DataProvider(name = "dataProvider")
     public Object[][] testData() {
-        return new Object[][]{{3, true, 1, 1, 1}, {9, true, 1, 2, 2}};
+
+        return new Object[][]{
+                {3, true, 1, 1, 1},
+                {9, true, 1, 2, 2}};
     }
 
     @BeforeGroups(value = {"noMatches"})
@@ -24,7 +27,6 @@ public class OptionsPickerTest {
     }
 
     @Test(groups = {"returnValue"}, dataProvider = "dataProvider")
-    @Parameters({"entryData", "OneCombination", "x", "y", "z"})
     public void canFindTest(int entryData, boolean OneCombination, int x, int y, int z) {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(entryData, OneCombination);
@@ -34,7 +36,6 @@ public class OptionsPickerTest {
     }
 
     @Test(groups = "noMatches", dataProvider = "NoMatchesDataProvider")
-    @Parameters({"entryData", "OneCombination"})
     public void NoMatchesTest(int entryData, boolean OneCombination) {
         CombinationsPicker picker = new CombinationsPicker();
         List<CombinationsDTO> actual = picker.findCombinations(entryData, OneCombination);
