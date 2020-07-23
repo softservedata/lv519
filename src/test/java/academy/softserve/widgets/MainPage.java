@@ -16,10 +16,7 @@ public class MainPage {
 
     private By singUpButton = By.className("sign-up-link");
 
-    public MainPage open() {
-        this.driver.get(URL.getValue());
-        return this;
-    }
+
 
     public void singUp() {
         driver.findElement(singUpButton);
