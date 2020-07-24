@@ -20,8 +20,8 @@ public class ScreenshotCreator {
             e.printStackTrace();
         }
     }
-    public void screenshot(WebDriver driver,int seconds) {
-        wait(seconds);
+    public void screenshot(WebDriver driver,int secondsDelay) {
+        wait(secondsDelay);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         String screenshotName = formatter.format(date).replace(":", "-").replace("\\s+", "-");
@@ -34,7 +34,7 @@ public class ScreenshotCreator {
     }
     public void wait(int secondsDelay){
         try {
-            Thread.sleep((0 + secondsDelay) * 1000);
+            Thread.sleep((secondsDelay) * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,8 @@
 package academy.softserve.constantParameters;
 public enum SingUpFieldsSelectorsValue {
-
+    /**
+     Constants and selectors
+     */
     EMAIL("email"),
     USER_NAME("fistName"),
     PASSWORD("form-control password"),

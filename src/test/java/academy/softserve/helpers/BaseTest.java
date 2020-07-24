@@ -14,7 +14,7 @@ import java.util.List;
 import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
 
 public class BaseTest {
-    public static final int random = (int) System.currentTimeMillis() / 1000;
+
     public static ChromeDriver driver;
 
     @BeforeMethod

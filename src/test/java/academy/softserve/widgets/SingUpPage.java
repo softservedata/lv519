@@ -3,6 +3,7 @@ package academy.softserve.widgets;
 import static org.openqa.selenium.By.*;
 
 import academy.softserve.constantParameters.SingUpFieldsSelectorsValue;
+import academy.softserve.helpers.ScreenshotCreator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,7 +42,7 @@ public class SingUpPage {
     /**
      * find element by xpath and assert expected and actual expectedText
      *
-     * @param locator -  String from enum with locators
+     * @param locator -  String from enum with locators {@link SingUpFieldsSelectorsValue}
      * @param expectedText    - expectedText that should be in element
      * @return - instance of SingUpPage
      */
@@ -56,12 +57,24 @@ public class SingUpPage {
 
     public SingUpPage assertErrors(List<String> expectedErrorMsg ){
 
-        List<WebElement> Errors = findErrors();
-            for (WebElement actual: Errors){
+        List<WebElement> errors = findErrors();
+            for (WebElement actual: errors){
                 for (String expected:expectedErrorMsg){
                     Assert.assertEquals(expected,actual.getText());
                 }
             }
+        return this;
+    }
+
+    public SingUpPage assertErrors(List<String> expectedErrorMsg, int SrnShotWithDelay ){
+
+        List<WebElement> errors = findErrors();
+        for (WebElement actual: errors){
+            for (String expected:expectedErrorMsg){
+                Assert.assertEquals(expected,actual.getText());
+            }
+        }
+        new ScreenshotCreator().screenshot(driver,SrnShotWithDelay);
         return this;
     }
 }
