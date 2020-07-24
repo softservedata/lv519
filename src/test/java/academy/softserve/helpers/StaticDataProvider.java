@@ -8,8 +8,7 @@ import java.util.*;
 
 public class StaticDataProvider {
     private String getRandom() {
-        String random = String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1)).replaceAll("\\s+", "").replace("-", "").replace(",", "");
-        return random;
+        return String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1)).replaceAll("\\s+", "").replace("-", "").replace(",", "");
     }
 
     private final String constRandom() {
@@ -17,13 +16,11 @@ public class StaticDataProvider {
         return random;
     }
 
-
     private List<String> setErrDaa(String errors) {
         String[] expectedDataStringArray = errors.trim().replaceAll("\\s+", "").split(",");
         List<String> errData = Arrays.asList(expectedDataStringArray);
         return errData;
     }
-
 
     @BeforeGroups(value = {"ErrorPositive"})
     @DataProvider(name = "ErrorsDataProvider")
@@ -42,10 +39,17 @@ public class StaticDataProvider {
     @BeforeGroups(value = {"SingInPositive"})
     @DataProvider(name = "registrationDataProvider")
     public Object[][] singUpTestData() {
-
         return new Object[][]{
                 {"nagrebetski.p" + getRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-"},
                 {"nagrebetski.p" + getRandom() + "@gmail.com", "PavelNagrebetskyi", "1234qwerTY-", "1234qwerTY-"},
+        };
+    }
+
+    @BeforeGroups(value = {"SingInNegative"})
+    @DataProvider(name = "emailAlreadyExistDataProvider")
+    public Object[][] singUpExistingEmailTestData() {
+
+        return new Object[][]{
                 {"nagrebetski.p" + constRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-"},
                 {"nagrebetski.p" + constRandom() + "@gmail.com", "PavelNagrebetskyi", "1234qwerTY-", "1234qwerTY-"}
         };
