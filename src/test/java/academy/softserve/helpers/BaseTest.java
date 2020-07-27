@@ -17,6 +17,9 @@ public class BaseTest {
 
     public static ChromeDriver driver;
 
+    /**
+     * create new driver before each test method
+     */
     @BeforeMethod
     public void setUpClass() {
         WebDriverManager.getInstance(CHROME).setup();
@@ -24,18 +27,20 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
+    /**
+     * @param url - url that should be opened
+     */
     public void open(String url) {
         this.driver.get(url);
     }
 
-    public Object open(String url, Object obj) {
-        this.driver.get(url);
-        return obj;
-    }
-
+    /**
+     * close driver after each test method and clear cash
+     */
     @AfterMethod
     public void teardown() {
         if (driver != null) {
+            WebDriverManager.chromedriver().clearResolutionCache().clearCache();
             driver.quit();
             System.out.println("driver teardown");
         }

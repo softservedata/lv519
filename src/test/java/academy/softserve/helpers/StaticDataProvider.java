@@ -1,25 +1,50 @@
 package academy.softserve.helpers;
 
-import academy.softserve.constantParameters.SingUpFieldsSelectorsValue;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.DataProvider;
 
 import java.util.*;
 
+/**
+ * Class should provide variables for all tests
+ */
 public class StaticDataProvider {
-    private String getRandom() {
-        return String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1)).replaceAll("\\s+", "").replace("-", "").replace(",", "");
+                                                     /*DATA PROVIDERS*/
+    @BeforeGroups(value = {"SmokeSingUp"})
+    @DataProvider(name = "registrationDataProvider")
+    public Object[][] smokeTestDataProvider(){
+        return new Object[][]{
+                {"greencitypavel" + getRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-",
+                        "greencitypavel@gmail.com","1234qwerTY-",1,"Verify Email"},
+//  {"greencitypavel" + getRandom() + "@gmail.com", "PavelNagrebetskyi", "1234qwerTY-", "1234qwerTY-","greencitypavel@gmail.com","1234qwerTY-",1,"Verify Email"}
+        };
     }
 
-    private final String constRandom() {
-        String random = String.format("%s, %d", "+", ((int) System.currentTimeMillis() / 100)).replaceAll("\\s+", "").replace("-", "").replace(",", "");
-        return random;
+    @BeforeGroups(value = {"redirect"})
+    @DataProvider(name = "correctSingUp")
+    public Object[][] SingUpRedirectDataProvider(){
+        return new Object[][]{
+                {"greencitypavel" + getRandom() + "@gmail.com", "nagrebetskiPavel1234", "1234qwerTY-", "1234qwerTY-","https://ita-social-projects.github.io/GreenCityClient/#/profile"},
+                {"greencitypavel" + getRandom() + "@gmail.com", "nagrebetskiPavel1234", "1234qwerTY-", "1234qwerTY-","https://ita-social-projects.github.io/GreenCityClient/#/welcome"}
+        };
     }
 
-    private List<String> setErrDaa(String errors) {
-        String[] expectedDataStringArray = errors.trim().replaceAll("\\s+", "").split(",");
-        List<String> errData = Arrays.asList(expectedDataStringArray);
-        return errData;
+    @BeforeGroups(value = {"SingUPNegative"})
+    @DataProvider(name = "emailAlreadyExistDataProvider")
+    public Object[][] singUpMailExistDataProvider(){return new Object[][]{
+            {"greencitypavel" + getStaticRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-",
+                    setErrData("The user already exists by this email"),
+                    "greencitypavel@gmail.com","1234qwerTY-",1,"Verify Email"}
+    };
+    }
+
+    @BeforeGroups(value = {"SingUpNameNegative"})
+    @DataProvider(name = "overheadUsernameDataProvider")
+    public Object[][] toLingUserName(){
+        return new Object[][]{
+                {"greencitypavel" + getRandom() + "@gmail.com", "nagrebetskiPavel1234", "1234qwerTY-", "1234qwerTY-"},
+                {"greencitypavel" + getRandom() + "@gmail.com", "nagrebetskiPavel234+123456798", "1234qwerTY-", "1234qwerTY-"}
+        };
     }
 
     @BeforeGroups(value = {"ErrorPositive"})
@@ -27,31 +52,42 @@ public class StaticDataProvider {
     public Object[][] testData() {
         return new Object[][]{
                 {"asf", "", "", "",
-                        setErrDaa("Please check that your e-mail address is indicated correctly," +
+                        setErrData("Please check that your e-mail address is indicated correctly," +
                                 "User name is required," +
                                 "Password is required, Password is required")},
-                {"nagrebetski.p" + getRandom() + "@gmail.com", "", "", "",
-                        setErrDaa("User name is required," +
+                {"greencitypavel" + getRandom() + "@gmail.com", "", "", "",
+                        setErrData("User name is required," +
                                 "Password is required, Password is required")}
         };
     }
-
-    @BeforeGroups(value = {"SingInPositive"})
-    @DataProvider(name = "registrationDataProvider")
-    public Object[][] singUpTestData() {
-        return new Object[][]{
-                {"nagrebetski.p" + getRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-"},
-                {"nagrebetski.p" + getRandom() + "@gmail.com", "PavelNagrebetskyi", "1234qwerTY-", "1234qwerTY-"},
-        };
+                                                            /*SETUP*/
+    /**
+     * @return each time new random number in String format
+     */
+    private String getRandom() {
+        return String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1))
+                .replaceAll("\\s+", "")
+                .replace("-", "")
+                .replace(",", "");
     }
 
-    @BeforeGroups(value = {"SingInNegative"})
-    @DataProvider(name = "emailAlreadyExistDataProvider")
-    public Object[][] singUpExistingEmailTestData() {
+    /**
+     * @return random number in String format per suite
+     */
+    private  String getStaticRandom(){
+        return String.format("%s, %d", "+", ((int) System.currentTimeMillis() / 100))
+                .replaceAll("\\s+", "")
+                .replace("-", "")
+                .replace(",", "");
+    }
 
-        return new Object[][]{
-                {"nagrebetski.p" + constRandom() + "@gmail.com", "Pavel", "1234qwerTY-", "1234qwerTY-"},
-                {"nagrebetski.p" + constRandom() + "@gmail.com", "PavelNagrebetskyi", "1234qwerTY-", "1234qwerTY-"}
-        };
+    /**
+     * Method converting string to string array and this array to list
+     * @param errors - get expected error messages in String format, massages should be spited by comma,
+     * @return List with strings received from param above
+     */
+    private List<String> setErrData(String errors){
+        String[] expectedDataStringArray = errors.trim().replaceAll("\\s+", "").split(",");
+        return Arrays.asList(expectedDataStringArray);
     }
 }

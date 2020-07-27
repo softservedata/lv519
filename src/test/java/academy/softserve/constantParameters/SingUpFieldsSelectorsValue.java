@@ -13,6 +13,7 @@ public enum SingUpFieldsSelectorsValue {
     SPAN("//span[contains(text(),'Do you already have an account?')]"),
     SING_IN_LINK("//a[@class='exist-sign-in']"),
     EMAIL_WRONG_FORMAT("email");
+
     private String value;
 
     SingUpFieldsSelectorsValue(String value) {

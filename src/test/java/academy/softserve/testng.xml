@@ -5,8 +5,8 @@
 
     <test name = "test1">
         <classes>
-            <class name = "academy.softserve.testsLogic.SingUpErrorMsgTest"/>
-            <class name = "academy.softserve.testsLogic.SignUpTest"/>
+            <class name = "academy.softserve.testsLogic.SignUpSmokeTest"/>
+            <class name = "academy.softserve.testsLogic.SingUpWithToLongNameTest"/>
         </classes>
     </test>
 

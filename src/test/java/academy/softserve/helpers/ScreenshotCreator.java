@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ScreenshotCreator {
+    /**
+     * @param driver
+     */
     public void screenshot(WebDriver driver) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
@@ -20,8 +23,15 @@ public class ScreenshotCreator {
             e.printStackTrace();
         }
     }
-    public void screenshot(WebDriver driver,int secondsDelay) {
-        wait(secondsDelay);
+
+    /**
+     *
+     * @param driver
+     * @param screenShotSecondsDelayBefore
+     * @param screenShotSecondsDelayAfter
+     */
+    public void screenshot(WebDriver driver, int screenShotSecondsDelayBefore, int screenShotSecondsDelayAfter) {
+        wait(screenShotSecondsDelayBefore);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         String screenshotName = formatter.format(date).replace(":", "-").replace("\\s+", "-");
@@ -31,7 +41,12 @@ public class ScreenshotCreator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        wait(screenShotSecondsDelayAfter);
     }
+
+    /**
+     * @param secondsDelay
+     */
     public void wait(int secondsDelay){
         try {
             Thread.sleep((secondsDelay) * 1000);
