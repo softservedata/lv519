@@ -1,4 +1,4 @@
-package academy.softserve.testsLogic;
+package academy.softserve.testsLogic.singIn;
 
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
 
@@ -12,9 +12,9 @@ import org.testng.annotations.Test;
 import static academy.softserve.constantParameters.SingUpFieldsSelectorsValue.*;
 
 
-public class SignUpSmokeTest extends BaseTest {
+public class SmokeTest extends BaseTest {
 
-    @Test(groups = {"SmokeSingUp"},dataProvider = "smokeTestDataProvider",dataProviderClass = StaticDataProvider.class)
+    @Test(groups = {"SmokeSingUp"},dataProvider = "registrationDataProvider",dataProviderClass = StaticDataProvider.class)
     public void testSingUp(String mail, String name, String password, String confirmPassword, String mailName, String mailPassword,int maiIndx, String linkText) {
         open(BASE_URL.getValue());
         new MainPage(driver)
@@ -28,6 +28,5 @@ public class SignUpSmokeTest extends BaseTest {
                 .waitSuccessfulRegistrationMsg();
         new Gmail(driver)
                 .openLinkFromEmail(mailName,mailPassword,"mailgreencity1",maiIndx,linkText);
-        //openLinkFromEmail(String username, String password, String mailFrom, int mailIndex, String linkText)
     }
 }

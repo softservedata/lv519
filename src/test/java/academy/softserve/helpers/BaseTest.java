@@ -40,7 +40,7 @@ public class BaseTest {
     @AfterMethod
     public void teardown() {
         if (driver != null) {
-            WebDriverManager.chromedriver().clearResolutionCache().clearCache();
+            WebDriverManager.chromedriver().clearResolutionCache();
             driver.quit();
             System.out.println("driver teardown");
         }

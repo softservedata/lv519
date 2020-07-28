@@ -5,6 +5,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 import academy.softserve.constantParameters.SingUpFieldsSelectorsValue;
 import academy.softserve.helpers.ScreenshotCreator;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Registration from main page
@@ -29,6 +31,7 @@ public class SingUpPage {
      * @param value - String value that will be typed
      * @return instance of SingUpPage
      */
+    @Step("Set property for mail,user name, password and confirm password ")
     public SingUpPage setFor(SingUpFieldsSelectorsValue label, String value) {
         driver.findElement(name(label.getValue())).sendKeys(value);
         return this;
@@ -38,6 +41,7 @@ public class SingUpPage {
      * @param singUpButton - SingUp button that should to be clicked
      * @return void
      */
+    @Step("Click confirm password")
     public SingUpPage confirmSingUp(SingUpFieldsSelectorsValue singUpButton) {
         driver.findElement(xpath(singUpButton.getValue())).click();
         return this;
@@ -51,6 +55,7 @@ public class SingUpPage {
      * @param expectedText - expectedText that should be in element
      * @return - instance of SingUpPage
      */
+    @Step("search text on provided element")
     public SingUpPage textSearch(SingUpFieldsSelectorsValue locator, String expectedText) {
         Assert.assertEquals(expectedText, driver.findElement(xpath(locator.getValue())).getText());
         return this;
@@ -59,7 +64,9 @@ public class SingUpPage {
     /**
      * @return list of errors in format of web elements
      */
+    @Step("get all errors from singUp page")
     public List<WebElement> findErrors() {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return driver.findElements(By.className("error-message error-message-show"));
     }
 
@@ -69,6 +76,7 @@ public class SingUpPage {
      * @param expectedErrorMsg - message that you expect to receive in string format
      * @return SingUpPage instance
      */
+    @Step("assert expected and actual errors")
     public SingUpPage assertErrors(List<String> expectedErrorMsg) {
         List<WebElement> errors = findErrors();
         for (WebElement actual : errors) {
@@ -85,6 +93,7 @@ public class SingUpPage {
      * @param screenShotSecondsDelayAfter  - delay after screen shot
      * @return SingUpPage instance
      */
+    @Step("assert expected and actual errors plus screen shot ")
     public SingUpPage assertErrors(List<String> expectedErrorMsg, int screenShotSecondsDelayBefore, int screenShotSecondsDelayAfter) {
         List<WebElement> errors = findErrors();
         for (WebElement actual : errors) {
@@ -97,29 +106,24 @@ public class SingUpPage {
     }
 
     /**
-     * try catch to avoid element is not attached to the page document err
-     * check or popup with information about Successful Registration displayed
-     */
-
-    /**
-     *
      * @param label - element name
      * @param size - expected content size
      * @return SingUp instance
      */
+    @Step("check content size in element")
     public SingUpPage checkContentSize(SingUpFieldsSelectorsValue label, int size) {
         Assert.assertFalse(driver.findElement(name(label.getValue())).getText().length() > 0
                 && driver.findElement(name(label.getValue())).getText().length() < size + 1);
         return this;
     }
-
+    @Step("assert expected and actual path")
     public SingUpPage checkPath(String expectedPath){
         waitSuccessfulRegistrationMsgInvisible();
-        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath),"expected: " +driver.getCurrentUrl() + "\nactual: " + expectedPath);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath),"expected: " +driver.getCurrentUrl() + "\n" +"actual: " + expectedPath);
         return this;
     }
 
-
+    @Step("check that SuccessfulRegistrationMsg exist")
     public SingUpPage waitSuccessfulRegistrationMsg() {
         try {
             new WebDriverWait(driver, 5).until(visibilityOfElementLocated(By.id("mat-dialog-1")));
@@ -129,6 +133,7 @@ public class SingUpPage {
         }
         return this;
     }
+    @Step("check that SuccessfulRegistrationMsg disappear")
     public SingUpPage waitSuccessfulRegistrationMsgInvisible() {
         try {
             new WebDriverWait(driver, 5).until(invisibilityOfElementLocated(By.id("mat-dialog-1")));
@@ -138,9 +143,20 @@ public class SingUpPage {
         }
         return this;
     }
+    @Step("Click sing up")
        public SingUpPage singUp (){
            driver.findElement(By.className("sign-up-link")).click();
            new WebDriverWait(driver, 10).until(elementToBeClickable(By.className("sign-up-link")));
            return this;
        }
+    @Step("Check or button is active")
+       public SingUpPage buttonIsActive(SingUpFieldsSelectorsValue singUpButton) {
+           Assert.assertTrue(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
+           return this;
+       }
+    @Step("Check or button is not active")
+    public SingUpPage buttonIsNotActive(SingUpFieldsSelectorsValue singUpButton) {
+        Assert.assertFalse(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
+        return this;
+    }
 }

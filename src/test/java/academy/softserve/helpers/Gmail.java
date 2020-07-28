@@ -47,21 +47,24 @@ public class Gmail {
 
     /**
      * used to avoid element is not attached to the page document
+     *
      * @return list of web elements
      */
     private List<WebElement> getListOfMails() {
-        try {
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            return driver.findElements(By.xpath("//*[@class='zF']"));
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            driver.navigate().refresh();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            return driver.findElements(By.xpath("//*[@class='zF']"));
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        List<WebElement> later = driver.findElements(By.xpath("//*[@class='zF']"));
+        for (int i = 0; i < 3; i++) {
+            if (later.size() == 0) {
+                driver.navigate().refresh();
+                getListOfMails();
+            } else break;
         }
+        return later;
     }
 
     /**
      * find list of mails
+     *
      * @param mailFrom - name of email sender in string format
      */
     private void mailFilter(String mailFrom) {
@@ -85,6 +88,7 @@ public class Gmail {
 
     /**
      * open mail form list @see mailFilter
+     *
      * @param index -
      * @return
      */
@@ -95,6 +99,7 @@ public class Gmail {
 
     /**
      * open link from email
+     *
      * @param linkText - text in link
      */
     private void openLink(String linkText) {
@@ -104,6 +109,7 @@ public class Gmail {
 
     /**
      * combination of all methods above to open link using one method
+     *
      * @param username  - email username
      * @param password  - email password
      * @param mailFrom  - who send mail

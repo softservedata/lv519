@@ -1,4 +1,4 @@
-package academy.softserve.testsLogic;
+package academy.softserve.testsLogic.singIn;
 
 import academy.softserve.helpers.BaseTest;
 import academy.softserve.helpers.Gmail;
@@ -36,5 +36,5 @@ public class MailAlreadyExistTest extends BaseTest {
                 .confirmSingUp(SING_UP_BUTTON)
                 .assertErrors(expectedErrorMsg);
     }
-    }
+}
 

@@ -1,4 +1,4 @@
-package academy.softserve.testsLogic;
+package academy.softserve.testsLogic.singIn;
 
 import academy.softserve.helpers.BaseTest;
 import academy.softserve.helpers.StaticDataProvider;
@@ -9,19 +9,19 @@ import org.testng.annotations.Test;
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
 import static academy.softserve.constantParameters.SingUpFieldsSelectorsValue.*;
 
-public class SingUpWithToLongNameTest extends BaseTest {
-    @Test(groups = {"SingUpNameNegative"},dataProvider = "overheadUsernameDataProvider",dataProviderClass = StaticDataProvider.class)
-    public void singUp(String mail, String name, String password, String confirmPassword){
+public class RedirectTest extends BaseTest {
+    @Test(groups = {"redirect"},dataProvider = "correctSingUp",dataProviderClass = StaticDataProvider.class)
+    public void testSingUp(String mail, String name, String password, String confirmPassword, String expectedPath) {
         open(BASE_URL.getValue());
         new MainPage(driver)
                 .singUp();
         new SingUpPage(driver)
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
-                .checkContentSize(USER_NAME,20)
                 .setFor(PASSWORD, password)
                 .setFor(PASSWORD_CONFIRM, confirmPassword)
                 .confirmSingUp(SING_UP_BUTTON)
-                .waitSuccessfulRegistrationMsg();
+                .waitSuccessfulRegistrationMsg()
+                .checkPath(expectedPath);
     }
 }
