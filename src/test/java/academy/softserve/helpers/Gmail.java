@@ -1,6 +1,7 @@
 package academy.softserve.helpers;
 
 import academy.softserve.widgets.SingUpPage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
-
+                                            /*!!!!!!!!!!! FIX ME !!!!!!!!!!!*/
 /**
  * Get mail and click on some link
  */
@@ -27,6 +28,7 @@ public class Gmail {
     /**
      * open registration page
      */
+    @Step("open google login page")
     private void openG() {
         driver.get("https://accounts.google.com/ServiceLogin");
     }
@@ -36,6 +38,7 @@ public class Gmail {
      * @param password gmail password
      * @return Gmail instance
      */
+    @Step("Google sing in and switch to gmail")
     private Gmail login(String username, String password) {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys(username, Keys.ENTER);
@@ -50,6 +53,7 @@ public class Gmail {
      *
      * @return list of web elements
      */
+    @Step("get all unread mails")
     private List<WebElement> getListOfMails() {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         List<WebElement> later = driver.findElements(By.xpath("//*[@class='zF']"));
@@ -67,6 +71,7 @@ public class Gmail {
      *
      * @param mailFrom - name of email sender in string format
      */
+    @Step("mail filter by sender name")
     private void mailFilter(String mailFrom) {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         List<WebElement> unreadEmail = getListOfMails();
@@ -92,6 +97,7 @@ public class Gmail {
      * @param index -
      * @return
      */
+    @Step("open mail by index")
     private Gmail openMail(int index) {
         targetMails.get(index).click();
         return this;
@@ -102,9 +108,16 @@ public class Gmail {
      *
      * @param linkText - text in link
      */
+    @Step("open link by name")
     private void openLink(String linkText) {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.linkText(linkText)).click();
+        try {
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.findElement(By.linkText(linkText)).click();
+        } catch (org.openqa.selenium.StaleElementReferenceException e){
+            driver.navigate().refresh();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.findElement(By.linkText(linkText)).click();
+        }
     }
 
     /**
@@ -117,12 +130,26 @@ public class Gmail {
      * @param linkText  - text in link
      * @return
      */
+    @Step("combination of all Gmail methods to open link using one method")
     public SingUpPage openLinkFromEmail(String username, String password, String mailFrom, int mailIndex, String linkText) {
         openG();
         login(username, password);
-        mailFilter(mailFrom);
-        openMail(mailIndex - 1);
-        openLink(linkText);
+        try {
+            mailFilter(mailFrom);
+        } catch (org.openqa.selenium.StaleElementReferenceException e){
+            mailFilter(mailFrom);
+        }
+        try {
+            openMail(mailIndex - 1);
+        }catch (org.openqa.selenium.StaleElementReferenceException e){
+            openMail(mailIndex - 1);
+        }
+        try {
+            openLink(linkText);
+        } catch (org.openqa.selenium.StaleElementReferenceException e){
+            openLink(linkText);
+        }
+
         String originalWindow = driver.getWindowHandle();
         new WebDriverWait(driver, 10).until(numberOfWindowsToBe(2));
         //Loop through until we find a new window handle

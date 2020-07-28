@@ -119,26 +119,30 @@ public class SingUpPage {
     @Step("assert expected and actual path")
     public SingUpPage checkPath(String expectedPath){
         waitSuccessfulRegistrationMsgInvisible();
-        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath),"expected: " +driver.getCurrentUrl() + "\n" +"actual: " + expectedPath);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath),"actual: " +driver.getCurrentUrl() + "\n" +"expected: " + expectedPath);
         return this;
     }
 
     @Step("check that SuccessfulRegistrationMsg exist")
     public SingUpPage waitSuccessfulRegistrationMsg() {
+
         try {
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            WebElement SuccessfulRegistrationPopUp = driver.findElement(By.id("mat-dialog-1"));
+            return this;
+        } catch (org.openqa.selenium.StaleElementReferenceException e) {
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             new WebDriverWait(driver, 5).until(visibilityOfElementLocated(By.id("mat-dialog-1")));
             return this;
-        } catch (WebDriverException e) {
-            new WebDriverWait(driver, 5).until(visibilityOfElementLocated(By.id("mat-dialog-1")));
         }
-        return this;
+
     }
     @Step("check that SuccessfulRegistrationMsg disappear")
     public SingUpPage waitSuccessfulRegistrationMsgInvisible() {
         try {
             new WebDriverWait(driver, 5).until(invisibilityOfElementLocated(By.id("mat-dialog-1")));
             return this;
-        } catch (WebDriverException e) {
+        } catch (org.openqa.selenium.StaleElementReferenceException e) {
             new WebDriverWait(driver, 5).until(invisibilityOfElementLocated(By.id("mat-dialog-1")));
         }
         return this;
