@@ -1,4 +1,5 @@
-package academy.softserve.helpers.gmail;
+package utils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,6 +19,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.search.SubjectTerm;
+
 
 
 /**
@@ -72,7 +74,7 @@ public class EmailUtils {
     public EmailUtils(String username, String password, String server, EmailFolder emailFolder) throws MessagingException {
         Properties props = System.getProperties();
         try {
-            props.load(new FileInputStream(new File("C:\\Users\\Pavel\\IdeaProjects\\Exemples\\SingUpTestsDemo\\src\\test\\java\\academy\\softserve\\helpers\\gmail\\email.properties")));
+            props.load(new FileInputStream(new File("C:\\Users\\Pavel\\IdeaProjects\\Exemples\\SingUpTestsDemo\\src\\main\\resources\\email.properties")));
         } catch(Exception e) {
             e.printStackTrace();
             System.exit(-1);
@@ -282,6 +284,13 @@ public class EmailUtils {
         return content.contains(text);
     }
 
+    public String getTextFromMessage(Message message, String text) throws Exception {
+        String content = getMessageContent(message);
+
+        //Some Strings within the email have whitespace and some have break coding. Need to be the same.
+        content = content.replace("&nbsp;", " ");
+        return text;
+    }
     public boolean isMessageInFolder(String subject, boolean unreadOnly) throws Exception {
         int messagesFound = getMessagesBySubject(subject, unreadOnly, getNumberOfMessages()).length;
         return messagesFound > 0;
@@ -291,4 +300,3 @@ public class EmailUtils {
         return !message.isSet(Flags.Flag.SEEN);
     }
 }
-
