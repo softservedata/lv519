@@ -2,9 +2,7 @@ package academy.softserve.testsLogic.singIn;
 
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
 
-import academy.softserve.helpers.BaseTest;
-import academy.softserve.helpers.Gmail;
-import academy.softserve.helpers.StaticDataProvider;
+import academy.softserve.helpers.*;
 import academy.softserve.widgets.MainPage;
 import academy.softserve.widgets.SingUpPage;
 import org.testng.annotations.Test;
@@ -26,7 +24,6 @@ public class SmokeTest extends BaseTest {
                 .setFor(PASSWORD_CONFIRM, confirmPassword)
                 .confirmSingUp(SING_UP_BUTTON)
                 .waitSuccessfulRegistrationMsg();
-        new Gmail(driver)
-                .openLinkFromEmail(mailName,mailPassword,"mailgreencity1",maiIndx,linkText);
+                open( new Mail().confirmAuthorizationLink());
     }
 }

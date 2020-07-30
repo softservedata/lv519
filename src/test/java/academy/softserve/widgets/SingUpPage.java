@@ -8,7 +8,6 @@ import academy.softserve.helpers.ScreenshotCreator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -19,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Registration from main page
  */
-public class SingUpPage {
+public class SingUpPage  {
     public SingUpPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -147,12 +146,6 @@ public class SingUpPage {
         }
         return this;
     }
-    @Step("Click sing up")
-       public SingUpPage singUp (){
-           driver.findElement(By.className("sign-up-link")).click();
-           new WebDriverWait(driver, 10).until(elementToBeClickable(By.className("sign-up-link")));
-           return this;
-       }
     @Step("Check or button is active")
        public SingUpPage buttonIsActive(SingUpFieldsSelectorsValue singUpButton) {
            Assert.assertTrue(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
@@ -163,4 +156,21 @@ public class SingUpPage {
         Assert.assertFalse(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
         return this;
     }
+
+    public SingUpPage switchToNewTab (){
+
+        String originalWindow = driver.getWindowHandle();
+        new WebDriverWait(driver, 10).until(numberOfWindowsToBe(2));
+        //Loop through until we find a new window handle
+        for (String windowHandle : driver.getWindowHandles()) {
+            if (!originalWindow.contentEquals(windowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
+        new WebDriverWait(driver, 10).until(titleIs("GreenCity"));
+        return new SingUpPage(driver);
+    }
+
+
 }

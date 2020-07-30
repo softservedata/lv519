@@ -25,13 +25,14 @@ public class BaseTest {
         WebDriverManager.getInstance(CHROME).setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        Mail.connectToEmail();
     }
 
     /**
      * @param url - url that should be opened
      */
     public void open(String url) {
-        this.driver.get(url);
+        driver.get(url);
     }
 
     /**

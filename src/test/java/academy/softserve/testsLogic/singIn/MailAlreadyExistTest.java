@@ -1,7 +1,7 @@
 package academy.softserve.testsLogic.singIn;
 
 import academy.softserve.helpers.BaseTest;
-import academy.softserve.helpers.Gmail;
+import academy.softserve.helpers.Mail;
 import academy.softserve.helpers.StaticDataProvider;
 import academy.softserve.widgets.MainPage;
 import academy.softserve.widgets.SingUpPage;
@@ -26,9 +26,10 @@ public class MailAlreadyExistTest extends BaseTest {
                 .setFor(PASSWORD_CONFIRM, confirmPassword)
                 .confirmSingUp(SING_UP_BUTTON)
                 .waitSuccessfulRegistrationMsg();
-        new Gmail(driver)
-                .openLinkFromEmail(mailName,mailPassword,"mailgreencity1",maiIndx,linkText)
-                .singUp()
+        open( new Mail().confirmAuthorizationLink());
+        new MainPage(driver)
+                .singUp();
+        new SingUpPage(driver)
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)
