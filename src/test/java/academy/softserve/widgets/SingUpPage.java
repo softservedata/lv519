@@ -87,7 +87,6 @@ public class SingUpPage  {
 
     @Step("check that SuccessfulRegistrationMsg exist")
     public SingUpPage waitSuccessfulRegistrationMsg() {
-
         try {
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             WebElement SuccessfulRegistrationPopUp = driver.findElement(By.id("mat-dialog-1"));
@@ -97,7 +96,6 @@ public class SingUpPage  {
             new WebDriverWait(driver, 5).until(visibilityOfElementLocated(By.id("mat-dialog-1")));
             return this;
         }
-
     }
     @Step("check that SuccessfulRegistrationMsg disappear")
     public SingUpPage waitSuccessfulRegistrationMsgInvisible() {
