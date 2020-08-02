@@ -4,12 +4,11 @@
 <suite name = "Suite" >
     <test name = "test">
         <classes>
-            <class name = "academy.softserve.testsLogic.singIn.SmokeTest"/>
-            <class name = "academy.softserve.testsLogic.singIn.ToLongNameTest"/>
-            <class name = "academy.softserve.testsLogic.singIn.RedirectTest"/>
-            <class name = "academy.softserve.testsLogic.singIn.MailAlreadyExistTest"/>
-            <class name = "academy.softserve.testsLogic.singIn.EmptyPasswordTest"/>
+            <class name = "academy.softserve.testsLogic.sing.up.SmokeTest"/>
+            <class name = "academy.softserve.testsLogic.sing.up.ToLongNameTest"/>
+            <class name = "academy.softserve.testsLogic.sing.up.RedirectTest"/>
+            <class name = "academy.softserve.testsLogic.sing.up.MailAlreadyExistTest"/>
+            <class name = "academy.softserve.testsLogic.sing.up.EmptyPasswordTest"/>
         </classes>
     </test>
-
 </suite>

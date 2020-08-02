@@ -1,4 +1,4 @@
-package academy.softserve.testsLogic.singIn;
+package academy.softserve.testsLogic.sing.up;
 
 import academy.softserve.helpers.BaseTest;
 import academy.softserve.helpers.StaticDataProvider;
@@ -9,8 +9,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
-import static academy.softserve.constantParameters.SingUpFieldsSelectorsValue.*;
-import static academy.softserve.constantParameters.SingUpFieldsSelectorsValue.PASSWORD_CONFIRM;
+import static academy.softserve.constantParameters.sing.up.SelectorsValue.*;
 
 public class EmptyPasswordTest extends BaseTest {
         @Test(groups = {"SingUPNegative"}, dataProvider = "EmptyPasswordDataProvider",dataProviderClass = StaticDataProvider.class)

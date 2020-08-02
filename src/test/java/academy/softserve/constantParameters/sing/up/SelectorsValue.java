@@ -1,8 +1,8 @@
-package academy.softserve.constantParameters;
-public enum SingUpFieldsSelectorsValue {
-    /**
-     Constants and selectors
-     */
+package academy.softserve.constantParameters.sing.up;
+
+public enum SelectorsValue {    /**
+ Constants and selectors
+ */
     EMAIL("email"),
     USER_NAME("fistName"),
     PASSWORD("form-control password"),
@@ -16,12 +16,11 @@ public enum SingUpFieldsSelectorsValue {
 
     private String value;
 
-    SingUpFieldsSelectorsValue(String value) {
+    SelectorsValue(String value) {
         this.value = value;
     }
 
     public String getValue() {
         return value;
     }
-
 }

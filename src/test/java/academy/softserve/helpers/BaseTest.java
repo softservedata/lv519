@@ -3,13 +3,7 @@ package academy.softserve.helpers;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
 

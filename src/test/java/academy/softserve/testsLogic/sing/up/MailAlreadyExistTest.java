@@ -1,4 +1,4 @@
-package academy.softserve.testsLogic.singIn;
+package academy.softserve.testsLogic.sing.up;
 
 import academy.softserve.helpers.BaseTest;
 import academy.softserve.helpers.Mail;
@@ -9,7 +9,8 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
-import static academy.softserve.constantParameters.SingUpFieldsSelectorsValue.*;
+import static academy.softserve.constantParameters.sing.up.SelectorsValue.*;
+import static academy.softserve.constantParameters.sing.up.Links.MAIL_SUBJECT_NAME;
 
 
 public class MailAlreadyExistTest extends BaseTest {
@@ -26,7 +27,7 @@ public class MailAlreadyExistTest extends BaseTest {
                 .setFor(PASSWORD_CONFIRM, confirmPassword)
                 .confirmSingUp(SING_UP_BUTTON)
                 .waitSuccessfulRegistrationMsg();
-        open( new Mail().confirmAuthorizationLink());
+        open( new Mail().getAuthorizationLink(MAIL_SUBJECT_NAME,true,20,0));
         new MainPage(driver)
                 .singUp();
         new SingUpPage(driver)
