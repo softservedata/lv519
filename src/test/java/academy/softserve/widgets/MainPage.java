@@ -3,6 +3,7 @@ package academy.softserve.widgets;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,34 +16,25 @@ public class MainPage  {
     }
 
     private By singUpButton = By.className("sign-up-link");
-
-    /**
-     * click sing up button on main page
-     * @return
-     */
-
-    public MainPage singUp() {
+    @Step("click Sing Up")
+    public SingUpPage singUp() {
         driver.findElement(singUpButton);
         new WebDriverWait(driver, 10).until(elementToBeClickable(singUpButton));
         driver.findElement(singUpButton).click();
-        return this;
+        return new SingUpPage(driver);
     }
 
-    /**
-     * click sing up button on main page with Explicit wait
-     *
-     * @param wait - explicit wait time
-     */
-    public void singUp(boolean wait) {
+    @Step("click Sing Up")
+    public SingUpPage singUp(boolean wait) {
         driver.findElement(singUpButton);
         if (wait) {
             new WebDriverWait(driver, 10).until(elementToBeClickable(singUpButton));
         }
         driver.findElement(singUpButton).click();
+        return new SingUpPage(driver);
     }
-
+    @Step("switch to new tab")
     public SingUpPage switchToNewTab (){
-
         String originalWindow = driver.getWindowHandle();
         new WebDriverWait(driver, 10).until(numberOfWindowsToBe(2));
         //Loop through until we find a new window handle

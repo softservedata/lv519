@@ -13,8 +13,7 @@ public class RedirectTest extends BaseTest {
     public void testSingUp(String mail, String name, String password, String confirmPassword, String expectedPath) {
         open(BASE_URL.getValue());
         new MainPage(driver)
-                .singUp();
-        new SingUpPage(driver)
+                .singUp()
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)

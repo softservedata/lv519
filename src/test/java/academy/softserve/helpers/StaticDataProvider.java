@@ -1,5 +1,6 @@
 package academy.softserve.helpers;
 
+import io.qameta.allure.Step;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.DataProvider;
 
@@ -72,9 +73,7 @@ public class StaticDataProvider {
     }
     /*SETUP*/
 
-    /**
-     * @return each time new random number in String format
-     */
+    @Step("get random int")
     private String getRandom() {
         return String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1))
                 .replaceAll("\\s+", "")
@@ -82,9 +81,7 @@ public class StaticDataProvider {
                 .replace(",", "");
     }
 
-    /**
-     * @return random number in String format per suite
-     */
+    @Step("get random int, const in test method scope")
     private String getStaticRandom() {
         return String.format("%s, %d", "+", ((int) System.currentTimeMillis() / 100))
                 .replaceAll("\\s+", "")
@@ -92,12 +89,7 @@ public class StaticDataProvider {
                 .replace(",", "");
     }
 
-    /**
-     * Method converting string to string array and this array to list
-     *
-     * @param errors - get expected error messages in String format, massages should be spited by comma,
-     * @return List with strings received from param above
-     */
+    @Step("set expected errors")
     private List<String> setErrData(String errors) {
         String[] expectedDataStringArray = errors.trim().replaceAll("\\s+", "").split(",");
         return Arrays.asList(expectedDataStringArray);

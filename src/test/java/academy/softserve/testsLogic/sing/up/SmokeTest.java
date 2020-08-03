@@ -18,8 +18,7 @@ public class SmokeTest extends BaseTest {
     public void testSingUp(String mail, String name, String password, String confirmPassword, String mailName, String mailPassword,int maiIndx, String linkText) {
         open(BASE_URL.getValue());
         new MainPage(driver)
-                .singUp();
-        new SingUpPage(driver)
+                .singUp()
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)

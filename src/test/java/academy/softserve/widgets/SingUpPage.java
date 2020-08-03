@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Registration from main page
  */
-public class SingUpPage  {
+public class SingUpPage {
     public SingUpPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -78,10 +78,11 @@ public class SingUpPage  {
                 && driver.findElement(name(label.getValue())).getText().length() < size + 1);
         return this;
     }
+
     @Step("assert expected and actual path")
-    public SingUpPage checkPath(String expectedPath){
+    public SingUpPage checkPath(String expectedPath) {
         waitSuccessfulRegistrationMsgInvisible();
-        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath),"actual: " +driver.getCurrentUrl() + "\n" +"expected: " + expectedPath);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expectedPath), "actual: " + driver.getCurrentUrl() + "\n" + "expected: " + expectedPath);
         return this;
     }
 
@@ -97,6 +98,7 @@ public class SingUpPage  {
             return this;
         }
     }
+
     @Step("check that SuccessfulRegistrationMsg disappear")
     public SingUpPage waitSuccessfulRegistrationMsgInvisible() {
         try {
@@ -107,19 +109,21 @@ public class SingUpPage  {
         }
         return this;
     }
+
     @Step("Check or button is active")
-       public SingUpPage buttonIsActive(SelectorsValue singUpButton) {
-           Assert.assertTrue(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
-           return this;
-       }
+    public SingUpPage buttonIsActive(SelectorsValue singUpButton) {
+        Assert.assertTrue(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
+        return this;
+    }
+
     @Step("Check or button is not active")
     public SingUpPage buttonIsNotActive(SelectorsValue singUpButton) {
         Assert.assertFalse(driver.findElement(xpath(singUpButton.getValue())).isEnabled());
         return this;
     }
 
-    public SingUpPage switchToNewTab (){
-
+    @Step("switch to new tab")
+    public SingUpPage switchToNewTab() {
         String originalWindow = driver.getWindowHandle();
         new WebDriverWait(driver, 10).until(numberOfWindowsToBe(2));
         //Loop through until we find a new window handle
@@ -132,6 +136,4 @@ public class SingUpPage  {
         new WebDriverWait(driver, 10).until(titleIs("GreenCity"));
         return new SingUpPage(driver);
     }
-
-
 }

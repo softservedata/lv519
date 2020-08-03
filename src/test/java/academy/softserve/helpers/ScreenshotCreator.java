@@ -1,4 +1,5 @@
 package academy.softserve.helpers;
+import io.qameta.allure.Step;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,9 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ScreenshotCreator {
-    /**
-     * @param driver
-     */
+    @Step("Take screenShot")
     public void screenshot(WebDriver driver) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
@@ -24,12 +23,7 @@ public class ScreenshotCreator {
         }
     }
 
-    /**
-     *
-     * @param driver
-     * @param screenShotSecondsDelayBefore
-     * @param screenShotSecondsDelayAfter
-     */
+    @Step("Take screenShot with before/after delay")
     public void screenshot(WebDriver driver, int screenShotSecondsDelayBefore, int screenShotSecondsDelayAfter) {
         wait(screenShotSecondsDelayBefore);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
@@ -44,9 +38,7 @@ public class ScreenshotCreator {
         wait(screenShotSecondsDelayAfter);
     }
 
-    /**
-     * @param secondsDelay
-     */
+    @Step("set delay")
     public void wait(int secondsDelay){
         try {
             Thread.sleep((secondsDelay) * 1000);

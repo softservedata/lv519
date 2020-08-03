@@ -19,8 +19,7 @@ public class MailAlreadyExistTest extends BaseTest {
                            List<String> expectedErrorMsg, String mailName, String mailPassword,int maiIndx, String linkText) {
         open(BASE_URL.getValue());
         new MainPage(driver)
-                .singUp();
-        new SingUpPage(driver)
+                .singUp()
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)
@@ -29,8 +28,7 @@ public class MailAlreadyExistTest extends BaseTest {
                 .waitSuccessfulRegistrationMsg();
         open( new Mail().getAuthorizationLink(MAIL_SUBJECT_NAME,true,20,0));
         new MainPage(driver)
-                .singUp();
-        new SingUpPage(driver)
+                .singUp()
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)

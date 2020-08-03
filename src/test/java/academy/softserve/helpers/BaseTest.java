@@ -1,6 +1,7 @@
 package academy.softserve.helpers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,9 +12,7 @@ public class BaseTest {
 
     public static ChromeDriver driver;
 
-    /**
-     * create new driver before each test method
-     */
+    @Step("create driver")
     @BeforeMethod
     public void setUpClass() {
         WebDriverManager.getInstance(CHROME).setup();
@@ -22,16 +21,13 @@ public class BaseTest {
         Mail.connectToEmail();
     }
 
-    /**
-     * @param url - url that should be opened
-     */
+
+    @Step("open url")
     public void open(String url) {
         driver.get(url);
     }
 
-    /**
-     * close driver after each test method and clear cash
-     */
+    @Step("kill driver")
     @AfterMethod
     public void teardown() {
         if (driver != null) {
