@@ -9,17 +9,17 @@ import static academy.softserve.constantParameters.sing.up.Links.MAIL_SUBJECT_NA
 import static academy.softserve.constantParameters.sing.up.SelectorsValue.*;
 
 
-public class SmokeTest extends BaseTest {
+public class SmokeTest extends TestRunnner {
 
     @Test(groups = {"SmokeSingUp"},dataProvider = "registrationDataProvider",dataProviderClass = StaticDataProvider.class)
-    public void testSingUp(String mail, String name, String password, String confirmPassword, String mailName, String mailPassword,int maiIndx, String linkText) {
+    public void testSingUp(String mail, String name, String password) {
         open(BASE_URL.getValue());
         new MainPage(driver)
                 .singUp()
                 .setFor(EMAIL, mail)
                 .setFor(USER_NAME, name)
                 .setFor(PASSWORD, password)
-                .setFor(PASSWORD_CONFIRM, confirmPassword)
+                .setFor(PASSWORD_CONFIRM, password)
                 .confirmSingUp(SING_UP_BUTTON)
                 .waitSuccessfulRegistrationMsg();
                 open( new Mail().getAuthorizationLink(MAIL_SUBJECT_NAME,true,20,0));

@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 
 import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
 
-public class BaseTest {
+public class TestRunnner {
 
     public static ChromeDriver driver;
 
@@ -20,7 +20,6 @@ public class BaseTest {
         driver.manage().window().maximize();
         Mail.connectToEmail();
     }
-
 
     @Step("open url")
     public void open(String url) {

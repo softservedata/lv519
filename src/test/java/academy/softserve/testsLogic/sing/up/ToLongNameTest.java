@@ -1,6 +1,6 @@
 package academy.softserve.testsLogic.sing.up;
 
-import academy.softserve.helpers.BaseTest;
+import academy.softserve.helpers.TestRunnner;
 import academy.softserve.helpers.StaticDataProvider;
 import academy.softserve.widgets.MainPage;
 import org.testng.annotations.Test;
@@ -8,7 +8,7 @@ import static academy.softserve.constantParameters.sing.up.SelectorsValue.*;
 import static academy.softserve.constantParameters.BaseLink.BASE_URL;
 
 
-public class ToLongNameTest extends BaseTest {
+public class ToLongNameTest extends TestRunnner {
     @Test(groups = {"SingUpNameNegative"},dataProvider = "overheadUsernameDataProvider",dataProviderClass = StaticDataProvider.class)
     public void singUp(String mail, String name, String password, String confirmPassword){
         open(BASE_URL.getValue());

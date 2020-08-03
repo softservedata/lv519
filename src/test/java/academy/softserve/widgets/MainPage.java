@@ -47,5 +47,4 @@ public class MainPage  {
         new WebDriverWait(driver, 10).until(titleIs("GreenCity"));
         return new SingUpPage(driver);
     }
-
 }
