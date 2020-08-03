@@ -1,8 +1,6 @@
 package academy.softserve.constantParameters.sing.up;
 
-public enum SelectorsValue {    /**
- Constants and selectors
- */
+public enum SelectorsValue {
     EMAIL("email"),
     USER_NAME("fistName"),
     PASSWORD("form-control password"),

@@ -4,7 +4,6 @@ import academy.softserve.helpers.BaseTest;
 import academy.softserve.helpers.Mail;
 import academy.softserve.helpers.StaticDataProvider;
 import academy.softserve.widgets.MainPage;
-import academy.softserve.widgets.SingUpPage;
 import org.testng.annotations.Test;
 import java.util.List;
 

@@ -4,11 +4,8 @@ import static academy.softserve.constantParameters.BaseLink.BASE_URL;
 
 import academy.softserve.helpers.*;
 import academy.softserve.widgets.MainPage;
-import academy.softserve.widgets.SingUpPage;
 import org.testng.annotations.Test;
-
 import static academy.softserve.constantParameters.sing.up.Links.MAIL_SUBJECT_NAME;
-import static academy.softserve.constantParameters.sing.up.Links.CONFIRMATION_REGEX_TEMPLATE;
 import static academy.softserve.constantParameters.sing.up.SelectorsValue.*;
 
 
