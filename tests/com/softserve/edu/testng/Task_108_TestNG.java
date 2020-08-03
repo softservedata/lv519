@@ -8,44 +8,58 @@ import com.softserve.edu.Task108;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
+/**
+ * An integer number n is given. Get the smallest number 2^k, which exceeds n,
+ * (2 ^ k> n).
+ * 
+ * @author Iryna Polihas
+ *
+ */
 public class Task_108_TestNG {
 	private Task108 task2 = new Task108();;
 
 	@DataProvider
-	public Object[][] dp() {
-
-		return new Object[][] { { 1, new int[] { 2, 1 } }, { 5, new int[] { 8, 3 } }, { 2, new int[] { 4, 2 } } };
+	public Object[][] validDP() {
+		return new Object[][] { { 50, new int[] { 6, 64 } }, { 1, new int[] { 1, 2 } }, { 2, new int[] { 2, 4 } } };
 	}
 
-	@Test(dataProvider = "dp")
-	public void test108(int n, int[] expected) {
+	@DataProvider
+	public Object[] inValidDP() {
+		return new Object[] { -5, 0 };
+	}
+
+	@DataProvider
+	public Object[] ValidIntegrationDP() {
+		return new Object[][] { { 1, new int[] { 1, 2 } } };
+	}
+
+	/**
+	 * @param n        - integer number, n>0
+	 * @param expected - array of power k and smallest number 2^k, which exceeds n
+	 */
+	@Test(dataProvider = "validDP")
+	public void testValidData(int n, int[] expected) {
 		int[] actual;
-		actual = task2.findArr(n);
+		actual = task2.calculateMinResult(n);
 		Assert.assertEquals(actual, expected, "Error");
 	}
 
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testNegative108() {
-		task2.findArr(-10);
-	}
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testZero108() {
-		task2.findArr(0);
+	/**
+	 * @param n - integer number, n>0
+	 */
+	@Test(dataProvider = "inValidDP", expectedExceptions = IllegalArgumentException.class)
+	public void testInValidData(int n) {
+		task2.calculateMinResult(n);
 	}
 
-	@Test(dataProvider = "dp")
-	public void testObj108(int n, int[] expected) {
+	/**
+	 * @param n        - integer number, n>0
+	 * @param expected - array of power k and smallest number 2^k, which exceeds n
+	 */
+	@Test(dataProvider = "ValidIntegrationDP")
+	public void testValidDataIntegration(int n, int[] expected) {
 		int[] actual;
-		actual = task2.findR(new InputOutput(n));
+		actual = task2.findMinResult(new InputOutput(n));
 		Assert.assertEquals(actual, expected, "Error");
-	}
-
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testOBJNegative108() {
-		task2.findR(new InputOutput(-5));
-	}
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testOBJZero108() {
-		task2.findR(new InputOutput(0));
 	}
 }

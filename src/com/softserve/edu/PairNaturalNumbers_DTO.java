@@ -1,10 +1,10 @@
 package com.softserve.edu;
 
-public class PairValue_DTO {
+public class PairNaturalNumbers_DTO {
 	private int x;
 	private int y;
-	
-	public PairValue_DTO(int x, int y) {
+
+	public PairNaturalNumbers_DTO(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -13,16 +13,8 @@ public class PairValue_DTO {
 		return x;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-
 	public int getY() {
 		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 
 	@Override
@@ -42,14 +34,12 @@ public class PairValue_DTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PairValue_DTO other = (PairValue_DTO) obj;
+		PairNaturalNumbers_DTO other = (PairNaturalNumbers_DTO) obj;
 		if (x != other.x)
 			return false;
 		if (y != other.y)
 			return false;
 		return true;
 	}
-	
-	
 
 }

@@ -15,6 +15,9 @@ public class InputOutput {
 		return n;
 	}
 
+	/**
+	 * @return natural namber from console
+	 */
 	public static InputOutput readNatural() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter a natural  number n = ");
@@ -39,30 +42,31 @@ public class InputOutput {
 
 	}
 
+	/**
+	 * @param num - integer number
+	 */
 	public static void writeNumber(int num) {
-		System.out.println("Task107: 4^k<n, n>1,\nk = " + num);
+		System.out.println("Task-107: 4^k<n, n>1,\nk = " + num);
 	}
 
+	/**
+	 * @param arr - array of integer number
+	 */
 	public static void writeArray(int[] arr) {
-		System.out.println("Task108: 2^r>n, n>=1\n2^r=" + arr[0] + ", r=" + arr[1]);
+		System.out.println("Task-108: 2^k>n, n>=1\nk=" + arr[0] + ", 2^k=" + arr[1]);
 	}
 
-	public static void writeList(List<String> list) {
+	/**
+	 * @param list - list of objects
+	 */
+	public static void writeObjectList(List<PairNaturalNumbers_DTO> list) {
 		if (list.isEmpty()) {
-			System.out.println("There is no pair of natural numbers x, y, such that n=x^2+y^2");
+			System.out.println("Task-243: There is no pair of natural numbers x, y, such that n=x^2+y^2");
 		} else {
-			System.out.println("x^2+y^2=n res = " + list);
+			System.out.println("Task-243: x^2+y^2=n ");
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("x = " + list.get(i).getX() + ", y = " + list.get(i).getY());
+			}
 		}
 	}
-
-	public static void writeObjectList(List<PairValue_DTO> list) {
-		if (list.isEmpty()) {
-			System.out.println("Task243: There is no pair of natural numbers x, y, such that n=x^2+y^2");
-		} else {
-			System.out.println("Task243: x^2+y^2=n ");
-			 for(int i = 0; i < list.size(); i++) {
-		            System.out.println("x = "+list.get(i).getX()+ ", y= "+list.get(i).getY());}
-		}
-	}
-
 }

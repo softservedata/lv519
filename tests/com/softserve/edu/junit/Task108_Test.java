@@ -7,6 +7,11 @@ import org.junit.Test;
 import com.softserve.edu.InputOutput;
 import com.softserve.edu.Task108;
 
+/**
+ *  An integer number n is given. Get the smallest number 2^k, which exceeds n, (2 ^ k> n).
+ *  
+ * @author Iryna Polihas
+ */
 public class Task108_Test {
 
 	private static Task108 task2;
@@ -17,44 +22,44 @@ public class Task108_Test {
 	}
 
 	@Test
-	public void testNatural() {
-		int[] expected = { 8, 3 };
+	public void testValidFifty() {
+		int[] expected = { 6, 64 };
 		int[] actual;
-		actual = task2.findArr(5);
+		actual = task2.calculateMinResult(50);
 		Assert.assertArrayEquals("Error", expected, actual);
 	}
 
 	@Test
-	public void testOne() {
-		int[] expected = { 2, 1 };
+	public void testValidOne() {
+		int[] expected = { 1, 2 };
 		int[] actual;
-		actual = task2.findArr(1);
+		actual = task2.calculateMinResult(1);
+		Assert.assertArrayEquals("Error", expected, actual);
+	}
+
+	@Test
+	public void testValidTwo() {
+		int[] expected = { 2, 4 };
+		int[] actual;
+		actual = task2.calculateMinResult(2);
 		Assert.assertArrayEquals("Error", expected, actual);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testZero() {
-		task2.findArr(0);
-	}
-
-	@Test
-	public void testObjNatural() {
-		int[] expected = { 4, 2 };
-		int[] actual;
-		actual = task2.findR(new InputOutput(2));
-		Assert.assertArrayEquals("Error", expected, actual);
-	}
-
-	@Test
-	public void testObjOne() {
-		int[] expected = { 2, 1 };
-		int[] actual;
-		actual = task2.findR(new InputOutput(1));
-		Assert.assertArrayEquals("Error", expected, actual);
+	public void testInValidNegative() {
+		task2.calculateMinResult(-5);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testObjNegative() {
-		task2.findR(new InputOutput(-5));
+	public void testInValidZero() {
+		task2.calculateMinResult(0);
 	}
+	@Test
+	public void testValidOneIntegration() {
+		int[] expected = { 1, 2 };
+		int[] actual;
+		actual = task2.findMinResult(new InputOutput(1));
+		Assert.assertArrayEquals("Error", expected, actual);
+	}
+
 }

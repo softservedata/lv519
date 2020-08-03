@@ -55,13 +55,13 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>28/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Jul 19 16:40:26 EEST 2020</td>
+<td>Started on:</td><td>Mon Aug 03 15:11:49 EEST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (38 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (108 ms)</td>
 </tr><tr>
-<td>Included groups:</td><td>TestObject_GROUP Test_GROUP </td>
+<td>Included groups:</td><td></td>
 </tr><tr>
 <td>Excluded groups:</td><td></td>
 </tr>
@@ -75,35 +75,401 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.test107()'><b>test107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 5, 1</td>
-<td></td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.InValidData()'><b>InValidData</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: -10</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task107.calculateMaxPower(Task107.java:17)
+	at com.softserve.edu.testng.Task_107_TestNG.InValidData(Task_107_TestNG.java:50)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1427810650", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1427810650'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task107.calculateMaxPower(Task107.java:17)
+	at com.softserve.edu.testng.Task_107_TestNG.InValidData(Task_107_TestNG.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.test107()'><b>test107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 2, 0</td>
-<td></td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.InValidData()'><b>InValidData</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 1</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task107.calculateMaxPower(Task107.java:17)
+	at com.softserve.edu.testng.Task_107_TestNG.InValidData(Task_107_TestNG.java:50)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace503195940", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace503195940'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task107.calculateMaxPower(Task107.java:17)
+	at com.softserve.edu.testng.Task_107_TestNG.InValidData(Task_107_TestNG.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.test107()'><b>test107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 3, 0</td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.ValidData()'><b>ValidData</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 50, 2</td>
 <td></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.testObj107()'><b>testObj107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 5, 1</td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.ValidData()'><b>ValidData</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 2, 0</td>
 <td></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.testObj107()'><b>testObj107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 2, 0</td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.ValidData()'><b>ValidData</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 3, 0</td>
 <td></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
 <tr>
-<td title='com.softserve.edu.testng.Task_107_TestNG.testObj107()'><b>testObj107</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 3, 0</td>
+<td title='com.softserve.edu.testng.Task_107_TestNG.ValidDataIntegration()'><b>ValidDataIntegration</b><br>Test class: com.softserve.edu.testng.Task_107_TestNG<br>Parameters: 2, 0</td>
 <td></td>
 <td>0</td>
-<td>com.softserve.edu.testng.Task_107_TestNG@4520ebad</td></tr>
+<td>com.softserve.edu.testng.Task_107_TestNG@51081592</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testInValidData()'><b>testInValidData</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: -5</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task108.calculateMinResult(Task108.java:16)
+	at com.softserve.edu.testng.Task_108_TestNG.testInValidData(Task_108_TestNG.java:52)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1241276575", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1241276575'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task108.calculateMinResult(Task108.java:16)
+	at com.softserve.edu.testng.Task_108_TestNG.testInValidData(Task_108_TestNG.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testInValidData()'><b>testInValidData</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: 0</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task108.calculateMinResult(Task108.java:16)
+	at com.softserve.edu.testng.Task_108_TestNG.testInValidData(Task_108_TestNG.java:52)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace982007015", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace982007015'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task108.calculateMinResult(Task108.java:16)
+	at com.softserve.edu.testng.Task_108_TestNG.testInValidData(Task_108_TestNG.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testValidData()'><b>testValidData</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: 50, [I@72b6cbcc</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testValidData()'><b>testValidData</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: 1, [I@a7e666</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testValidData()'><b>testValidData</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: 2, [I@68bbe345</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_108_TestNG.testValidDataIntegration()'><b>testValidDataIntegration</b><br>Test class: com.softserve.edu.testng.Task_108_TestNG<br>Parameters: 1, [I@30b8a058</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_108_TestNG@7f9a81e8</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData()'><b>test_A_InValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: -5</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfNumber(Task243.java:25)
+	at com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData(Task_243_TestNG.java:55)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2106620844", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2106620844'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfNumber(Task243.java:25)
+	at com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData(Task_243_TestNG.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData()'><b>test_A_InValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 0</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfNumber(Task243.java:25)
+	at com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData(Task_243_TestNG.java:55)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace979294118", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace979294118'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfNumber(Task243.java:25)
+	at com.softserve.edu.testng.Task_243_TestNG.test_A_InValidData(Task_243_TestNG.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidData()'><b>test_A_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 5, [com.softserve.edu.PairNaturalNumbers_DTO@3e2, com.softserve.edu.PairNaturalNumbers_DTO@400]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidData()'><b>test_A_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 50, [com.softserve.edu.PairNaturalNumbers_DTO@3e7, com.softserve.edu.PairNaturalNumbers_DTO@461, com.softserve.edu.PairNaturalNumbers_DTO@49b]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidData()'><b>test_A_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 2, [com.softserve.edu.PairNaturalNumbers_DTO@3e1]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidData()'><b>test_A_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 1, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidData()'><b>test_A_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 7, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_A_ValidDataIntegration()'><b>test_A_ValidDataIntegration</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 1, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData()'><b>test_B_InValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: -5</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfSpecNumbers(Task243.java:44)
+	at com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData(Task_243_TestNG.java:67)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1846412426", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1846412426'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfSpecNumbers(Task243.java:44)
+	at com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData(Task_243_TestNG.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData()'><b>test_B_InValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 0</td>
+<td><div><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfSpecNumbers(Task243.java:44)
+	at com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData(Task_243_TestNG.java:67)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1206883981", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1206883981'><pre>java.lang.IllegalArgumentException
+	at com.softserve.edu.Task243.calculateListOfSpecNumbers(Task243.java:44)
+	at com.softserve.edu.testng.Task_243_TestNG.test_B_InValidData(Task_243_TestNG.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidData()'><b>test_B_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 5, [com.softserve.edu.PairNaturalNumbers_DTO@400]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidData()'><b>test_B_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 50, [com.softserve.edu.PairNaturalNumbers_DTO@461, com.softserve.edu.PairNaturalNumbers_DTO@49b]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidData()'><b>test_B_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 2, [com.softserve.edu.PairNaturalNumbers_DTO@3e1]</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidData()'><b>test_B_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 1, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidData()'><b>test_B_ValidData</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 7, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
+<tr>
+<td title='com.softserve.edu.testng.Task_243_TestNG.test_B_ValidDataIntegration()'><b>test_B_ValidDataIntegration</b><br>Test class: com.softserve.edu.testng.Task_243_TestNG<br>Parameters: 1, []</td>
+<td></td>
+<td>0</td>
+<td>com.softserve.edu.testng.Task_243_TestNG@396a51ab</td></tr>
 </table><p>
 </body>
 </html>

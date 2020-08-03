@@ -1,14 +1,22 @@
-//An integer number n is given, n>1.Get the largest integer k, at which 4 ^ k <n.
 package com.softserve.edu;
 
+/**
+ * An integer number n is given, n>1. Get the largest integer k, at which 4^k
+ * less then n.
+ * 
+ * @author Iryna Polihas
+ */
 public class Task107 {
-	public int findNumber(int n) {
+	/**
+	 * @param n > 1, integer number
+	 * @return max power k, at which 4^k less then n.
+	 */
+	public int calculateMaxPower(int n) {
+
 		if (n < 2) {
 			throw new IllegalArgumentException();
 		}
-		// result=4^k
-		// k=power
-		int k, p;
+		int k, p;// k-power; p=4^k;
 		k = 0;
 		p = 1;
 		while (p < n) {
@@ -18,7 +26,7 @@ public class Task107 {
 		return k - 1;
 	}
 
-	public int findK(InputOutput inp) {
-		return findNumber(inp.getN());
+	public int findMaxPower(InputOutput inp) {
+		return calculateMaxPower(inp.getN());
 	}
 }

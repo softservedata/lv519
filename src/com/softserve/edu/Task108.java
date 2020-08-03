@@ -1,28 +1,35 @@
-//An integer number n is given. Get the smallest number 2^r, which exceeds n, (2 ^ r> n).
 package com.softserve.edu;
 
+/**
+ * An integer number n is given. Get the smallest number 2^k, which exceeds n,
+ * (2 ^ k> n).
+ * 
+ * @author Iryna Polihas
+ */
 public class Task108 {
-	public int[] findArr(Integer n) {
+	/**
+	 * @param n > 0, integer number
+	 * @retur array of power k and smallest number 2^k, which exceeds n
+	 */
+	public int[] calculateMinResult(int n) {
 		if (n < 1) {
 			throw new IllegalArgumentException();
 		}
-		// result=4^k
-		// k=power
-		int result, power;
-		power = 0;
-		result = 1;
+		int k, p;// k-power; p=2^k;
+		k = 0;
+		p = 1;
 		int arr[] = new int[2];
-		while (result <= n) {
-			result = result * 2;
-			power++;
-			arr[0] = result;
-			arr[1] = power;
+		while (p <= n) {
+			p = p * 2;
+			k++;
+			arr[0] = k;
+			arr[1] = p;
 		}
 		return arr;
 	}
 
-	public int[] findR(InputOutput inp) {
-		return findArr(inp.getN());
+	public int[] findMinResult(InputOutput inp) {
+		return calculateMinResult(inp.getN());
 	}
 
 }

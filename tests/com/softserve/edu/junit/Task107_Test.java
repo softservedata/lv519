@@ -7,10 +7,13 @@ import org.junit.Test;
 import com.softserve.edu.InputOutput;
 import com.softserve.edu.Task107;
 
+/**
+ * An integer number n is given, n>1. Get the largest integer k, at which 4^k
+ * less then n.
+ * 
+ * @author Iryna Polihas
+ */
 public class Task107_Test {
-
-	// 4^k<n.
-	// p=4^k
 	private static Task107 task1;
 
 	@BeforeClass
@@ -19,49 +22,48 @@ public class Task107_Test {
 	}
 
 	@Test
-	public void testFive() {
+	public void testValidFifty() {
 		int expected;
 		int actual;
-		expected = 1;
-		actual = task1.findNumber(5);
+		expected = 2;
+		actual = task1.calculateMaxPower(50);
 		Assert.assertEquals("Error", expected, actual);
 	}
 
 	@Test
-	public void testTwo() {
+	public void testValidTwo() {
 		int expected;
 		int actual;
 		expected = 0;
-		actual = task1.findNumber(2);
+		actual = task1.calculateMaxPower(2);
+		Assert.assertEquals("Error", expected, actual);
+	}
+
+	@Test
+	public void testValidThree() {
+		int expected;
+		int actual;
+		expected = 0;
+		actual = task1.calculateMaxPower(3);
 		Assert.assertEquals("Error", expected, actual);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testNegative() {
-		task1.findK(new InputOutput(-2));
-	}
-
-	@Test
-	public void testFiveObj() {
-		int expected;
-		int actual;
-		expected = 1;
-		actual = task1.findK(new InputOutput(5));
-		Assert.assertEquals("Error", expected, actual);
-	}
-
-	@Test
-	public void testTwoObj() {
-		int expected;
-		int actual;
-		expected = 0;
-		actual = task1.findK(new InputOutput(2));
-		Assert.assertEquals("Error", expected, actual);
+	public void testInvalidNegative() {
+		task1.calculateMaxPower(-10);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void test4() {
-		task1.findK(new InputOutput(0));
-
+	public void testInvalidOne() {
+		task1.calculateMaxPower(1);
+	}
+	
+	@Test
+	public void testValidTwoIntegration() {
+		int expected;
+		int actual;
+		expected = 0;
+		actual = task1.findMaxPower(new InputOutput(2));
+		Assert.assertEquals("Error", expected, actual);
 	}
 }

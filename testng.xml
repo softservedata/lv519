@@ -1,17 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test thread-count="5" name="Test">
-	<groups>
-			<run>
-				<include name="Test_GROUP" />
-				<include name="TestObject_GROUP" />
-			</run>
-		</groups>
-		<classes>
-			<class name="com.softserve.edu.testng.Task_243_TestNG" />
-			<class name="com.softserve.edu.testng.Task_107_TestNG" />
-			<class name="com.softserve.edu.testng.Task_108_TestNG" />
-		</classes>
-	</test> <!-- Test -->
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.softserve.edu.testng.Task_243_TestNG"/>
+      <class name="com.softserve.edu.testng.Task_107_TestNG"/>
+      <class name="com.softserve.edu.testng.Task_108_TestNG"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->

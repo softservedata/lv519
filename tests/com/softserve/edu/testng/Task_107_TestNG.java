@@ -7,47 +7,57 @@ import org.testng.annotations.Test;
 import com.softserve.edu.InputOutput;
 import com.softserve.edu.Task107;
 
+/**
+ * An integer number n is given, n>1. Get the largest integer k, at which 4^k
+ * less then n.
+ * 
+ * @author Iryna Polihas
+ */
 public class Task_107_TestNG {
-
-	private Task107 task1 = new Task107();;
+	private Task107 task1 = new Task107();
 
 	@DataProvider
-	public Object[][] dp() {
-		return new Object[][] { { 5, 1 }, { 2, 0 }, { 3, 0 } };
+	public Object[][] validDP() {
+		return new Object[][] { { 50, 2 }, { 2, 0 }, { 3, 0 } };
 	}
 
-	@Test(dataProvider = "dp", groups = "Test_GROUP")
-	public void test107(int n, int expected) {
+	@DataProvider
+	public Object[] inValidDP() {
+		return new Object[] { -10, 1 };
+	}
+
+	@DataProvider
+	public Object[] ValidIntegrationDP() {
+		return new Object[][] {{ 2, 0 }};
+	}
+
+	/**
+	 * @param n        - integer number, n>1
+	 * @param expected - max power k, at which 4^k less then n.
+	 */
+	@Test(dataProvider = "validDP")
+	public void ValidData(int n, int expected) {
 		int actual;
-		actual = task1.findNumber(n);
+		actual = task1.calculateMaxPower(n);
 		Assert.assertEquals(actual, expected, "Error");
 	}
 
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testOne107() {
-		task1.findNumber(1);
+	/**
+	 * @param n - integer number, n>1
+	 */
+	@Test(dataProvider = "inValidDP", expectedExceptions = IllegalArgumentException.class)
+	public void InValidData(int n) {
+		task1.calculateMaxPower(n);
 	}
 
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testNegative107() {
-		task1.findNumber(-10);
-	}
-
-	@Test(dataProvider = "dp", groups = "TestObject_GROUP")
-
-	public void testObj107(int n, int expected) {
+	/**
+	 * @param n        - integer number, n>1
+	 * @param expected - max power k, at which 4^k less then n.
+	 */
+	@Test(dataProvider = "ValidIntegrationDP")
+	public void ValidDataIntegration(int n, int expected) {
 		int actual;
-		actual = task1.findK(new InputOutput(n));
+		actual = task1.findMaxPower(new InputOutput(n));
 		Assert.assertEquals(actual, expected, "Error");
-	}
-	
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testOBJOne107() {
-		task1.findK(new InputOutput(1));
-	}
-
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void testOBJNegative107() {
-		task1.findK(new InputOutput(-5));
 	}
 }
