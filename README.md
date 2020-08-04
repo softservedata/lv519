@@ -22,6 +22,7 @@ The total amount of tests = 9
                     Partition 1              2   3          Partition 2
 
 Equivalence partitioning
+
 	Representative from each equivalence class:
 	Valid  P2 : 3; 9;
 	Invalid P1 : 2
