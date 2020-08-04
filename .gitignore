@@ -34,7 +34,13 @@ hs_err_pid*
 # Addition
 # Ignore all temporary files in the root directory
 *.[oa]
-
+.idea
+.idea/
+.idea//
+.target/classes
+.target
+.target/
+.target//
 # Single Module Project
 /.externalToolBuilders/
 /.settings/
@@ -57,6 +63,7 @@ hs_err_pid*
 
 # Multi Modules Project
 /**/.externalToolBuilders/
+.target*
 /**/.settings/
 /**/target/
 /**/doc/
