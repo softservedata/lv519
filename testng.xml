@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="none">
+	<test name="FireFoxTest">
+		<parameter name="browser" value="FF" />
+		<classes>
+			<class name="com.softserve.edu.junit.SignIn_Smoke_test" />
+			<class name="com.softserve.edu.junit.SignUp_Smoke_test" />
+			<class name="com.softserve.edu.junit.LVTAQC_58_test" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="ChromeTest">
+		<parameter name="browser" value="Chrome" />
+		<classes>
+			<class name="com.softserve.edu.junit.LVTAQC_42_test" />
+			<class name="com.softserve.edu.junit.LVTAQC_46_test" />
+			<class name="com.softserve.edu.junit.LVTAQC_61_test" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="ChromeTest(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="com.softserve.edu.junit.LVTAQC_42_test">
+        <methods>
+          <include name="IsNotRegistWithoutComfEmail"/>
+          <include name="setUp"/>
+          <include name="appSetup"/>
+          <include name="SuccessSignUp"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- com.softserve.edu.junit.LVTAQC_42_test -->
+      <class name="com.softserve.edu.junit.LVTAQC_46_test">
+        <methods>
+          <include name="setUp"/>
+          <include name="afterTest"/>
+          <include name="checkLogInwithInValidPassword" invocation-numbers="1 2 3 4"/>
+          <include name="appSetup"/>
+        </methods>
+      </class> <!-- com.softserve.edu.junit.LVTAQC_46_test -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
