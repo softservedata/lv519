@@ -11,8 +11,10 @@ public class PythagoreanTripleTest {
     @BeforeGroups(value = {"returnValue"})
     @DataProvider(name = "dataProvider")
     public Object[][] testData() {
-        return new Object[][]{{15,
-                "3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15"}, {20, "3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15, 8, 15, 17, 12, 16, 20"}};
+        return new Object[][]{
+                {15,"3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15"},
+                {20, "3, 4, 5, 6, 8, 10, 5, 12, 13, 9, 12, 15, 8, 15, 17, 12, 16, 20"},
+                {5,"3, 4, 5"}};
     }
 
     @BeforeGroups(value = "noMatches")
@@ -29,8 +31,8 @@ public class PythagoreanTripleTest {
 
 
     @Test(groups = {"returnValue"}, dataProvider = "dataProvider")
-    public void canFindTestV(int entryData, String expResultData) {
-        String[] expectedDataStringArray = expResultData.trim().replaceAll("\\s+","").split(",");
+    public void canFindTest(int entryData, String expResultData) {
+        String[] expectedDataStringArray = expResultData.trim().replaceAll("\\s+", "").split(",");
         int[] expectedDataArray = new int[expectedDataStringArray.length];
         for (int i = 0; i < expectedDataStringArray.length; i++) {
             try {

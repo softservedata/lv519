@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e08f76a1-94a8-40f9-a04b-9ba9223d202f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/configs/DataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PythagoreanTripleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PythagoreanTripleTest.class" afterDir="false" />
@@ -61,7 +62,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.PythagoreanTripleTest.canFindTestV">
+  <component name="RunManager" selected="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="555V2" />
@@ -105,11 +106,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PythagoreanTripleTest.canFindTestV" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PythagoreanTripleTest.canFindTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="555V2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PythagoreanTripleTest" />
-      <option name="METHOD_NAME" value="canFindTestV" />
+      <option name="METHOD_NAME" value="canFindTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -131,11 +132,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.PythagoreanTripleTest.canFindTestV" />
+        <item itemvalue="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" />
         <item itemvalue="Application.Main" />
         <item itemvalue="TestNG.PythagoreanTripleTest.canFindTestV2" />
         <item itemvalue="Application.safdgh" />
-        <item itemvalue="TestNG.C:/Users/Pavel/IdeaProjects/_555V2/src/test/java/configs/conf.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +154,16 @@
       <workItem from="1595104354298" duration="1081000" />
       <workItem from="1595123581292" duration="932000" />
       <workItem from="1595183421175" duration="2124000" />
-      <workItem from="1595189449475" duration="3746000" />
+      <workItem from="1595189449475" duration="4337000" />
+      <workItem from="1595196739875" duration="616000" />
+      <workItem from="1595235285164" duration="90000" />
+      <workItem from="1595236103906" duration="933000" />
+      <workItem from="1595534520440" duration="27000" />
+      <workItem from="1595536410074" duration="3096000" />
+      <workItem from="1595629993611" duration="1408000" />
+      <workItem from="1595889874816" duration="694000" />
+      <workItem from="1596540794769" duration="18000" />
+      <workItem from="1596573629758" duration="4470000" />
     </task>
     <servers />
   </component>
