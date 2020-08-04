@@ -1,12 +1,12 @@
-# SingUpTests
 Implementation of automation tests for registration page according to different test cases.
-Project divided into 4 parts:
+
+# Project divided for the following parts:
 
 # test.logic  
 In this part, we declare action sequence and assert result.
 
 # constantParameters
-In this part, we declare selectors, links, etc. 
+In this part, we save selectors, links, etc.
 That gives us an opportunity to use it in methods parameters to avoid misclicks, also make code more readable.
 
 # widgets
