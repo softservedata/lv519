@@ -1,4 +1,4 @@
-package verifications.sing.up;
+package academy.softserve.verifications.sing.up;
 
 import academy.softserve.constantParameters.sing.up.SelectorsValue;
 import academy.softserve.helpers.ScreenshotCreator;

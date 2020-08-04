@@ -1,4 +1,4 @@
-package verifications;
+package academy.softserve.verifications;
 
 public interface CommunalVerifications
 {

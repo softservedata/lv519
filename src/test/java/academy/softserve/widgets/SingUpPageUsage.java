@@ -7,8 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import verifications.CommunalVerifications;
-import verifications.sing.up.SingUpPageVerifications;
+import academy.softserve.verifications.CommunalVerifications;
+import academy.softserve.verifications.sing.up.SingUpPageVerifications;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
