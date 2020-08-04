@@ -21,6 +21,8 @@ Interfaces that contains default and abstract methods with asserts and compare.
 Methods like screenshot, delay, command line to use cmd.exe, etc. 
 Just to make life easier. Unnecessary but useful.
 
+
+Extra part
 #EmailUtils
 Bunch of methods to interact with email.
 
