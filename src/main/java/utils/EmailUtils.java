@@ -122,6 +122,7 @@ public class EmailUtils {
 
     //************* EMAIL ACTIONS *******************
 
+
     public void openEmail(Message message) throws Exception{
         message.getContent();
     }
