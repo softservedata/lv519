@@ -1,6 +1,7 @@
 package com.softserve.edu.greencity.ui.tests;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+
+import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -28,11 +31,13 @@ public abstract class GreencityTestRunner {
 
     @BeforeSuite
     public void beforeSuite() {
+        System.out.println("@BeforeSuite");
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeClass
     public void setUpBeforeClass() throws Exception {
+        System.out.println("@BeforeClass");
 //      ChromeOptions options = new ChromeOptions();
 //      String chromeProfilePath = System.getenv("USERPROFILE")
 //              + "\\AppData\\Local\\Google\\Chrome\\User Data";
@@ -44,6 +49,7 @@ public abstract class GreencityTestRunner {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        java.util.logging.Logger.getLogger("org.openqa.selenium.remote").setLevel(Level.OFF);
         // driver.manage().window().setSize(new Dimension(640, 480));
         // driver.manage().window().setSize(new Dimension(480, 640));
     }
@@ -58,6 +64,7 @@ public abstract class GreencityTestRunner {
 
     @BeforeMethod
     public void setUp() throws Exception {
+        System.out.println("@BeforeMethod");
         driver.get("https://ita-social-projects.github.io/GreenCityClient/#/welcome");
 //      driver.get("http://localhost:4200/#/welcome");
 //      driver.manage().window().maximize();
@@ -77,12 +84,9 @@ public abstract class GreencityTestRunner {
         // logout, get(urlLogout), delete cookie, delete cache
     }
 
-    /*-
-    public TipsTricksPage loadApplication() {
-        return new TipsTricksPage(driver);
-        //return new TipsTricksPage(getDriver());
+    public MyHabitsPage loadApplication() {
+        return new MyHabitsPage(driver);
     }
-    */
 
     protected void presentationSleep() {
         presentationSleep(1);

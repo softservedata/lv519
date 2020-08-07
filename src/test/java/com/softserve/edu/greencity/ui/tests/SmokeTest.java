@@ -1,20 +1,39 @@
 package com.softserve.edu.greencity.ui.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.softserve.edu.greencity.ui.tools.*;
 
-import com.softserve.edu.greencity.ui.data.Languages;
+import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 
 public class SmokeTest extends GreencityTestRunner {
 
-    @Test
+    // @Test
     public void checkApp() {
         System.out.println("***surefire.application.password = " + System.getProperty("surefire.application.password"));
         System.out.println("***System.getenv().MY_PASSWORD = " + System.getenv().get("MY_PASSWORD"));
         Assert.assertTrue(true);
     }
+
+    @Test
+    public void checkLinks() {
+        // Check main menu
+        MyHabitsPage myHabitsPage = loadApplication()
+                .navigateMenuEconews()
+                .navigateMenuTipsTricks()
+                .navigateMenuPlaces()
+                .navigateMenuAbout()
+                .navigateMenuMyHabits();
+        presentationSleep();
+     // Check footer menu
+        myHabitsPage
+                .footerMenuEconews()
+                .footerMenuTipsTricks()
+                .footerMenuPlaces()
+                .footerMenuAbout()
+                .footerMenuMyHabits();
+        presentationSleep();
+    }
+
     /*-
     @DataProvider
     public Object[][] languages() {
@@ -23,7 +42,7 @@ public class SmokeTest extends GreencityTestRunner {
             { Languages.UKRAINIAN }
             };
     }
-
+    
     //@Test(dataProvider = "languages")
     public void checkElements(Languages languages) {
         // Steps
@@ -51,18 +70,18 @@ public class SmokeTest extends GreencityTestRunner {
                 .navigateMenuAbout()
                 .navigateMenuTipsTricks();
         //
-//      TopPart tp = tipstrickspage;
-//      tp = tp.navigateMenuEconews();
-//      presentationSleep(2);
-//      tp = tp.navigateMenuTipsTricks();
-//      presentationSleep(2);
-//      tp = tp.navigateMenuMyCabinet();
-//      presentationSleep(2);
-//      tp = tp.navigateMenuMap();
+    //      TopPart tp = tipstrickspage;
+    //      tp = tp.navigateMenuEconews();
+    //      presentationSleep(2);
+    //      tp = tp.navigateMenuTipsTricks();
+    //      presentationSleep(2);
+    //      tp = tp.navigateMenuMyCabinet();
+    //      presentationSleep(2);
+    //      tp = tp.navigateMenuMap();
         //
         // Check
-//      Assert.assertEquals(tipstrickspage.getLanguageSwitcherText(),
-//              Languages.UKRAINIAN.toString());
+    //      Assert.assertEquals(tipstrickspage.getLanguageSwitcherText(),
+    //              Languages.UKRAINIAN.toString());
         //
         // Return to Previous State
         presentationSleep();
@@ -86,8 +105,8 @@ public class SmokeTest extends GreencityTestRunner {
                 //user.getFirstname());
         tipstrickspage.signout();
     }
-
-//    @Test(dataProvider = "users")
+    
+    //    @Test(dataProvider = "users")
     public void checkCabinet(User user) {
         MyCabinetPage myCabinetPage = loadApplication()
                 .navigateMenuMyCabinet(user);
@@ -110,5 +129,5 @@ public class SmokeTest extends GreencityTestRunner {
                 .navigateMenuMyCabinetGuest();
         presentationSleep(4);
     }
-       */ 
+       */
 }
