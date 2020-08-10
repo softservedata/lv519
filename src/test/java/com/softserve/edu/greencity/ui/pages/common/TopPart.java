@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.softserve.edu.greencity.ui.data.Languages;
 import com.softserve.edu.greencity.ui.pages.about.AboutPage;
-import com.softserve.edu.greencity.ui.pages.econews.EconewsPage;
+import com.softserve.edu.greencity.ui.pages.econews.EcoNewsPage;
 import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 import com.softserve.edu.greencity.ui.pages.places.PlacesPage;
 import com.softserve.edu.greencity.ui.pages.tipstricks.TipsTricksPage;
@@ -195,9 +195,9 @@ public abstract class TopPart {
 
     // Business Logic
 
-    public EconewsPage navigateMenuEconews() {
+    public EcoNewsPage navigateMenuEconews() {
         getMainMenuDropdown().clickMenuEcoNews();
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     public TipsTricksPage navigateMenuTipsTricks() {
@@ -220,9 +220,9 @@ public abstract class TopPart {
         return new MyHabitsPage(driver);
     }
 
-    public EconewsPage footerMenuEconews() {
+    public EcoNewsPage footerMenuEconews() {
         getMainMenuDropdown().clickFooterEcoNews();
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     public TipsTricksPage footerMenuTipsTricks() {

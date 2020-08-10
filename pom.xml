@@ -202,7 +202,13 @@
 			<version>${aspectj.version}</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-
+		<!-- - - - https://projectlombok.org/setup/maven - - - -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,5 +1,6 @@
 package com.softserve.edu.greencity.ui.tests;
 
+import com.softserve.edu.greencity.ui.pages.econews.EcoNewsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -33,6 +34,27 @@ public class SmokeTest extends GreencityTestRunner {
                 .footerMenuMyHabits();
         presentationSleep();
     }
+
+    /*@Test
+    public void ecoNewsSmokeTest(){
+        EcoNewsPage econewsPage = loadApplication().navigateMenuEconews();
+        econewsPage.waiting(econewsPage.findElement(econewsPage.getHeader()))
+        .waiting(econewsPage.findElement(econewsPage.getTagsFilterBlock()))
+        .waiting(econewsPage.findElement(econewsPage.getTagsFilterLabel()))
+        .waiting(econewsPage.findElements(econewsPage.getTags()))
+        .waiting(econewsPage.findElement(econewsPage.getArticleFoundCounter()))
+        .waiting(econewsPage.findElements(econewsPage.getDisplayedArticles()))
+        .waiting(econewsPage.findElement(econewsPage.getListViewButton()))
+        .updateArticlesExistCount().scrollDown();
+        Assert.assertEquals(econewsPage.getArticleExistCount(),econewsPage.getArticleDisplayedCount());
+    }*/
+    @Test
+    public void ecoNewsSmokeTestAlternative(){
+        EcoNewsPage econewsPage = loadApplication().navigateMenuEconews();
+        econewsPage.pageExistQuickTest();
+        econewsPage.updateArticlesExistCount().scrollDown();
+        Assert.assertEquals(econewsPage.getArticleExistCount(),econewsPage.getArticleDisplayedCount());
+        }
 
     /*-
     @DataProvider
