@@ -16,7 +16,7 @@ import com.softserve.edu.greencity.ui.pages.tipstricks.TipsTricksPage;
 /**
  * Base Abstract Class of Header and Footer.
  * 
- * @author Lv-493.Taqc/Java
+ * @author Lv-519.Taqc/Java
  */
 public abstract class TopPart {
 
@@ -38,12 +38,12 @@ public abstract class TopPart {
     protected WebDriver driver;
     //
     private WebElement languageButton;
-    private LanguageDropdown languageDropdown;
+    //private LanguageDropdown languageDropdown;
     private WebElement copyright;
     //
     private MainMenuDropdown mainMenuDropdown;
-    // private TopGuestComponent topGuestComponent;
-    // private TopUserComponent topUserComponent;
+    private TopGuestComponent topGuestComponent;
+    private TopUserComponent topUserComponent;
     //
     // private LoginDropdown loginDropdown;
     // private RegisterDropdown registerDropdown;
@@ -55,7 +55,7 @@ public abstract class TopPart {
     }
 
     private void initElements() {
-        languageButton = driver.findElement(By.cssSelector("div.switcher-wrapper ul"));
+        languageButton = driver.findElement(By.cssSelector("div.switcher-wrapper ul li"));
         // languageDropdown = new LanguageDropdown(driver);
         mainMenuDropdown = new MainMenuDropdown(driver);
         copyright = driver.findElement(By.cssSelector("div.bottom-part"));
@@ -70,7 +70,7 @@ public abstract class TopPart {
     }
 
     public String getLanguageButtonText() {
-        return getLanguageButton().findElement(By.cssSelector("li")).getText().trim();
+        return getLanguageButton().getText().trim();
     }
 
 //    protected void setLanguageSwitcher(String text) {
@@ -101,7 +101,6 @@ public abstract class TopPart {
 
     // Functional
 
-    /*-
     // topGuestComponent;
     protected TopGuestComponent getTopGuestComponent() {
         if (topGuestComponent == null) {
@@ -151,16 +150,19 @@ public abstract class TopPart {
         return createTopUserComponent().getUserNameButtonText();
     }
     
+    /*-
     protected void clickTopUserFavoritePlaces() {
         getTopUserComponent().clickProfileDropdownFavoritePlaces();
         // topGuestComponent = null;
     }
+    */
     
     protected void clickTopUserSettings() {
         getTopUserComponent().clickProfileDropdownUserSettings();
         // topGuestComponent = null;
     }
     
+    // TODO
     protected void clickTopUserSignout() {
         getTopUserComponent().clickProfileDropdownSignout();
         // topGuestComponent = null;
@@ -170,12 +172,12 @@ public abstract class TopPart {
         // clickSearchTopField();
         topUserComponent = null;
     }
-    */
 
     // language
     protected void chooseLanguage(Languages language) {
-//        clickLanguageSwitcher();
-//        setLanguageSwitcher(language.toString());
+        clickLanguageButton();
+        LanguageDropdown languageDropdown = new LanguageDropdown(driver);
+        languageDropdown.chooseByLanguage(language);
     }
 
     /*-

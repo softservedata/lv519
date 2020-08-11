@@ -1,9 +1,11 @@
 package com.softserve.edu.greencity.ui.tests;
 
-import com.softserve.edu.greencity.ui.pages.econews.EcoNewsPage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.softserve.edu.greencity.ui.data.Languages;
+import com.softserve.edu.greencity.ui.pages.econews.EconewsPage;
 import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 
 public class SmokeTest extends GreencityTestRunner {
@@ -15,7 +17,7 @@ public class SmokeTest extends GreencityTestRunner {
         Assert.assertTrue(true);
     }
 
-    @Test
+    //@Test
     public void checkLinks() {
         // Check main menu
         MyHabitsPage myHabitsPage = loadApplication()
@@ -35,27 +37,26 @@ public class SmokeTest extends GreencityTestRunner {
         presentationSleep();
     }
 
-    /*@Test
-    public void ecoNewsSmokeTest(){
-        EcoNewsPage econewsPage = loadApplication().navigateMenuEconews();
-        econewsPage.waiting(econewsPage.findElement(econewsPage.getHeader()))
-        .waiting(econewsPage.findElement(econewsPage.getTagsFilterBlock()))
-        .waiting(econewsPage.findElement(econewsPage.getTagsFilterLabel()))
-        .waiting(econewsPage.findElements(econewsPage.getTags()))
-        .waiting(econewsPage.findElement(econewsPage.getArticleFoundCounter()))
-        .waiting(econewsPage.findElements(econewsPage.getDisplayedArticles()))
-        .waiting(econewsPage.findElement(econewsPage.getListViewButton()))
-        .updateArticlesExistCount().scrollDown();
-        Assert.assertEquals(econewsPage.getArticleExistCount(),econewsPage.getArticleDisplayedCount());
-    }*/
-    @Test
-    public void ecoNewsSmokeTestAlternative(){
-        EcoNewsPage econewsPage = loadApplication().navigateMenuEconews();
-        econewsPage.pageExistQuickTest();
-        econewsPage.updateArticlesExistCount().scrollDown();
-        Assert.assertEquals(econewsPage.getArticleExistCount(),econewsPage.getArticleDisplayedCount());
-        }
-
+    @DataProvider
+    public Object[][] languages() {
+        return new Object[][] {
+            { Languages.UKRAINIAN },
+            { Languages.RUSSIAN }
+            };
+    }
+    
+    //@Test(dataProvider = "languages")
+    public void checkLanguage(Languages language) {
+        // Check main menu
+        EconewsPage EconewsPage = loadApplication()
+                .navigateMenuEconews()
+                .switchLanguage(language);
+        presentationSleep();
+        Assert.assertEquals(EconewsPage.getLanguageButtonText(),
+                language.toString());
+        presentationSleep();
+    }
+    
     /*-
     @DataProvider
     public Object[][] languages() {

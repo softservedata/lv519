@@ -44,6 +44,7 @@ scroll...()
 // Business Logic
 navigateMenu...()
 goto...Page()
+switch ... ()
 //
 successfullyLogin()
 signin()
