@@ -10,7 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import com.softserve.edu.greencity.ui.data.Languages;
+import com.softserve.edu.greencity.ui.pages.common.TopPart;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -193,6 +195,11 @@ public class EcoNewsPage extends TopPart {
     @Step("Verification that all text content in the list of articles displayed")
     public void isArticleTextContentDisplayed(List<WebElement> elements) {
         elements.forEach(this::isArticleTextContentDisplayed);
+    }
+
+    public EcoNewsPage switchLanguage(Languages language) {
+        chooseLanguage(language);
+        return new EcoNewsPage(driver);
     }
 
 
