@@ -1,6 +1,5 @@
 package com.softserve.edu.greencity.ui.pages.tipstricks;
 
-import org.apache.commons.math3.exception.OutOfRangeException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,7 +62,9 @@ public class TipsCardsContainer extends TipsTricksPage {
 
     // Business Logic
     public WebElement getTipCard(int index) {
-       if (index>getTipCardsSize()){System.out.println("Error");}
+       if (index>getTipCardsSize()){
+           throw new IndexOutOfBoundsException();
+       }
        return getTipCards().get(index);
     }
 
