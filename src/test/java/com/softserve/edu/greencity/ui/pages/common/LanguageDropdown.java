@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.softserve.edu.greencity.ui.data.Languages;
+
 public class LanguageDropdown {
     //
     private WebDriver driver;
@@ -66,6 +68,22 @@ public class LanguageDropdown {
     }
 
     // Functional
+
+    public void chooseByLanguage(Languages language) {
+        switch (language) {
+        case UKRAINIAN:
+            clickUkLanguage();
+            break;
+        case RUSSIAN:
+            clickRuLanguage();
+            break;
+        case ENGLISH:
+            clickEnLanguage();
+            break;
+        default:
+            throw new RuntimeException("Invalid Language");
+        }
+    }
 
     // Business Logic
 

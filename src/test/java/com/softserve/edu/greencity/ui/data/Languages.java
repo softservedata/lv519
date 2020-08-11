@@ -1,7 +1,7 @@
 package com.softserve.edu.greencity.ui.data;
 
 public enum Languages {
-	UKRAINIAN("Ua"),
+	UKRAINIAN("Uk"),
 	RUSSIAN("Ru"),
 	ENGLISH("En");
 	//

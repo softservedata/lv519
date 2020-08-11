@@ -44,8 +44,8 @@ public class SmokeTest extends GreencityTestRunner {
             { Languages.RUSSIAN }
             };
     }
-    //відкрити метод
-  /*  //@Test(dataProvider = "languages")
+
+    //@Test(dataProvider = "languages")
     public void checkLanguage(Languages language) {
         // Check main menu
         EconewsPage EconewsPage = loadApplication()
@@ -55,9 +55,8 @@ public class SmokeTest extends GreencityTestRunner {
         Assert.assertEquals(EconewsPage.getLanguageButtonText(),
                 language.toString());
         presentationSleep();
-    }*/
-    //*******************************************************
-    
+    }
+
     /*-
     @DataProvider
     public Object[][] languages() {

@@ -2,7 +2,9 @@ package com.softserve.edu.greencity.ui.pages.tipstricks;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.softserve.edu.greencity.ui.data.Languages;
+import com.softserve.edu.greencity.ui.pages.about.AboutPage;
 import com.softserve.edu.greencity.ui.pages.common.TopPart;
 import org.openqa.selenium.WebElement;
 
@@ -40,4 +42,5 @@ public class TipsTricksPage extends TopPart {
         chooseLanguage(language);
         return new TipsTricksPage(driver);
     }
+
 }
