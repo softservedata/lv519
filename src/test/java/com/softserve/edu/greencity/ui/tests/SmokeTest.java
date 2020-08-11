@@ -1,8 +1,11 @@
 package com.softserve.edu.greencity.ui.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.softserve.edu.greencity.ui.data.Languages;
+import com.softserve.edu.greencity.ui.pages.econews.EconewsPage;
 import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 
 public class SmokeTest extends GreencityTestRunner {
@@ -14,7 +17,7 @@ public class SmokeTest extends GreencityTestRunner {
         Assert.assertTrue(true);
     }
 
-    @Test
+    //@Test
     public void checkLinks() {
         // Check main menu
         MyHabitsPage myHabitsPage = loadApplication()
@@ -34,6 +37,27 @@ public class SmokeTest extends GreencityTestRunner {
         presentationSleep();
     }
 
+    @DataProvider
+    public Object[][] languages() {
+        return new Object[][] {
+            { Languages.UKRAINIAN },
+            { Languages.RUSSIAN }
+            };
+    }
+    //відкрити метод
+  /*  //@Test(dataProvider = "languages")
+    public void checkLanguage(Languages language) {
+        // Check main menu
+        EconewsPage EconewsPage = loadApplication()
+                .navigateMenuEconews()
+                .switchLanguage(language);
+        presentationSleep();
+        Assert.assertEquals(EconewsPage.getLanguageButtonText(),
+                language.toString());
+        presentationSleep();
+    }*/
+    //*******************************************************
+    
     /*-
     @DataProvider
     public Object[][] languages() {
