@@ -22,6 +22,7 @@ For example
 * [maven](https://maven.apache.org/)
 * [Selenium](https://www.selenium.dev/) ver. 3.141.59
 
+![Self-editing Diagram](src/GreenCityClasses.svg)
 
 ### Where to find back/front-end part of the project
 
