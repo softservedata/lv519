@@ -3,6 +3,9 @@ package com.softserve.edu.greencity.ui.tools;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * DateUtil class
@@ -20,5 +23,14 @@ public final class DateUtil {
     }
     public static String getCurrentDate() {
         return getCurrentDate("MMM d, yyyy");
+    }
+    /**
+     * Method to get current date in format "yyyy-MM-dd 'at' HH:mm:ss z"
+     * @return String
+     */
+    public static String getCurrentYearMonthDateTime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        return formatter.format(date) ;
     }
 }
