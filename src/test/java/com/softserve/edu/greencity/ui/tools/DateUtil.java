@@ -13,7 +13,7 @@ import java.util.Locale;
 public final class DateUtil {
 
     /**
-     * Method to get current date in format "MMMM d, yyyy"
+     * Method to get current date in format "MMMM d, yyyy (example авг 13, 2020)"
      * @return String
      */
     public static String getCurrentDate(String format) {
@@ -25,7 +25,7 @@ public final class DateUtil {
         return getCurrentDate("MMM d, yyyy");
     }
     /**
-     * Method to get current date in format "yyyy-MM-dd 'at' HH:mm:ss z"
+     * Method to get current date in format "yyyy-MM-dd 'at' HH:mm:ss z (2020-08-13 at 20:51:56 MSK)"
      * @return String
      */
     public static String getCurrentYearMonthDateTime() {
