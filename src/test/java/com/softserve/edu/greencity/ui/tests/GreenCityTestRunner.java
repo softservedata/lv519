@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.html5.WebStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -70,8 +71,7 @@ public abstract class GreenCityTestRunner {
     }
 
     public boolean isLoginingNow() {
-        return driver
-                .findElements(By.cssSelector(".sign-up-link .create-button"))
-                .size() == 0;
+        WebStorage webStorage = (WebStorage) driver;
+        return !((webStorage.getLocalStorage().getItem("name")) == null);
     }
 }
