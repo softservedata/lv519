@@ -2,7 +2,6 @@ package com.softserve.edu.greencity.ui.tests;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -63,15 +62,31 @@ public abstract class GreenCityTestRunner {
         if (!result.isSuccess()) {
             logger.warn("Test " + result.getName() + " ERROR");
         }
+        if (isLoginingNow()){
+            singOutByStorage();}
         //System.out.println("@AfterMethod tearDown");
     }
 
     public WelcomePage loadApplication() {
         return new WelcomePage(driver);
     }
+    //To Do
 
+    /**
+     * check sing in status by storage
+     * @return
+     */
     public boolean isLoginingNow() {
         WebStorage webStorage = (WebStorage) driver;
         return !((webStorage.getLocalStorage().getItem("name")) == null);
+    }
+
+    /**
+     * sing out using storage
+     * @return
+     */
+    public void singOutByStorage(){
+        WebStorage webStorage = (WebStorage) driver;
+        webStorage.getLocalStorage().clear();
     }
 }

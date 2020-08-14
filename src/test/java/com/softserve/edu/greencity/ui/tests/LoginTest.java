@@ -402,4 +402,26 @@ public class LoginTest extends GreenCityTestRunner {
         softAssert.assertTrue(wrongEmailOrPasswordError.isDisplayed());
         softAssert.assertAll();
     }
+    @Test
+    void ahfdhgds(){
+        loadApplication();
+        try {
+           Thread.sleep(15*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("login" + isLoginingNow());
+        singOutByStorage();
+driver.navigate().refresh();
+        try {
+            Thread.sleep(10*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("login" + isLoginingNow());
+    }
+
+
+
 }

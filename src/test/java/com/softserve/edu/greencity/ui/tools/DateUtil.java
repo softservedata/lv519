@@ -24,6 +24,7 @@ public final class DateUtil {
     public static String getCurrentDate() {
         return getCurrentDate("MMM d, yyyy");
     }
+
     /**
      * Method to get current date in format "yyyy-MM-dd 'at' HH:mm:ss z (2020-08-13 at 20:51:56 MSK)"
      * @return String

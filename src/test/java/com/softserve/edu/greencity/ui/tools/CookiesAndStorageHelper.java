@@ -39,9 +39,6 @@ public class CookiesAndStorageHelper {
         WebStorage webStorage = (WebStorage) driver;
         webStorage.getSessionStorage().clear();
         webStorage.getLocalStorage().clear();
-
-
-
     }
 
     public void cleanGMailCookiesAndStorages() {
