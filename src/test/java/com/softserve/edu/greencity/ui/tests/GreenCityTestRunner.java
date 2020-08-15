@@ -89,4 +89,14 @@ public abstract class GreenCityTestRunner {
         WebStorage webStorage = (WebStorage) driver;
         webStorage.getLocalStorage().clear();
     }
+
+    protected void downloadAllDrivers(){
+        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.edgedriver().setup();
+        WebDriverManager.operadriver().setup();
+        WebDriverManager.phantomjs().setup();
+        WebDriverManager.iedriver().setup();
+        WebDriverManager.chromiumdriver().setup();
+    }
 }
