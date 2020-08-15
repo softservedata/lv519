@@ -2,10 +2,13 @@ package com.softserve.edu.greencity.ui.tests;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.html5.WebStorage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -77,6 +80,7 @@ public abstract class GreenCityTestRunner {
      * @return
      */
     public boolean isLoginingNow() {
+        new WebDriverWait(driver,5).until(ExpectedConditions.visibilityOf(driver.findElement(By.className("header"))));
         WebStorage webStorage = (WebStorage) driver;
         return !((webStorage.getLocalStorage().getItem("name")) == null);
     }
