@@ -43,7 +43,6 @@ public class GoogleMailAPI {
             final Matcher m = pattern.matcher(mailContent);
             m.find();
             m.find();
-            System.out.println(m.groupCount());
             link = mailContent.substring( m.start(), m.end() )
                     .replace("3D","")
                     .replace("amp;","")

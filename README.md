@@ -11,7 +11,7 @@ Run `mvn test -Dtestng.xml=*.xml` to execute the automation UI tests via [maven]
 
 For example
 
-* `mvn test -Dtestng.xml=econews.xml` to running the UI tests of Eco news page
+* `mvn test -Dtestng.xml=testng.xml` to running the UI tests of Eco news page
 
 
 ### Required to install

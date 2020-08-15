@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="classes" thread-count="2" >
     <test verbose="2" preserve-order="true"
           parallel="methods"
           thread-count="10"
           name="Create_News_Test.java">
         <classes>
-            <class name="com.softserve.edu.greencity.ui.tests.CreateNewsTest">
-            </class>
+            <class name="com.softserve.edu.greencity.ui.tests.SmokeTest"/>
+            <class name="com.softserve.edu.greencity.ui.tests.RegisterPageTests"/>
         </classes>
     </test>
 </suite>
