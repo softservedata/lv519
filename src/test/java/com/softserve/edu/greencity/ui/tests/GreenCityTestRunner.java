@@ -2,6 +2,7 @@ package com.softserve.edu.greencity.ui.tests;
 
 import java.util.concurrent.TimeUnit;
 
+import com.softserve.edu.greencity.ui.tools.CredentialProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,6 +36,7 @@ public abstract class GreenCityTestRunner {
     @BeforeSuite
     public void beforeSuite() {
         WebDriverManager.chromedriver().setup();
+new CredentialProperties().checkCredentialsExist();
     }
 
     @BeforeClass

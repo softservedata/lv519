@@ -30,10 +30,10 @@ public final class UserRepository {
         }
         return instance;
     }
-
+//replace System.getenv().get(property.getProperty("temporaryPass"))); to property.getProperty("temporaryPass"));
     public User temporary() {
         return new User(property.getProperty("temporaryLoginName"),
-                System.getenv().get(property.getProperty("temporaryPass")));
+                        property.getProperty("temporaryPass"));
     }
 
     public User defaultUserCredentials() {
