@@ -43,20 +43,6 @@ public class RegistrationTests extends GreenCityTestRunner{
 
     }
 
-    @AfterClass
-    public void mailBoxCleanUp(){
-
-        GMailBox logInGMailPage = new GMailBox(driver);
-        logInGMailPage.logInGMail();
-        GMailBox mailBox = new GMailBox(driver);
-        ArrayList<WebElement> listOfEmails = mailBox.getAllMails();
-        mailBox.deleteAllMails(listOfEmails);
-        CookiesAndStorageHelper help = new CookiesAndStorageHelper(driver);
-        help.cleanCookiesAndStorages();
-
-        System.out.println("@AfterClass mailBoxCleanUp");
-    }
-
     @Test(dataProvider = "successRegistrationUserCreds", description = "GC-199, GC-206")
     public void registrationAndLogin(User userLoginCredentials) {
         loadApplication();

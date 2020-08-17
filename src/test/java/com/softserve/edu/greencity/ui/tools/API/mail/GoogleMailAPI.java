@@ -4,8 +4,6 @@ import lombok.SneakyThrows;
 import org.testng.annotations.Test;
 
 import javax.mail.Message;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,7 +29,7 @@ public class GoogleMailAPI {
     //TODO: split Matcher to another class as individual functional
     @Step("get green city auth confirm link from first mail")
     @SneakyThrows(Exception.class)
-    public String confirmAuthorizationLink(int maxTries) {
+    public String getconfirmURL(int maxTries) {
         connectToEmail();
         String link = "";
         int count = 0;
@@ -58,6 +56,6 @@ public class GoogleMailAPI {
     @Test
     public void gmailTest(){
         System.out.println("");
-        System.out.println(new GoogleMailAPI().confirmAuthorizationLink(10));
+        System.out.println(new GoogleMailAPI().getconfirmURL(10));
     }
 }

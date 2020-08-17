@@ -1,6 +1,7 @@
 package com.softserve.edu.greencity.ui.pages.cabinet;
 
 import com.softserve.edu.greencity.ui.data.User;
+import com.softserve.edu.greencity.ui.tools.API.mail.GoogleMailAPI;
 import com.softserve.edu.greencity.ui.tools.GMailBox;
 import com.softserve.edu.greencity.ui.tools.TabsHandler;
 import org.openqa.selenium.By;
@@ -29,7 +30,7 @@ public class ManualRegisterComponent extends RegisterComponent {
     private WebElement passwordConfirmValidator;
     private WebElement registrationValidator;
     private WebElement firstNameValidator;
-    private String confirmURL = "";
+    private String confirmURL = null;
 
     private final String USER_NAME_FIELD_SELECTOR = "input[name='fistName']";
     private final String EMAIL_FIELD_SELECTOR = "input[name='email']";
@@ -453,27 +454,18 @@ public class ManualRegisterComponent extends RegisterComponent {
         return this;
     }
 
+   private void getConfirmURL(){
+       confirmURL = new GoogleMailAPI().getconfirmURL(10);
+   }
+
     protected RegisterComponent verifyRegistration() {
-        String initialTab = driver.getWindowHandle();
-        Set<String> allTabs = driver.getWindowHandles();
-        String newlyOpenedTab = TabsHandler.openNewTabAndGetId(driver, allTabs);
-        driver.switchTo().window(newlyOpenedTab);
-
-        GMailBox logInGMailPage = new GMailBox(driver);
-        logInGMailPage.logInGMail()
-                .openEmailClickLink();
-
-        driver.close();
-        driver.switchTo().window(initialTab);
+        if (confirmURL == null) getConfirmURL();
+        Assert.assertNotNull(confirmURL);
         return this;
     }
 
     public void registrationWrongUser(User userData) {
-        fillEmailField(userData.getEmail())
-                .fillUserNameField(userData.getUserName())
-                .fillPasswordFieldPassShown(userData.getPassword())
-                .fillPasswordConfirmField(userData.getConfirmPassword())
-                .clickSignUpButton();
+        driver.get(confirmURL);
     }
 
     public void fillFieldsWithoutRegistration(User userData) {
