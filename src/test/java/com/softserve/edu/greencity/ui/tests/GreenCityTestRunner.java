@@ -1,13 +1,19 @@
 package com.softserve.edu.greencity.ui.tests;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import com.softserve.edu.greencity.ui.tools.CredentialProperties;
+import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.html5.WebStorage;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteExecuteMethod;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.html5.RemoteWebStorage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -36,16 +42,14 @@ public abstract class GreenCityTestRunner {
     @BeforeSuite
     public void beforeSuite() {
         WebDriverManager.chromedriver().setup();
-new CredentialProperties().checkCredentialsExist();
+        new CredentialProperties().checkCredentialsExist();
     }
 
     @BeforeClass
+    @SneakyThrows
     public void setUpBeforeClass() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(CHROME_HEADLESS_OPTION);
-        chromeOptions.addArguments("--lang=" + CHROME_LANGUAGE_OPTION);
-
-        driver = new ChromeDriver(chromeOptions);
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
@@ -82,8 +86,8 @@ new CredentialProperties().checkCredentialsExist();
      * @return
      */
     public boolean isLoginingNow() {
-        new WebDriverWait(driver,5).until(ExpectedConditions.visibilityOf(driver.findElement(By.className("header"))));
-        WebStorage webStorage = (WebStorage) driver;
+        RemoteExecuteMethod executeMethod = new RemoteExecuteMethod((RemoteWebDriver) driver);
+        RemoteWebStorage webStorage = new RemoteWebStorage(executeMethod);
         return !((webStorage.getLocalStorage().getItem("name")) == null);
     }
 
@@ -92,8 +96,10 @@ new CredentialProperties().checkCredentialsExist();
      * @return
      */
     public void singOutByStorage(){
-        WebStorage webStorage = (WebStorage) driver;
+        RemoteExecuteMethod executeMethod = new RemoteExecuteMethod((RemoteWebDriver) driver);
+        RemoteWebStorage webStorage = new RemoteWebStorage(executeMethod);
         webStorage.getLocalStorage().clear();
+        driver.navigate().refresh();
     }
 
     protected void downloadAllDrivers(){

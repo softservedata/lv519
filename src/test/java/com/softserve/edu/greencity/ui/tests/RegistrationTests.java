@@ -8,13 +8,10 @@ import com.softserve.edu.greencity.ui.pages.cabinet.ManualRegisterComponent;
 import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopUserComponent;
-import com.softserve.edu.greencity.ui.tools.CookiesAndStorageHelper;
-import com.softserve.edu.greencity.ui.tools.DBQueries;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -24,18 +21,6 @@ public class RegistrationTests extends GreenCityTestRunner{
     public Object[][] successRegistrationUserCreds() {
         return new Object[][]{{UserRepository.get()
                 .userCredentialsForRegistration()},};
-    }
-
-    @AfterMethod
-    public void registerUserCleanUp() {
-        CookiesAndStorageHelper help = new CookiesAndStorageHelper(driver);
-        help.cleanGreenCityCookiesAndStorages();
-        help.cleanGMailCookiesAndStorages();
-
-
-        DBQueries queryObj = new DBQueries();
-        queryObj.deleteUserByEmail("GCSignUpUser@gmail.com");
-
     }
 
     @Test(dataProvider = "successRegistrationUserCreds", description = "GC-199, GC-206")
