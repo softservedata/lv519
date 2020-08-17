@@ -1,4 +1,5 @@
 package com.softserve.edu.greencity.ui.tools.API.mail;
+import com.sun.mail.imap.protocol.FLAGS;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.testng.annotations.Test;
@@ -20,7 +21,7 @@ public class GoogleMailAPI {
     }
 
     @SneakyThrows(Exception.class)
-    public GoogleMailAPI connectToEmail(String mail, String pass) {
+    public  GoogleMailAPI connectToEmail(String mail, String pass) {
         emailUtils = new BaseMailAPI("greencitypavel@gmail.com", "1234qwerTY-", "smtp.gmail.com", BaseMailAPI.EmailFolder.INBOX);
         return this;
     }
@@ -40,7 +41,6 @@ public class GoogleMailAPI {
             Pattern pattern = Pattern.compile("https://greencity[^\"]+");
             final Matcher m = pattern.matcher(mailContent);
             m.find();
-            m.find();
             link = mailContent.substring( m.start(), m.end() )
                     .replace("3D","")
                     .replace("amp;","")
@@ -55,7 +55,16 @@ public class GoogleMailAPI {
     }
     @Test
     public void gmailTest(){
-        System.out.println("");
+
         System.out.println(new GoogleMailAPI().getconfirmURL(10));
+    }
+    @SneakyThrows
+    @Step("get Messages By Subject")
+    public static void clearMail() {
+        connectToEmail();
+        Message[] msg = emailUtils.getAllMessages();
+        for (Message message :msg) {
+            message.setFlag(FLAGS.Flag.DELETED, true);
+        }
     }
 }
