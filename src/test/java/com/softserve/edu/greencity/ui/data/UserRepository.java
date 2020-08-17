@@ -72,6 +72,7 @@ public final class UserRepository {
 
     public User unregisterUser() {
         return new User(
+                property.getProperty("defaultName"),
                 property.getProperty("validUnregisterEmail").replace("@",getRandom()+"@"),
                 property.getProperty("temporaryPass"));
     }
@@ -108,6 +109,7 @@ public final class UserRepository {
 
     public User userCredentialsForRegistration() {
         return new User(
+                property.getProperty("nameForRegistration"),
                 property.getProperty("emailForRegistration").replace("@", getRandom() + "@"),
                 property.getProperty("passwordForRegistration"),
                 property.getProperty("passwordForRegistration"));

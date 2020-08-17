@@ -10,18 +10,13 @@ import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopUserComponent;
 import com.softserve.edu.greencity.ui.tools.CookiesAndStorageHelper;
 import com.softserve.edu.greencity.ui.tools.DBQueries;
-import com.softserve.edu.greencity.ui.tools.GMailBox;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
 
 public class RegistrationTests extends GreenCityTestRunner{
 

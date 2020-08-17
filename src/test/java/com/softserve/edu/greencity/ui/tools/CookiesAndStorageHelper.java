@@ -42,7 +42,7 @@ public class CookiesAndStorageHelper {
     }
 
     public void cleanGMailCookiesAndStorages() {
-        driver.get(GMailBox.GMAIL_URL);
+        driver.get("https://mail.google.com");
 
         driver.manage().deleteAllCookies();
         if (!(driver instanceof WebStorage)) {
