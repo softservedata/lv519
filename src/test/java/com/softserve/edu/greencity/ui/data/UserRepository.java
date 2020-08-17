@@ -74,7 +74,8 @@ public final class UserRepository {
         return new User(
                 property.getProperty("defaultName"),
                 property.getProperty("validUnregisterEmail").replace("@",getRandom()+"@"),
-                property.getProperty("temporaryPass"));
+                property.getProperty("temporaryPass"),
+                property.getProperty("comfTemporaryPass"));
     }
 
     public User invalidEmailUserCredentials() {

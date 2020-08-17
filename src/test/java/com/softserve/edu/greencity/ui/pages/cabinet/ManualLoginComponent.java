@@ -28,7 +28,7 @@ public class ManualLoginComponent extends LoginComponent {
     private final String PASSWORD_FIELD_WRAPPER_CLASS = ".password-input-btn-show-hide";
 
     private final String SIGN_IN_BUTTON_XPATH = "//button[@type='submit' and @class='primary-global-button']";
-    private final String WRONG_EMAIL_OR_PASS_ERROR_CLASS = ".alert-general-error.ng-star-inserted";
+    private final String WRONG_EMAIL_OR_PASS_ERROR_CLASS = "div.alert-general-error.ng-star-inserted";
     private final String FORGOT_PASSWORD_LINK_CLASS = ".forgot-password";
     private final String EMAIL_VALIDATION_ERROR_CLASS = ".validation-email-error";
     private final String PASSWORD_IS_REQUIRED_ERROR_CLASS = ".validation-password-error";
