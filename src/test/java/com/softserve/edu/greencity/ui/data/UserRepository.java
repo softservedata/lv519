@@ -30,18 +30,20 @@ public final class UserRepository {
         }
         return instance;
     }
-//replace System.getenv().get(property.getProperty("temporaryPass"))); to property.getProperty("temporaryPass"));
+
+    //replace System.getenv().get(property.getProperty("temporaryPass"))); to property.getProperty("temporaryPass"));
     public User temporary() {
-        return new User(property.getProperty("temporaryLoginName"),
-                        property.getProperty("temporaryPass"));
+        return new User(
+                property.getProperty("temporaryLoginName"),
+                property.getProperty("temporaryPass"));
     }
 
     public User defaultUserCredentials() {
         return new User(
                 property.getProperty("defaultName"),
                 property.getProperty("defaultEmail"),
-                System.getenv().get(property.getProperty("defaultPass")),
-                System.getenv().get(property.getProperty("defaultPass")));
+                property.getProperty("defaultPass"),
+                property.getProperty("defaultPass"));
     }
 
     public User googleUserCredentials() {
@@ -59,17 +61,18 @@ public final class UserRepository {
                 property.getProperty("invalidPass"),
                 property.getProperty("invalidPass"));
     }
+
     public User invalidNameCredentials() {
         return new User(
                 property.getProperty("invalidName"),
                 property.getProperty("defaultEmail"),
-                System.getenv().get(property.getProperty("defaultPass")),
-                System.getenv().get(property.getProperty("defaultPass")));
+                property.getProperty("defaultPass"),
+                property.getProperty("defaultPass"));
     }
 
     public User unregisterUser() {
         return new User(
-                property.getProperty("validUnregisterEmail"),
+                property.getProperty("validUnregisterEmail").replace("@",getRandom()+"@"),
                 property.getProperty("temporaryPass"));
     }
 
@@ -77,16 +80,16 @@ public final class UserRepository {
         return new User(
                 property.getProperty("defaultName"),
                 property.getProperty("invalidEmail"),
-                System.getenv().get(property.getProperty("defaultPass")),
-                System.getenv().get(property.getProperty("defaultPass")));
+                property.getProperty("defaultPass"),
+                property.getProperty("defaultPass"));
     }
 
     public User invalidConfirmPassCredentials() {
         return new User(
                 property.getProperty("defaultName"),
                 property.getProperty("defaultEmail"),
-                System.getenv().get(property.getProperty("defaultPass"))+"!",
-                System.getenv().get(property.getProperty("defaultPass")));
+                property.getProperty("defaultPass") + "!",
+                property.getProperty("defaultPass"));
     }
 
     public User userWithEmptyEmailField() {
@@ -98,13 +101,16 @@ public final class UserRepository {
     }
 
     public User userCredentialsWithInvalidPassword() {
-        return new User(property.getProperty("temporaryLoginName"),
+        return new User(
+                property.getProperty("temporaryLoginName"),
                 property.getProperty("validIncorrectPassword"));
     }
 
     public User userCredentialsForRegistration() {
-        return new User(Randomizer.getRamdomString20Letters(), property.getProperty("emailForRegistration"),
-                property.getProperty("passwordForRegistration"), property.getProperty("passwordForRegistration"));
+        return new User(
+                property.getProperty("emailForRegistration").replace("@", getRandom() + "@"),
+                property.getProperty("passwordForRegistration"),
+                property.getProperty("passwordForRegistration"));
     }
 
     public User invalidPassUppercaseUserCreds() {
@@ -153,5 +159,12 @@ public final class UserRepository {
                 property.getProperty("defaultEmail"),
                 property.getProperty("invalidPassSpace"),
                 property.getProperty("invalidPassSpace"));
+    }
+
+    private String getRandom() {
+        return String.format("%s, %d", "+", (int) (Math.random() * ((Integer.MAX_VALUE - 1) - 10 + 1) + 1))
+                .replaceAll("\\s+", "")
+                .replace("-", "")
+                .replace(",", "");
     }
 }
