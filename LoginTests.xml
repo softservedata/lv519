@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="LoginSuite1">
+
+    <test name="LoginTest01">
+        <classes>
+            <class name="com.softserve.edu.greencity.ui.tests.LoginTest">
+                <methods>
+                    <!--include name="signInWithValidCredentials"/>
+                    <include name="signInWithUnregisteredCredentials"/>
+                    <include name="signInWithInvalidPassword"/>
+                    <include name="signOutValidation"/>
+                    <include name="signInFormValidation"/>
+                    <include name="singInWithEmptyRequiredFields"/>
+                    <include name="signUpLinkValidation"/>
+                    <include name="signInFormCloseButtonValidation"/-->
+                    <include name="signInWithEmptyEmailFieldValidation"/>
+
+
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
