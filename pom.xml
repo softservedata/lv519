@@ -39,7 +39,7 @@
 		<maven.webdriverextensions-maven-plugin.version>3.2.0</maven.webdriverextensions-maven-plugin.version>
 		<!-- - - - - - Reports - - - - - -->
 		<testng.reports.directory>./target/surefire-reports/test-output</testng.reports.directory>
-		<allure.version>2.13.1</allure.version>
+		<allure.version>2.13.5</allure.version>
 		<aspectj.version>1.9.5</aspectj.version>
 		<!-- - - - - - Mocks - - - - - -->
 		<org.mockito.version>1.10.19</org.mockito.version>
