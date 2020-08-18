@@ -1,9 +1,8 @@
 package com.softserve.edu.greencity.ui.tests;
 
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
+import com.softserve.edu.greencity.ui.pages.common.WelcomePage;
 import com.softserve.edu.greencity.ui.tools.CredentialProperties;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
@@ -16,15 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
-import com.softserve.edu.greencity.ui.pages.common.WelcomePage;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 
