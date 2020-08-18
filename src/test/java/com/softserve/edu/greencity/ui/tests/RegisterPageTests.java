@@ -156,10 +156,10 @@ public class RegisterPageTests extends GreenCityTestRunner implements StableWebE
         logger.info("Click on Sign in button");
         LoginComponent loginComponent = registerComponent.clickSignInLink();
 
-        Assert.assertEquals("Welcome back!", loginComponent.getTitleString(),
+        Assert.assertEquals("Welcome back!", loginComponent.getTitleText(),
                 "This is not a login modal:(");
 
-        Assert.assertEquals("Please enter your details to sign in", loginComponent.getSubtitleString(),
+        Assert.assertEquals("Please enter your details to sign in", loginComponent.getSubtitleText(),
                 "This is not a login modal:(");
     }
 
@@ -254,10 +254,10 @@ public class RegisterPageTests extends GreenCityTestRunner implements StableWebE
         logger.info("Click on Sign in button");
         LoginComponent loginComponent = new TopGuestComponent(driver).clickSignInLink();
 
-        Assert.assertEquals("Welcome back!", loginComponent.getTitleString(),
+        Assert.assertEquals("Welcome back!", loginComponent.getTitleText(),
                 "This is not a login modal:(");
 
-        Assert.assertEquals("Please enter your details to sign in", loginComponent.getSubtitleString(),
+        Assert.assertEquals("Please enter your details to sign in", loginComponent.getTitleText(),
                 "This is not a login modal:(");
 
 

@@ -1,12 +1,14 @@
 package com.softserve.edu.greencity.ui.tests;
 
 import com.softserve.edu.greencity.ui.pages.common.WelcomePage;
+import com.softserve.edu.greencity.ui.tools.CommandLine;
 import com.softserve.edu.greencity.ui.tools.CredentialProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteExecuteMethod;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,6 +21,7 @@ import org.testng.annotations.*;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 
@@ -33,6 +36,7 @@ public abstract class GreenCityTestRunner {
     protected WebDriver driver;
 
     @BeforeSuite
+    @Step
     public void beforeSuite() {
         WebDriverManager.chromedriver().setup();
         new CredentialProperties().checkCredentialsExist();
@@ -40,13 +44,19 @@ public abstract class GreenCityTestRunner {
 
     @SneakyThrows
     @BeforeClass
+    @Step
     public void setUpBeforeClass() {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+        System.setProperty("webdriver.chrome.verboseLogging", "false");
+        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("org.openqa.selenium.remote").setLevel(Level.OFF);
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
     @AfterClass(alwaysRun = true)
+    @Step
     public void tearDownAfterClass() {
         if (driver != null) {
             driver.quit();
@@ -54,11 +64,13 @@ public abstract class GreenCityTestRunner {
     }
 
     @BeforeMethod
+    @Step
     public void setUp() {
         driver.get(BASE_URL);
     }
 
     @AfterMethod
+    @Step
     public void tearDown(ITestResult result) {
         if (!result.isSuccess()) {
             logger.warn("Test " + result.getName() + " ERROR");

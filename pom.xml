@@ -36,7 +36,8 @@
 		<io.github.bonigarcia.version>3.8.1</io.github.bonigarcia.version>
 		<com.codeborne.phantomjsdriver.version>1.4.4</com.codeborne.phantomjsdriver.version>
 		<maven.os-maven-plugin.version>1.6.2</maven.os-maven-plugin.version>
-		<maven.webdriverextensions-maven-plugin.version>3.2.0</maven.webdriverextensions-maven-plugin.version>
+	<!--	<maven.webdriverextensions-maven-plugin.version>3.2.0</maven.webdriverextensions-maven-plugin.version>-->
+		<maven.clean.plugin.version.version>3.1.0</maven.clean.plugin.version.version>
 		<!-- - - - - - Reports - - - - - -->
 		<testng.reports.directory>./target/surefire-reports/test-output</testng.reports.directory>
 		<allure.version>2.13.5</allure.version>
@@ -55,6 +56,7 @@
 		<!-- - - - - - JSON - - - - - -->
 		<jackson.core.version>2.9.8</jackson.core.version>
 		<google.gson.version>2.8.6</google.gson.version>
+
 	</properties>
 
 	<dependencies>
@@ -119,6 +121,13 @@
 			<version>${org.slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-clean-plugin</artifactId>
+			<version>${maven.clean.plugin.version.version}</version>
+		</dependency>
+
 
 		<!-- - - - - - DB - - - - - -->
 		<!-- <dependency> -->
@@ -234,7 +243,7 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+	<!--		<plugin>
 				<groupId>com.github.webdriverextensions</groupId>
 				<artifactId>webdriverextensions-maven-plugin</artifactId>
 				<version>${maven.webdriverextensions-maven-plugin.version}</version>
@@ -244,38 +253,38 @@
 						<goals>
 							<goal>install-drivers</goal>
 						</goals>
-						<!-- Uncomment for download automatically -->
+						&lt;!&ndash; Uncomment for download automatically &ndash;&gt;
 						<phase>test-compile</phase>
-						<!-- <phase>process-test-classes</phase> -->
-						<!-- <phase>test</phase> -->
+						&lt;!&ndash; <phase>process-test-classes</phase> &ndash;&gt;
+						&lt;!&ndash; <phase>test</phase> &ndash;&gt;
 					</execution>
 				</executions>
 				<configuration>
 					<installationDirectory>${project.build.directory}/test-classes</installationDirectory>
-					<!-- <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> -->
+					&lt;!&ndash; <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> &ndash;&gt;
 					<keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
 					<drivers>
 						<driver>
 							<name>chromedriver</name>
-							<!--suppress UnresolvedMavenProperty -->
+							&lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
 							<platform>${os.detected.name}</platform>
-							<!-- <platform>windows</platform> -->
+							&lt;!&ndash; <platform>windows</platform> &ndash;&gt;
 							<bit>32</bit>
-							<!-- <version>74.0.3729.6</version> -->
-							<!-- <url>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_win32.zip</url> -->
-							<!-- <version>76.0.3809.126</version> -->
-							<!-- <url>https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_win32.zip</url> -->
-							<!-- <url>https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_win32.zip</url> -->
+							&lt;!&ndash; <version>74.0.3729.6</version> &ndash;&gt;
+							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_win32.zip</url> &ndash;&gt;
+							&lt;!&ndash; <version>76.0.3809.126</version> &ndash;&gt;
+							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_win32.zip</url> &ndash;&gt;
+							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_win32.zip</url> &ndash;&gt;
 							<url>https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip</url>
-							<!-- <version>79.0.3945.36</version> -->
-							<!-- <version>78.0.3904.105</version> -->
+							&lt;!&ndash; <version>79.0.3945.36</version> &ndash;&gt;
+							&lt;!&ndash; <version>78.0.3904.105</version> &ndash;&gt;
 						</driver>
 					</drivers>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>${maven.clean.plugin.version.version}</version>
 				<executions>
 					<execution>
 						<id>clean-allure-results</id>
@@ -293,6 +302,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -333,6 +343,8 @@
 				<!-- </dependency> -->
 				<!-- </dependencies> -->
 			</plugin>
+
+
 
 		</plugins>
 	</build>
