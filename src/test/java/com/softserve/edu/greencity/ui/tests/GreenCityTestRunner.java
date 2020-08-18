@@ -6,11 +6,13 @@ import java.util.concurrent.TimeUnit;
 import com.softserve.edu.greencity.ui.tools.CredentialProperties;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteExecuteMethod;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.html5.RemoteWebStorage;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -23,6 +25,8 @@ import org.testng.annotations.BeforeSuite;
 import com.softserve.edu.greencity.ui.pages.common.WelcomePage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 
 public abstract class GreenCityTestRunner {
     private static final String BASE_URL = "https://ita-social-projects.github.io/GreenCityClient/#/welcome";
@@ -81,6 +85,7 @@ public abstract class GreenCityTestRunner {
      */
     @Step("verifying that user is not login")
     boolean isLogInNow() {
+        new WebDriverWait(driver, 10).until(invisibilityOfElementLocated(By.id("form.sign-in-form")));
         RemoteExecuteMethod executeMethod = new RemoteExecuteMethod((RemoteWebDriver) driver);
         RemoteWebStorage webStorage = new RemoteWebStorage(executeMethod);
         return !((webStorage.getLocalStorage().getItem("name")) == null);

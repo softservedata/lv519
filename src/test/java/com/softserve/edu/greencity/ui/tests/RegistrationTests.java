@@ -2,10 +2,7 @@ package com.softserve.edu.greencity.ui.tests;
 
 import com.softserve.edu.greencity.ui.data.User;
 import com.softserve.edu.greencity.ui.data.UserRepository;
-import com.softserve.edu.greencity.ui.pages.cabinet.LoginComponent;
-import com.softserve.edu.greencity.ui.pages.cabinet.ManualLoginComponent;
-import com.softserve.edu.greencity.ui.pages.cabinet.ManualRegisterComponent;
-import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
+import com.softserve.edu.greencity.ui.pages.cabinet.*;
 import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopUserComponent;
 import com.softserve.edu.greencity.ui.tools.API.mail.GoogleMailAPI;
@@ -33,18 +30,17 @@ public class RegistrationTests extends GreenCityTestRunner{
     @Test(dataProvider = "successRegistrationUserCreds", description = "registration And Login \t GC-199, GC-206")
     @SneakyThrows
     public void registrationAndLogin(User userLoginCredentials) {
+        GoogleMailAPI.clearMail();
         loadApplication();
         RegisterComponent registerComponent = new TopGuestComponent(driver).clickSignUpLink();
-        Assert.assertEquals("Hello!", registerComponent.getTitleString(),
-                "This is not a register modal:(");
         ManualRegisterComponent manualRegisterComponent = registerComponent.getManualRegisterComponent();
         manualRegisterComponent.registrationNewUserVerified(userLoginCredentials);
-        new WebDriverWait(driver, 5).until(visibilityOfElementLocated(By.id("mat-dialog-1")));
-        new WebDriverWait(driver, 5).until(invisibilityOfElementLocated(By.id("mat-dialog-1")));
-        driver.get(new GoogleMailAPI().getconfirmURL(20));
 
-        Thread.sleep(20);
-
+        loadApplication()
+                .signIn()
+                .getManualLoginComponent()
+                .successfullyLogin(userLoginCredentials);
+        Assert.assertTrue(isLogInNow());
     }
 
     @Test(dataProvider = "successRegistrationUserCreds", description = "registration Without Mail Verifying \t GC-512")
