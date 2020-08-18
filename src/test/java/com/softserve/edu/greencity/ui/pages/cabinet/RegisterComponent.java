@@ -1,6 +1,7 @@
 package com.softserve.edu.greencity.ui.pages.cabinet;
 
 import com.softserve.edu.greencity.ui.pages.common.TopPart;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,7 +48,7 @@ public class RegisterComponent extends TopPart {
         super(driver);
         init();
     }
-
+    @Step
     public void init(){
         wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOf(getTitle()));
@@ -56,6 +57,7 @@ public class RegisterComponent extends TopPart {
 
 
     // modal window
+    @Step
     public WebElement getRegisterModalWindow() {
         this.modalWindow = driver
                 .findElement(By.cssSelector(MODAL_WINDOW_CSS));
@@ -63,27 +65,28 @@ public class RegisterComponent extends TopPart {
     }
 
     // title
+    @Step
     protected WebElement getTitle() {
         this.title = driver
                 .findElement(By.cssSelector(TITLE_CSS));
         return title;
     }
-
+    @Step
     public String getTitleString() {
               return this.getTitle().getText();
     }
-
+    @Step
     protected WebElement getSubtitle() {
         this.subtitle = driver
                 .findElement(By.cssSelector(SUBTITLE_CSS));
         return subtitle;
     }
-
+    @Step
     public String getSubtitleString() {
 
         return this.getSubtitle().getText();
     }
-
+    @Step
     public void closeRegisterComponentModal() {
         closeModalButton = driver.findElement
                 (By.cssSelector(".close-btn a"));
@@ -92,22 +95,23 @@ public class RegisterComponent extends TopPart {
 
 
     //Register component
+    @Step
     public ManualRegisterComponent getManualRegisterComponent() {
 
         return manualRegisterComponent = new ManualRegisterComponent(driver);
     }
-
+    @Step
     public GoogleLoginPage clickGoogleSignUpButton() {
         getGoogleSignUpButton().click();
 
         return new GoogleLoginPage(driver);
     }
-
+    @Step
     protected RegisterComponent setSubmitEmailText(WebElement submitEmailText) {
         this.submitEmailText = submitEmailText;
         return this;
     }
-
+    @Step
     public String getSubmitEmailText() {
         return submitEmailText.getText();
     }
@@ -117,6 +121,7 @@ public class RegisterComponent extends TopPart {
      *
      * @return String
      */
+    @Step
     protected String getConfirmRegisterationText() {
         logger.debug("start getConfirmRegisterationText()");
         logger.trace("find WebElement submitEmailText");
@@ -131,21 +136,22 @@ public class RegisterComponent extends TopPart {
      *
      * @return WebElement
      */
+    @Step
     protected WebElement getGoogleSignUpButton() {
         return googleSignUpButton = driver.findElement(By.cssSelector(GOOGLE_SIGN_UP_BUTTON_CLASS));
     }
-
+    @Step
     protected WebElement getSignInLink() {
         this.signInLink = driver
                 .findElement(By.cssSelector(SIGN_IN_LINK_CSS));
         return signInLink;
     }
-
+    @Step
     public ManualLoginComponent clickSignInLink() {
         getSignInLink().click();
         return new ManualLoginComponent(driver);
     }
-
+    @Step
     public WebElement getCongratsModal() {
         this.congratsModal = driver
                 .findElement(By.cssSelector(CONGRATS_MODAL_CSS));

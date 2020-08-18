@@ -21,6 +21,7 @@ public class GoogleMailAPI {
     }
 
     @SneakyThrows(Exception.class)
+    @Step
     public  GoogleMailAPI connectToEmail(String mail, String pass) {
         emailUtils = new BaseMailAPI("greencitypavel@gmail.com", "1234qwerTY-", "smtp.gmail.com", BaseMailAPI.EmailFolder.INBOX);
         return this;

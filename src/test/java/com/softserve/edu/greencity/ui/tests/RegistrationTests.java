@@ -9,6 +9,7 @@ import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopUserComponent;
 import com.softserve.edu.greencity.ui.tools.API.mail.GoogleMailAPI;
+import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,12 +24,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 public class RegistrationTests extends GreenCityTestRunner{
 
     @DataProvider
+    @Step("DataProvider get user Credentials For Registration")
     public Object[][] successRegistrationUserCreds() {
         return new Object[][]{{UserRepository.get()
                 .userCredentialsForRegistration()},};
     }
 
-    @Test(dataProvider = "successRegistrationUserCreds", description = "GC-199, GC-206")
+    @Test(dataProvider = "successRegistrationUserCreds", description = "registration And Login \t GC-199, GC-206")
     @SneakyThrows
     public void registrationAndLogin(User userLoginCredentials) {
         loadApplication();
@@ -45,7 +47,7 @@ public class RegistrationTests extends GreenCityTestRunner{
 
     }
 
-    @Test(dataProvider = "successRegistrationUserCreds", description = "GC-512")
+    @Test(dataProvider = "successRegistrationUserCreds", description = "registration Without Mail Verifying \t GC-512")
     public void registrationWithoutMailVerif(User userLoginCredentials) {
         loadApplication();
         logger.info("Starting registrationWithoutMailVerif. Input values = "
@@ -82,7 +84,7 @@ public class RegistrationTests extends GreenCityTestRunner{
                 "The validation message is not equal to the expected one");
     }
 
-    @Test(dataProvider = "successRegistrationUserCreds", description = "GC-513")
+    @Test(dataProvider = "successRegistrationUserCreds", description = "registration Check If Mail Received \t GC-513")
     public void registrationCheckIfMailReceived(User userLoginCredentials) {
         loadApplication();
         logger.info("Starting registrationCheckIfMailReceived. Input values = "

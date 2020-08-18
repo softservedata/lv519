@@ -4,18 +4,13 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import com.softserve.edu.greencity.ui.tools.CredentialProperties;
+import io.qameta.allure.Step;
 import lombok.SneakyThrows;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteExecuteMethod;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.html5.RemoteWebStorage;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -30,7 +25,7 @@ import com.softserve.edu.greencity.ui.pages.common.WelcomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public abstract class GreenCityTestRunner {
-    public static final String BASE_URL = "https://ita-social-projects.github.io/GreenCityClient/#/welcome";
+    private static final String BASE_URL = "https://ita-social-projects.github.io/GreenCityClient/#/welcome";
 //    public static final String BASE_URL = "http://localhost:4200/#/welcome";
 
     private final boolean CHROME_HEADLESS_OPTION = false;
@@ -70,12 +65,12 @@ public abstract class GreenCityTestRunner {
         if (!result.isSuccess()) {
             logger.warn("Test " + result.getName() + " ERROR");
         }
-        if (isLoginingNow()){
-            singOutByStorage();}
+        if (isLogInNow()){
+            signOutByStorage();}
         //System.out.println("@AfterMethod tearDown");
     }
-
-    public WelcomePage loadApplication() {
+    @Step("loadApplication")
+    WelcomePage loadApplication() {
         return new WelcomePage(driver);
     }
     //To Do
@@ -84,7 +79,8 @@ public abstract class GreenCityTestRunner {
      * check sing in status by storage
      * @return
      */
-    public boolean isLoginingNow() {
+    @Step("verifying that user is not login")
+    boolean isLogInNow() {
         RemoteExecuteMethod executeMethod = new RemoteExecuteMethod((RemoteWebDriver) driver);
         RemoteWebStorage webStorage = new RemoteWebStorage(executeMethod);
         return !((webStorage.getLocalStorage().getItem("name")) == null);
@@ -94,13 +90,14 @@ public abstract class GreenCityTestRunner {
      * sing out using storage
      * @return
      */
-    public void singOutByStorage(){
+    @Step("signOut by clear storage")
+    private void signOutByStorage(){
         RemoteExecuteMethod executeMethod = new RemoteExecuteMethod((RemoteWebDriver) driver);
         RemoteWebStorage webStorage = new RemoteWebStorage(executeMethod);
         webStorage.getLocalStorage().clear();
         driver.navigate().refresh();
     }
-
+    @Step("download All WebDrivers")
     protected void downloadAllDrivers(){
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();

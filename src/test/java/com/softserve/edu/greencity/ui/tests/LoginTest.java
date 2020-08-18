@@ -27,7 +27,7 @@ public class LoginTest extends GreenCityTestRunner {
         expectedBorderColorRBG = "rgb(240, 49, 39)";
     }
 
-    @Test(testName = "GC-224")
+    @Test(testName = "sign In With Valid Credentials GC-224")
     public void signInWithValidCredentials() {
         User user = UserRepository.get().temporary();
 
@@ -45,7 +45,7 @@ public class LoginTest extends GreenCityTestRunner {
         Assert.assertEquals(newHabitButton, "Add new habit");
     }
 
-    @Test(testName = "GC-225")
+    @Test(testName = "signI nWith Unregistered Credentials GC-225")
     public void signInWithUnregisteredCredentials() {
         User user = UserRepository.get().unregisterUser();
 
@@ -58,7 +58,7 @@ public class LoginTest extends GreenCityTestRunner {
         Assert.assertEquals(errorText, "Bad email or password");
     }
 
-    @Test(testName = "GC-30")
+    @Test(testName = "signIn With Invalid Password GC-30")
     public void signInWithInvalidPassword() {
         User user = UserRepository.get().userCredentialsWithInvalidPassword();
 
@@ -72,7 +72,7 @@ public class LoginTest extends GreenCityTestRunner {
         Assert.assertEquals(errorText, "Bad email or password");
     }
 
-    @Test(testName = "GC-35")
+    @Test(testName = "signOut Validation GC-35")
     public void signOutValidation() {
         SoftAssert softAssert = new SoftAssert();
 

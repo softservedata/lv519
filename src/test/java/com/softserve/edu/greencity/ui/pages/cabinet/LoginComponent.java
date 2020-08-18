@@ -2,6 +2,7 @@ package com.softserve.edu.greencity.ui.pages.cabinet;
 
 import com.softserve.edu.greencity.ui.pages.common.TopPart;
 import com.softserve.edu.greencity.ui.tools.ElementsCustomMethods;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,79 +41,79 @@ public class LoginComponent extends TopPart {
         super(driver);
         init();
     }
-
+    @Step
     public void init(){
         wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOf(getTitle()));
 
     }
-
+    @Step
     public ManualLoginComponent getManualLoginComponent() {
         return manualLoginComponent = new ManualLoginComponent(driver);
     }
-
+    @Step
     protected WebElement getLoginModalWindow(){
         this.modalWindow = driver
                 .findElement(By.cssSelector(MODAL_WINDOW_CSS));
         return modalWindow;
 
     }
-
+    @Step
     protected WebElement getTitle() {
         return title = driver.findElement(By.cssSelector(TITLE_CLASS));
     }
-
+    @Step
     public String getTitleString() {
         wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(TITLE_CLASS)));
 
         return this.getTitle().getText();
     }
-
+    @Step
     protected WebElement getSubtitle() {
         return subtitle = driver.findElement(By.cssSelector(SUBTITLE_CLASS));
     }
-
+    @Step
     public String getSubtitleString() {
         return this.getSubtitle().getText();
     }
-
+    @Step
     public WebElement getSignUpLink() {
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SIGN_UP_LINK_CLASS)));
 
         return singUpLink = driver.findElement(By.cssSelector(SIGN_UP_LINK_CLASS));
     }
-
+    @Step
     public RegisterComponent clickSignUpLink() {
         getSignUpLink().click();
 
         return new RegisterComponent(driver);
     }
-
+    @Step
     public WebElement getSingInWithGoogleButton() {
         return singInWithGoogleButton = driver.findElement(By.cssSelector(SING_IN_WITH_GOOGLE_BUTTON_CLASS));
     }
-
+    @Step
     public WebElement getCloseFormButton() {
         return closeFormButton = driver.findElement(By.cssSelector(CLOSE_BUTTON_CLASS));
     }
-
+    @Step
     public void closeLoginComponent() {
         getCloseFormButton().click();
     }
-
+    @Step
     public boolean isLoginComponentClosed() {
         closeLoginComponent();
 
         ElementsCustomMethods elementsCustomMethods = new ElementsCustomMethods(driver);
         return elementsCustomMethods.waitTillElementGone(driver, By.cssSelector(LOGIN_COMPONENT_OVERLAY_CLASS), 6000, 2000);
     }
-
+    @Step
     protected WebElement getGoogleSignUpButton() {
         return googleSignInButton = driver.findElement(By.cssSelector(GOOGLE_SIGN_IN_BUTTON_CLASS));
     }
-
+    @Step
     public GoogleLoginPage clickGoogleSignInButton() {
         getGoogleSignUpButton().click();
 

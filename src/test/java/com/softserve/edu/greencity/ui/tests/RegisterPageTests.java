@@ -7,6 +7,7 @@ import com.softserve.edu.greencity.ui.pages.cabinet.ManualRegisterComponent;
 import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
 import com.softserve.edu.greencity.ui.tools.ElementsCustomMethods;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,12 +17,14 @@ import org.testng.annotations.Test;
 public class RegisterPageTests extends GreenCityTestRunner {
 
     @DataProvider
+    @Step
     public Object[][] validUserCredentials() {
         return new Object[][]{
                 {UserRepository.get().defaultUserCredentials()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] emptyFields() {
         return new Object[][]{
                 {UserRepository.get().emptyUserCredentials()},
@@ -29,48 +32,56 @@ public class RegisterPageTests extends GreenCityTestRunner {
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidFields() {
         return new Object[][]{
                 {UserRepository.get().invalidUserCredentials()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidEmail() {
         return new Object[][]{
                 {UserRepository.get().invalidEmailUserCredentials()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassUppercaseUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassUppercaseUserCreds()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassDigitUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassDigitUserCreds()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassLowercaseUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassLowercaseUserCreds()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassSpecCharUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassSpecCharUserCreds()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassLengthUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassLengthUserCreds()},};
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidPassSpaceUserCreds() {
         return new Object[][]{
                 {UserRepository.get().invalidPassSpaceUserCreds()},};
@@ -83,6 +94,7 @@ public class RegisterPageTests extends GreenCityTestRunner {
     }
 
     @DataProvider
+    @Step
     public Object[][] invalidConfirmPass() {
         return new Object[][]{
                 {UserRepository.get().invalidConfirmPassCredentials()},};
