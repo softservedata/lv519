@@ -2,9 +2,11 @@ package com.softserve.edu.greencity.ui.tests;
 
 import com.softserve.edu.greencity.ui.data.User;
 import com.softserve.edu.greencity.ui.data.UserRepository;
-import com.softserve.edu.greencity.ui.pages.cabinet.*;
+import com.softserve.edu.greencity.ui.pages.cabinet.LoginComponent;
+import com.softserve.edu.greencity.ui.pages.cabinet.ManualLoginComponent;
+import com.softserve.edu.greencity.ui.pages.cabinet.ManualRegisterComponent;
+import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
 import com.softserve.edu.greencity.ui.pages.common.TopGuestComponent;
-import com.softserve.edu.greencity.ui.pages.common.TopUserComponent;
 import com.softserve.edu.greencity.ui.tools.API.mail.GoogleMailAPI;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
@@ -14,9 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class RegistrationTests extends GreenCityTestRunner{
 
@@ -51,7 +50,8 @@ public class RegistrationTests extends GreenCityTestRunner{
 
         logger.info("Click on Sign up button");
         RegisterComponent registerComponent = new TopGuestComponent(driver).clickSignUpLink();
-
+        Assert.assertEquals("Hello!", registerComponent.getTitleString(),
+                "This is not a register modal:(");
         logger.info("Get a title text of the modal window: "
                 + registerComponent.getTitleString());
 
