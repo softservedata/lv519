@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.softserve.edu</groupId>
@@ -86,7 +86,7 @@
 			<artifactId>htmlunit-driver</artifactId>
 			<version>${org.seleniumhq.selenium.htmlunit-driver}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.codeborne</groupId>
 			<artifactId>phantomjsdriver</artifactId>
@@ -234,7 +234,7 @@
 				</configuration>
 			</plugin>
 
-	<!--		<plugin>
+			<plugin>
 				<groupId>com.github.webdriverextensions</groupId>
 				<artifactId>webdriverextensions-maven-plugin</artifactId>
 				<version>${maven.webdriverextensions-maven-plugin.version}</version>
@@ -244,35 +244,35 @@
 						<goals>
 							<goal>install-drivers</goal>
 						</goals>
-						&lt;!&ndash; Uncomment for download automatically &ndash;&gt;
+						<!-- Uncomment for download automatically -->
 						<phase>test-compile</phase>
-						&lt;!&ndash; <phase>process-test-classes</phase> &ndash;&gt;
-						&lt;!&ndash; <phase>test</phase> &ndash;&gt;
+						<!-- <phase>process-test-classes</phase> -->
+						<!-- <phase>test</phase> -->
 					</execution>
 				</executions>
 				<configuration>
 					<installationDirectory>${project.build.directory}/test-classes</installationDirectory>
-					&lt;!&ndash; <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> &ndash;&gt;
+					<!-- <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> -->
 					<keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
 					<drivers>
 						<driver>
 							<name>chromedriver</name>
-							&lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
+							<!--suppress UnresolvedMavenProperty -->
 							<platform>${os.detected.name}</platform>
-							&lt;!&ndash; <platform>windows</platform> &ndash;&gt;
+							<!-- <platform>windows</platform> -->
 							<bit>32</bit>
-							&lt;!&ndash; <version>74.0.3729.6</version> &ndash;&gt;
-							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_win32.zip</url> &ndash;&gt;
-							&lt;!&ndash; <version>76.0.3809.126</version> &ndash;&gt;
-							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_win32.zip</url> &ndash;&gt;
-							&lt;!&ndash; <url>https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_win32.zip</url> &ndash;&gt;
+							<!-- <version>74.0.3729.6</version> -->
+							<!-- <url>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_win32.zip</url> -->
+							<!-- <version>76.0.3809.126</version> -->
+							<!-- <url>https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_win32.zip</url> -->
+							<!-- <url>https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_win32.zip</url> -->
 							<url>https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip</url>
-							&lt;!&ndash; <version>79.0.3945.36</version> &ndash;&gt;
-							&lt;!&ndash; <version>78.0.3904.105</version> &ndash;&gt;
+							<!-- <version>79.0.3945.36</version> -->
+							<!-- <version>78.0.3904.105</version> -->
 						</driver>
 					</drivers>
 				</configuration>
-			</plugin>-->
+			</plugin>
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.1.0</version>
@@ -320,9 +320,9 @@
 						<suiteXmlFile>${testng.xml}</suiteXmlFile>
 					</suiteXmlFiles>
 					<reportsDirectory>${testng.reports.directory}</reportsDirectory>
-					 <argLine>
-					 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-					 </argLine>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
 				</configuration>
 				<!-- <dependencies> -->
 				<!-- <dependency> -->
