@@ -107,7 +107,7 @@ public class LoginComponent extends TopPart {
         closeLoginComponent();
 
         ElementsCustomMethods elementsCustomMethods = new ElementsCustomMethods(driver);
-        return elementsCustomMethods.waitTillElementGone(driver, By.cssSelector(LOGIN_COMPONENT_OVERLAY_CLASS), 6000, 2000);
+        return elementsCustomMethods.waitTillElementGone(driver, By.cssSelector(LOGIN_COMPONENT_OVERLAY_CLASS), 6000);
     }
     @Step
     protected WebElement getGoogleSignUpButton() {

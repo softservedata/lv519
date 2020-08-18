@@ -1,6 +1,7 @@
 package com.softserve.edu.greencity.ui.pages.cabinet;
 
 import com.softserve.edu.greencity.ui.pages.common.TopPart;
+import com.softserve.edu.greencity.ui.tools.StableWebElementSearch;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,81 +17,65 @@ import org.slf4j.LoggerFactory;
 import java.util.function.Function;
 
 
-public class RegisterComponent extends TopPart {
+public class RegisterComponent extends TopPart implements StableWebElementSearch {
 
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     WebDriverWait wait;
-    private WebElement modalWindow;
-    public static final String MODAL_WINDOW_CSS = "mat-dialog-container";
-    private WebElement title;
-    private final String TITLE_CSS = "app-sign-up h1.title-text";
-    private WebElement subtitle;
-    private final String SUBTITLE_CSS = ".subtitle-text";
-    private WebElement closeModalButton;
 
+    private By closeModalButton = By.cssSelector(".close-btn a");
+    public static final By MODAL_WINDOW_CSS = By.cssSelector("mat-dialog-container");
+    private final By SUBMIT_EMAIL_SELECTOR = By.cssSelector("app-submit-email div.submit-email");
+    private final By GOOGLE_SIGN_UP_BUTTON_CLASS = By.cssSelector(".cta-button-google");
+    private final By TITLE_CSS = By.cssSelector("app-sign-up h1.title-text");
+    private final By SUBTITLE_CSS = By.cssSelector(".subtitle-text");
+    private final By CONGRATS_MODAL_CSS = By.cssSelector(".main-container .submit-email");
+    private final By SIGN_IN_LINK_CSS = By.cssSelector("div.exist-account a");
     private ManualRegisterComponent manualRegisterComponent;
 
-    private WebElement googleSignUpButton;
-
-    private WebElement signInLink;
-    private final String SIGN_IN_LINK_CSS = "div.exist-account a";
-    private WebElement signInText;
-
-    private WebElement submitEmailText;
-    private final String SUBMIT_EMAIL_SELECTOR = "app-submit-email div.submit-email";
-    private final String GOOGLE_SIGN_UP_BUTTON_CLASS = ".cta-button-google";
-
-    private WebElement congratsModal;
-    private final String CONGRATS_MODAL_CSS = ".main-container .submit-email";
 
     public RegisterComponent(WebDriver driver) {
-
         super(driver);
         init();
     }
-    @Step
-    public void init(){
-        wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOf(getTitle()));
 
+    @Step
+    public void init() {
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(getTitle()));
     }
 
 
     // modal window
     @Step
     public WebElement getRegisterModalWindow() {
-        this.modalWindow = driver
-                .findElement(By.cssSelector(MODAL_WINDOW_CSS));
-        return modalWindow;
+        return $(MODAL_WINDOW_CSS);
     }
 
     // title
     @Step
     protected WebElement getTitle() {
-        this.title = driver
-                .findElement(By.cssSelector(TITLE_CSS));
-        return title;
+        return $(TITLE_CSS);
     }
+
     @Step
     public String getTitleString() {
-              return this.getTitle().getText();
+        return this.getTitle().getText();
     }
+
     @Step
     protected WebElement getSubtitle() {
-        this.subtitle = driver
-                .findElement(By.cssSelector(SUBTITLE_CSS));
-        return subtitle;
+        return $(SUBTITLE_CSS);
     }
+
     @Step
     public String getSubtitleString() {
 
         return this.getSubtitle().getText();
     }
+
     @Step
     public void closeRegisterComponentModal() {
-        closeModalButton = driver.findElement
-                (By.cssSelector(".close-btn a"));
-        closeModalButton.click();
+        $(closeModalButton).click();
     }
 
 
@@ -100,36 +85,14 @@ public class RegisterComponent extends TopPart {
 
         return manualRegisterComponent = new ManualRegisterComponent(driver);
     }
+
     @Step
     public GoogleLoginPage clickGoogleSignUpButton() {
         getGoogleSignUpButton().click();
 
         return new GoogleLoginPage(driver);
     }
-    @Step
-    protected RegisterComponent setSubmitEmailText(WebElement submitEmailText) {
-        this.submitEmailText = submitEmailText;
-        return this;
-    }
-    @Step
-    public String getSubmitEmailText() {
-        return submitEmailText.getText();
-    }
 
-    /**
-     * Get text which shows after a successful registration.
-     *
-     * @return String
-     */
-    @Step
-    protected String getConfirmRegisterationText() {
-        logger.debug("start getConfirmRegisterationText()");
-        logger.trace("find WebElement submitEmailText");
-        submitEmailText = driver.findElement(
-                By.cssSelector(SUBMIT_EMAIL_SELECTOR));
-        logger.info("get Confirm Registeration text: " + setSubmitEmailText(submitEmailText).getSubmitEmailText());
-        return setSubmitEmailText(submitEmailText).getSubmitEmailText();
-    }
 
     /**
      * Returns a WebElement of the 'GoogleSignUp' button.
@@ -138,23 +101,27 @@ public class RegisterComponent extends TopPart {
      */
     @Step
     protected WebElement getGoogleSignUpButton() {
-        return googleSignUpButton = driver.findElement(By.cssSelector(GOOGLE_SIGN_UP_BUTTON_CLASS));
+        return $(GOOGLE_SIGN_UP_BUTTON_CLASS);
     }
+
     @Step
     protected WebElement getSignInLink() {
-        this.signInLink = driver
-                .findElement(By.cssSelector(SIGN_IN_LINK_CSS));
-        return signInLink;
+        return $(SIGN_IN_LINK_CSS);
     }
+
     @Step
     public ManualLoginComponent clickSignInLink() {
         getSignInLink().click();
         return new ManualLoginComponent(driver);
     }
+
     @Step
     public WebElement getCongratsModal() {
-        this.congratsModal = driver
-                .findElement(By.cssSelector(CONGRATS_MODAL_CSS));
-        return congratsModal;
+        return $(CONGRATS_MODAL_CSS);
+    }
+
+    @Override
+    public WebDriver setDriver() {
+        return this.driver;
     }
 }
