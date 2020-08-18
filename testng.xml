@@ -4,27 +4,13 @@
 <suite name="Suite1">
 	<test name="Test11">
 		<classes>
-			<class name="com.softserve.testng.TestNGTest4" />
-			<class name="com.softserve.testng.TestNGTest2">
-				<methods>
-					<include name="divisionWithException" />
-				</methods>
-			</class>
-			<class name="com.softserve.edu.FirstTest">
-				<methods>
-					<include name="f1" />
-				</methods>
-			</class>
+			<class name="com.softserve.edu.greencity.ui.tests.SmokeTest" />
+<!-- 			<class name="com.softserve.testng.TestNGTest2"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="divisionWithException" /> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
 		</classes>
 	</test> <!-- Test -->
 	
-	<test name="Test12">
-		<classes>
-			<class name="com.softserve.edu.FirstTest">
-				<methods>
-					<include name="f2" />
-				</methods>
-			</class>
-		</classes>
-	</test> <!-- Test -->
 </suite> <!-- Suite -->

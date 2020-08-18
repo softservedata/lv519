@@ -1,0 +1,52 @@
+﻿naming  convention
+
+class
+1-2-3 worrd
+...Part // abstract class
+...Page
+...Dropdown
+...Component
+...Container
+
+//fields
+menu...
+footer...
+....Label
+....Field
+....Button
+....Link
+...Dropdown
+
+//
+//methods
+initElements()
+checkElements()
+// atom
+get...Select()
+get...WebElement() // get...()
+get....Text()
+select...(String text)
+set...(String text)
+clear...()
+click...()
+isDisplayed...()
+//
+get....Component()
+create....Component()
+open...Component()
+close....Component()
+isExpanded...Component()
+//
+// functional
+choose...()
+scroll...()
+//
+// Business Logic
+navigateMenu...()
+goto...Page()
+switch ... ()
+//
+successfullyLogin()
+signin()
+signup()
+signout()
