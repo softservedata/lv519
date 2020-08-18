@@ -17,6 +17,10 @@ import java.util.concurrent.TimeUnit;
  * convenient way to search Web Elements
  */
 public interface StableWebElementSearch {
+    /**
+     * set Webdriver that should to be used
+     * @return WebDriver
+     */
     WebDriver setDriver();
     @Description("Find element By CSS")
     default public WebElement $(By locator){
@@ -25,8 +29,8 @@ public interface StableWebElementSearch {
 
     @Step
     @Description("Find element By xpath")
-    default public WebElement $x(String xpath){
-        return assertThat(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    default public WebElement $x(By xPath){
+        return assertThat(ExpectedConditions.visibilityOfElementLocated(xPath));
     }
 
     @Step
