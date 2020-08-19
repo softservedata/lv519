@@ -26,6 +26,14 @@ public class GoogleMailAPI {
         emailUtils = new BaseMailAPI("greencitypavel@gmail.com", "1234qwerTY-", "smtp.gmail.com", BaseMailAPI.EmailFolder.INBOX);
         return this;
     }
+    @SneakyThrows(Exception.class)
+    public String getMailBySubject(String mail,String password, String subject){
+        connectToEmail(mail, password);
+        String mailContent = "";
+        Message[] email = emailUtils.getMessagesBySubject(subject, true, 5);
+        mailContent = emailUtils.getMessageContent(email[0]).trim().replaceAll("\\s+", "");
+        return mailContent;
+    }
 
     //TODO: split logic to small methods,
     //TODO: split Matcher to another class as individual functional
@@ -56,7 +64,6 @@ public class GoogleMailAPI {
     }
     @Test
     public void gmailTest(){
-
         System.out.println(new GoogleMailAPI().getconfirmURL(10));
     }
     @SneakyThrows
