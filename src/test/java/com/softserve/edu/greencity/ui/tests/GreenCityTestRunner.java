@@ -47,7 +47,7 @@ public abstract class GreenCityTestRunner {
     @Step
     public void setUpBeforeClass() {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/:4444/wd/hub"),capabilities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444//wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
