@@ -227,9 +227,29 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>${maven.resources.plugin.version}</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/allure-results</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/test/resources</directory>
+									<includes>
+										<include>allure.properties</include>
+										<include>environment.properties</include>
+										<include>categories.json</include>
+									</includes>
+								</resource>
+							</resources>
+							<encoding>${project.build.sourceEncoding}</encoding>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -242,27 +262,6 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-<!--
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>${maven.clean.plugin.version.version}</version>
-				<executions>
-					<execution>
-						<id>clean-allure-results</id>
-						<phase>clean</phase>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-						<configuration>
-							<filesets>
-								<fileset>
-									<directory>allure-results</directory>
-								</fileset>
-							</filesets>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>-->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -288,6 +287,7 @@
 							<value>${project.build.directory}/allure-results</value>
 						</property>
 					</systemProperties>
+
 				</configuration>
 			</plugin>
 
