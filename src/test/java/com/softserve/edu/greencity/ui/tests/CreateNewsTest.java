@@ -4,10 +4,9 @@ import com.softserve.edu.greencity.ui.data.User;
 import com.softserve.edu.greencity.ui.data.econews.NewsData;
 import com.softserve.edu.greencity.ui.data.econews.NewsDataRepository;
 import com.softserve.edu.greencity.ui.pages.econews.CreateNewsPage;
-import com.softserve.edu.greencity.ui.pages.econews.EconewsPage;
+import com.softserve.edu.greencity.ui.pages.econews.EcoNewsPage;
 import com.softserve.edu.greencity.ui.pages.econews.PreViewPage;
 import com.softserve.edu.greencity.ui.tools.DateUtil;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -48,8 +47,8 @@ public class CreateNewsTest extends GreenCityTestRunner {
     @Test(dataProvider = "newsDataProvider")
     public void createNewsTest(NewsData newsData) {
         logger.info("createNewsTest starts with parameters: " + newsData.toString());
-        EconewsPage econewsPage = loadApplication()
-                .navigateMenuEconews();
+        EcoNewsPage econewsPage = loadApplication()
+                .navigateMenuEcoNews();
         int expectedCount = econewsPage.getNumberOfItemComponent();
         CreateNewsPage createNewsPage = econewsPage.gotoCreateNewsPage()
                 .fillFields(newsData)
@@ -69,7 +68,7 @@ public class CreateNewsTest extends GreenCityTestRunner {
         }
         softAssert.assertAll();
         createNewsPage.publishNews();
-        econewsPage = createNewsPage.navigateMenuEconews();
+        econewsPage = createNewsPage.navigateMenuEcoNews();
         Assert.assertEquals(econewsPage.getNumberOfItemComponent(), expectedCount + 1);
         econewsPage.signOut();
     }
@@ -82,8 +81,8 @@ public class CreateNewsTest extends GreenCityTestRunner {
     @Test(dataProvider = "newsDataProvider")
     public void createNewsFromPreViewTest(NewsData newsData) {
         logger.info("createNewsFromPreViewTest starts with parameters: " + newsData.toString());
-        EconewsPage econewsPage = loadApplication()
-                .navigateMenuEconews();
+        EcoNewsPage econewsPage = loadApplication()
+                .navigateMenuEcoNews();
         int expectedCount = econewsPage.getNumberOfItemComponent();
         PreViewPage preViewPage = econewsPage
                 .gotoCreateNewsPage()
@@ -112,8 +111,8 @@ public class CreateNewsTest extends GreenCityTestRunner {
     @Test(dataProvider = "newsDataProvider")
     public void createNewsAfterPreViewTest(NewsData newsData) {
         logger.info("createNewsAfterPreViewTest starts with parameters: " + newsData.toString());
-        EconewsPage econewsPage = loadApplication()
-                .navigateMenuEconews();
+        EcoNewsPage econewsPage = loadApplication()
+                .navigateMenuEcoNews();
         int expectedCount = econewsPage.getNumberOfItemComponent();
         PreViewPage preViewPage = econewsPage.gotoCreateNewsPage()
                 .fillFields(newsData)
@@ -146,7 +145,7 @@ public class CreateNewsTest extends GreenCityTestRunner {
 //            softAssert.assertTrue(createNewsPage.isPictureUploaded(), "Picture is not uploaded");
 //        }TODO this assertion fail because of bug in the developers side. They should fix this place.
         softAssert.assertAll();
-        econewsPage = createNewsPage.publishNews().navigateMenuEconews();
+        econewsPage = createNewsPage.publishNews().navigateMenuEcoNews();
         Assert.assertEquals(econewsPage.getNumberOfItemComponent(), expectedCount + 1);
         econewsPage.signOut();
     }
@@ -158,8 +157,8 @@ public class CreateNewsTest extends GreenCityTestRunner {
     @Test
     public void cancelNewsCreatingTest() {
         logger.info("cancelNewsCreatingTest starts");
-        EconewsPage econewsPage = loadApplication()
-                .navigateMenuEconews();
+        EcoNewsPage econewsPage = loadApplication()
+                .navigateMenuEcoNews();
         int expectedCount = econewsPage.getNumberOfItemComponent();
         econewsPage = econewsPage.gotoCreateNewsPage()
                 .cancelNewsCreating();
@@ -177,7 +176,7 @@ public class CreateNewsTest extends GreenCityTestRunner {
         logger.info("createNewsNegativeTest starts with parameters: " + newsData.toString());
         SoftAssert softAssert = new SoftAssert();
         CreateNewsPage createNewsPage = loadApplication()
-                .navigateMenuEconews()
+                .navigateMenuEcoNews()
                 .gotoCreateNewsPage();
         createNewsPage.clearSourceField();
         createNewsPage.setSourceField(newsData.getSource());

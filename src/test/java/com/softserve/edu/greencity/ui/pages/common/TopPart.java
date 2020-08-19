@@ -6,24 +6,29 @@ import com.softserve.edu.greencity.ui.pages.cabinet.GoogleAccountManagerPage;
 import com.softserve.edu.greencity.ui.pages.cabinet.LoginComponent;
 import com.softserve.edu.greencity.ui.pages.cabinet.MyCabinetPage;
 import com.softserve.edu.greencity.ui.pages.cabinet.RegisterComponent;
-import com.softserve.edu.greencity.ui.pages.econews.EconewsPage;
+import com.softserve.edu.greencity.ui.pages.econews.EcoNewsPage;
 import com.softserve.edu.greencity.ui.pages.map.MapPage;
 import com.softserve.edu.greencity.ui.pages.tipstricks.TipsTricksPage;
+import com.softserve.edu.greencity.ui.tools.StableWebElementSearch;
 import com.softserve.edu.greencity.ui.tools.WindowManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Base Abstract Class of Header and Footer.
  *
  * @author Lv-493.Taqc/Java
  */
-public abstract class TopPart {
+public abstract class TopPart implements StableWebElementSearch {
     public static final String PROFILE_NAME = "Nadiia Steblivets";
 
     private final int WINDOW_WIDTH_TO_SCROLL = 1024;
@@ -38,6 +43,25 @@ public abstract class TopPart {
     private TopGuestComponent topGuestComponent;
     private TopUserComponent topUserComponent;
     private GoogleAccountManagerPage googleAccountManagerPage;
+
+//    ////
+
+    private By ecoNewsButton = By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']");
+    protected WebDriverWait wait;
+
+    public WebElement getEcoNewsButton(){
+        return SearchElementByXpath(ecoNewsButton);
+    }
+
+    public EcoNewsPage clickEcoNewsButton () {
+//        wait = new WebDriverWait(driver, 10);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']")));
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']")));
+        getEcoNewsButton().click();
+        return new EcoNewsPage(driver);
+    }
+
+    ////
 
     protected WebDriver driver;
 
@@ -156,11 +180,11 @@ public abstract class TopPart {
         return driver.manage().window().getSize().height > WINDOW_HEIGHT_TO_CLICK_FOOTER;
     }
 
-    public EconewsPage navigateMenuEconews() {
+    public EcoNewsPage navigateMenuEcoNews() {
         logger.debug("go to EcoNews page");
         logger.trace("click MenuEcoNews link");
         getMainMenuDropdown().clickMenuEcoNews();
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     public TipsTricksPage navigateMenuTipsTricks() {
@@ -229,7 +253,6 @@ public abstract class TopPart {
         signIn()
                 .getManualLoginComponent()
                 .successfullyLogin(user);
-
         return new MyCabinetPage(driver);
     }
 
@@ -248,4 +271,5 @@ public abstract class TopPart {
 
         windowManager.maximizeWindow();
     }
+
 }

@@ -13,7 +13,7 @@ import com.softserve.edu.greencity.ui.data.econews.NewsData;
 
 /**
  * Contains all itemsComponents that are present on page
- * Use for OnenewsPage & EconewsPage.
+ * Use for OnenewsPage & EcoNewsPage.
  * @author lv-493
  */
 public class ItemsContainer {

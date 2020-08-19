@@ -4,8 +4,8 @@ import com.softserve.edu.greencity.ui.data.Languages;
 import com.softserve.edu.greencity.ui.data.econews.NewsData;
 import com.softserve.edu.greencity.ui.data.econews.Tag;
 import com.softserve.edu.greencity.ui.pages.common.TopPart;
-import com.softserve.edu.greencity.ui.tools.CheckPage;
 import com.softserve.edu.greencity.ui.tools.QuantityItems;
+import com.softserve.edu.greencity.ui.tools.StableWebElementSearch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,25 +18,24 @@ import java.util.List;
 /**
  * @author lv-493 Taqc/Java
  */
-public class EconewsPage extends TopPart {
+public class EcoNewsPage extends TopPart implements StableWebElementSearch {
 
-    private TagsComponent tagsComponent;
-    private WebElement createNewsButton;
-    private WebElement gridView;
-    private WebElement listView;
     private ItemsContainer itemsContainer;
-    private WebElement foundItems;
+    private TagsComponent tagsComponent;
+    private By createNewsButton = By.id("create-button");
+    private By gridView = By.cssSelector("div.gallery-view");
+    private By listView = By.cssSelector("div.list-view");
+    private By foundItems = By.cssSelector("p[class*='ng-star-inserted']");
 
-    public EconewsPage(WebDriver driver) {
+    public EcoNewsPage(WebDriver driver) {
         super(driver);
-        if(driver.findElements(By.cssSelector(".sign-up-link .create-button")).size() == 0) {
+        if (driver.findElements(By.cssSelector(".sign-up-link .create-button")).size() == 0) {
             new WebDriverWait(driver, 10)
                     .until(ExpectedConditions.visibilityOf(getCreateNewsButton()));
         } else {
             new WebDriverWait(driver, 10)
                     .until(ExpectedConditions.visibilityOf(getGridView()));
         }
-
         visualiseElements();
     }
 
@@ -54,19 +53,12 @@ public class EconewsPage extends TopPart {
         }
     }
 
-    private void initElements() {
-        gridView = driver.findElement(By.cssSelector("div[class*='gallery-view']"));
-        listView = driver.findElement(By.cssSelector("div[class*='list-view']"));
-        foundItems = driver.findElement(By.cssSelector("p[class*='ng-star-inserted']"));
-    }
-
     private TagsComponent getTagsComponent() {
         return tagsComponent = new TagsComponent(driver);
     }
 
     private WebElement getFoundItems() {
-        foundItems = driver.findElement(By.cssSelector("p[class*='ng-star-inserted']"));
-        return foundItems;
+        return SearchElementByCss(foundItems);
     }
 
     private String getFoundItemsText() {
@@ -74,8 +66,7 @@ public class EconewsPage extends TopPart {
     }
 
     public WebElement getGridView() {
-        gridView = driver.findElement(By.cssSelector("div.gallery-view"));
-        return gridView;
+        return SearchElementByCss(gridView);
     }
 
     public boolean isActiveGridView() {
@@ -90,8 +81,7 @@ public class EconewsPage extends TopPart {
     }
 
     private WebElement getListView() {
-        listView = driver.findElement(By.cssSelector("div[class*='list-view']"));
-        return listView;
+        return SearchElementByCss(listView);
     }
 
     public boolean isActiveListView() {
@@ -106,7 +96,7 @@ public class EconewsPage extends TopPart {
     }
 
     private WebElement getCreateNewsButton() {
-        return createNewsButton = driver.findElement(By.id("create-button"));
+        return driver.findElement(createNewsButton);
     }
 
     private String getCreateNewsButtonText() {
@@ -127,7 +117,6 @@ public class EconewsPage extends TopPart {
      * @param el
      */
     private void scrollToElement(WebElement el) {
-
         Actions action = new Actions(driver);
         action.moveToElement(el).perform();
     }
@@ -146,12 +135,11 @@ public class EconewsPage extends TopPart {
     }
 
     /**
-     * Get number of ItemComponent, what are present on EconewsPage
+     * Get number of ItemComponent, what are present on EcoNewsPage
      *
      * @return int
      */
     public int getNumberOfItemComponent() {
-
         return new QuantityItems().quantityItems(getFoundItemsText());
     }
 
@@ -159,57 +147,55 @@ public class EconewsPage extends TopPart {
      * Method allows to choose type of news, which will be displayed on the EcoNewsPage
      *
      * @param tags
-     * @return EconewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage selectFilters(List<Tag> tags) {
-
+    public EcoNewsPage selectFilters(List<Tag> tags) {
         scrollToElement(getTagsComponent().getTags().get(1));
         getTagsComponent().selectTags(tags);
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     /**
      * Method allows to choose type of news, which will be displayed on the EcoNewsPage
      *
      * @param tags
-     * @return EconewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage deselectFilters(List<Tag> tags) {
-
+    public EcoNewsPage deselectFilters(List<Tag> tags) {
         scrollToElement(getTagsComponent().getTags().get(1));
         getTagsComponent().deselectTags(tags);
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     /**
      * Choose language
      *
      * @param language
-     * @return EconewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage switchLanguage(Languages language) {
+    public EcoNewsPage switchLanguage(Languages language) {
         chooseLanguage(language);
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     /**
      * News are displayed as grid
      *
-     * @return EconewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage switchToGridViev() {
+    public EcoNewsPage switchToGridView() {
         clickGridView();
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     /**
      * News are displaeyd as list
      *
-     * @return EconewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage switchToListViev() {
+    public EcoNewsPage switchToListView() {
         clickListView();
-        return new EconewsPage(driver);
+        return new EcoNewsPage(driver);
     }
 
     /**
@@ -218,7 +204,7 @@ public class EconewsPage extends TopPart {
      * @param number
      * @return OneNewsPage
      */
-    public OneNewsPage switchToOneNewsPagebyNumber(int number) {
+    public OneNewsPage switchToSingleNewsPageByNumber(int number) {
         scrollToElement(itemsContainer.chooseNewsByNumber(number).getIitle());
         itemsContainer.chooseNewsByNumber(number).clickTitle();
         return new OneNewsPage(driver);
@@ -230,8 +216,7 @@ public class EconewsPage extends TopPart {
      * @param news
      * @return OneNewsPage
      */
-    public OneNewsPage switchToOneNewsPagebyParameters(NewsData news) {
-
+    public OneNewsPage switchToSingleNewsPageByParameters(NewsData news) {
         scrollToElement(itemsContainer.findItemComponentByParameters(news).getIitle());
         itemsContainer.clickItemComponentOpenPage(news);
         return new OneNewsPage(driver);
@@ -247,4 +232,10 @@ public class EconewsPage extends TopPart {
         clickCreateNewsButton();
         return new CreateNewsPage(driver);
     }
+
+    @Override
+    public WebDriver setDriver() {
+        return this.driver;
+    }
+
 }

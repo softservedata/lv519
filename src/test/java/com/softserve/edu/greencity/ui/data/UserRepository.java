@@ -33,7 +33,7 @@ public final class UserRepository {
 
     public User temporary() {
         return new User(property.getProperty("temporaryLoginName"),
-                System.getenv().get(property.getProperty("temporaryPass")));
+                property.getProperty("temporaryPass"));
     }
 
     public User defaultUserCredentials() {

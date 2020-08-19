@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Components of CreateNewsPage & EconewsPage
+ * Components of CreateNewsPage & EcoNewsPage
  * Contains WebElemets that define type of news(names of news is in enum Tag)
  *
  * @author lv-492
@@ -31,7 +31,7 @@ public class TagsComponent {
         // init elements
         tags = driver.findElements(By.cssSelector("div.tags > button"));  //for CreateNewsPage 
         if (tags.size() == 0) {
-            tags = driver.findElements(By.cssSelector("ul.ul-eco-buttons > a > li")); //for EconewsPage
+            tags = driver.findElements(By.cssSelector("ul.ul-eco-buttons > a > li")); //for EcoNewsPage
         }
     }
 

@@ -124,11 +124,11 @@ public class OneNewsPage extends TopPart {
     }
     
     /**
-     * Return to EconewsPage
-     * @return EconewsPage
+     * Return to EcoNewsPage
+     * @return EcoNewsPage
      */
-    public EconewsPage switchToEconewsPageBack() {
+    public EcoNewsPage switchToEconewsPageBack() {
     	clickGoToNewsButton();
-		return new EconewsPage(driver);
+		return new EcoNewsPage(driver);
     }
 }
