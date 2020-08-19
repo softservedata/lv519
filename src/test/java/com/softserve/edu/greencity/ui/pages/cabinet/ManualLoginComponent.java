@@ -34,7 +34,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Email Field
     @Step
     public WebElement getEmailField() {
-        return $(emailField);
+        return SearchElementByCss(emailField);
     }
     @Step
     public boolean isDisplayedEmailField() {
@@ -48,7 +48,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Password field
     @Step
     public WebElement getPasswordField() {
-        return $(passwordField);
+        return SearchElementByCss(passwordField);
     }
     @Step
     public boolean isDisplayedPasswordField() {
@@ -56,13 +56,13 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public WebElement getPasswordFieldWrapper() {
-        return $(passwordFieldWrapper);
+        return SearchElementByCss(passwordFieldWrapper);
     }
 
     //Sign in button
     @Step
     public WebElement getSignInButton() {
-        return $x(signInButton);
+        return SearchElementByXpath(signInButton);
     }
     @Step
     public boolean isDisplayedSignInButton() {
@@ -83,7 +83,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     public WebElement getWrongEmailOrPassError() {
         wait = new WebDriverWait(driver, 4);
         wait.until(ExpectedConditions.visibilityOfElementLocated(wrongEmailOrPassError));
-        return $(wrongEmailOrPassError);
+        return SearchElementByCss(wrongEmailOrPassError);
     }
     @Step
     public String getWrongEmailOrPassErrorText() {
@@ -94,7 +94,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Email Validator
     @Step
     public WebElement getEmailValidationError() {
-        return $(emailValidationError);
+        return SearchElementByCss(emailValidationError);
     }
     @Step
     public boolean IsDisplayedEmailValidationError() {
@@ -102,17 +102,17 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public boolean isSuccessfulEmailValidation() {
-        return $(successEmailValidation).isDisplayed();
+        return SearchElementByCss(successEmailValidation).isDisplayed();
     }
     @Step
     public boolean isUnsuccessfulEmailValidation() {
-        return $(unSuccessEmailValidation).isDisplayed();
+        return SearchElementByCss(unSuccessEmailValidation).isDisplayed();
     }
 
     //Password Validator
     @Step
     public WebElement getPasswordValidationError() {
-        return $(passwordValidationError);
+        return SearchElementByCss(passwordValidationError);
     }
     @Step
     public boolean IsPasswordValidationError() {
@@ -120,11 +120,11 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public boolean isSuccessfulPasswordValidation() {
-        return $(successfulPasswordValidation).isDisplayed();
+        return SearchElementByCss(successfulPasswordValidation).isDisplayed();
     }
     @Step
     public boolean isUnsuccessfulPasswordValidation() {
-        return $(unSuccessPasswordValidation).isDisplayed();
+        return SearchElementByCss(unSuccessPasswordValidation).isDisplayed();
     }
 
     //Fill email field

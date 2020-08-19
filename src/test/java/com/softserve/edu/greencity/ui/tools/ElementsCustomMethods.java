@@ -3,10 +3,8 @@ package com.softserve.edu.greencity.ui.tools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class ElementsCustomMethods implements StableWebElementSearch{
 
@@ -39,7 +37,7 @@ public class ElementsCustomMethods implements StableWebElementSearch{
 
     public boolean isElementPresent(By locator) {
         try {
-            $(locator);
+            SearchElementByCss(locator);
             return true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;

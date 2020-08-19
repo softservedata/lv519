@@ -42,13 +42,13 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Sign in popup window
     @Step
     protected WebElement getLoginModalWindow() {
-        return $(modalWindow);
+        return SearchElementByCss(modalWindow);
     }
 
     //Title
     @Step
     protected WebElement getTitle() {
-        return $(title);
+        return SearchElementByCss(title);
     }
     @Step
     public String getTitleText() {
@@ -60,7 +60,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //SubTitle
     @Step
     protected WebElement getSubtitle() {
-        return $(subtitle);
+        return SearchElementByCss(subtitle);
     }
     @Step
     public String getSubtitleText() {
@@ -70,7 +70,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Forgot password
     @Step
     public WebElement getForgotPasswordLink() {
-        return $(forgotPasswordLink);
+        return SearchElementByCss(forgotPasswordLink);
     }
     @Step
     public boolean isDisplayedForgotPasswordLink() {
@@ -80,7 +80,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Sign in with Google
     @Step
     public WebElement getSingInWithGoogleButton() {
-        return $(singInWithGoogleButton);
+        return SearchElementByCss(singInWithGoogleButton);
     }
     @Step
     public boolean isDisplayedSingInWithGoogleButton() {
@@ -97,7 +97,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     public WebElement getSignUpLink() {
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(singUpLink));
-        return $(singUpLink);
+        return SearchElementByCss(singUpLink);
     }
     @Step
     public boolean isDisplayedSignUpLink() {
@@ -112,7 +112,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Close Sign in popup window
     @Step
     public WebElement getCloseFormButton() {
-        return $(closeFormButton);
+        return SearchElementByCss(closeFormButton);
     }
     @Step
     public void closeLoginComponent() {

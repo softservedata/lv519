@@ -6,15 +6,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.function.Function;
 
 
 public class RegisterComponent extends TopPart implements StableWebElementSearch {
@@ -48,13 +43,13 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
     // modal window
     @Step
     public WebElement getRegisterModalWindow() {
-        return $(MODAL_WINDOW_CSS);
+        return SearchElementByCss(MODAL_WINDOW_CSS);
     }
 
     // title
     @Step
     protected WebElement getTitle() {
-        return $(TITLE_CSS);
+        return SearchElementByCss(TITLE_CSS);
     }
 
     @Step
@@ -64,7 +59,7 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     protected WebElement getSubtitle() {
-        return $(SUBTITLE_CSS);
+        return SearchElementByCss(SUBTITLE_CSS);
     }
 
     @Step
@@ -75,7 +70,7 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     public void closeRegisterComponentModal() {
-        $(closeModalButton).click();
+        SearchElementByCss(closeModalButton).click();
     }
 
 
@@ -101,12 +96,12 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
      */
     @Step
     protected WebElement getGoogleSignUpButton() {
-        return $(GOOGLE_SIGN_UP_BUTTON_CLASS);
+        return SearchElementByCss(GOOGLE_SIGN_UP_BUTTON_CLASS);
     }
 
     @Step
     protected WebElement getSignInLink() {
-        return $(SIGN_IN_LINK_CSS);
+        return SearchElementByCss(SIGN_IN_LINK_CSS);
     }
 
     @Step
@@ -117,7 +112,7 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     public WebElement getCongratsModal() {
-        return $(CONGRATS_MODAL_CSS);
+        return SearchElementByCss(CONGRATS_MODAL_CSS);
     }
 
     @Override

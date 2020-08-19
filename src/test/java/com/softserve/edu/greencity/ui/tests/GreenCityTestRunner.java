@@ -47,11 +47,7 @@ public abstract class GreenCityTestRunner {
     @Step
     public void setUpBeforeClass() {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-        System.setProperty("webdriver.chrome.verboseLogging", "false");
-        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
-        java.util.logging.Logger.getLogger("org.openqa.selenium.remote").setLevel(Level.OFF);
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+        driver = new RemoteWebDriver(new URL("http://192.168.1.7:4444/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
