@@ -42,13 +42,13 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Sign in popup window
     @Step
     protected WebElement getLoginModalWindow() {
-        return SearchElementByCss(modalWindow);
+        return searchElementByCss(modalWindow);
     }
 
     //Title
     @Step
     protected WebElement getTitle() {
-        return SearchElementByCss(title);
+        return searchElementByCss(title);
     }
     @Step
     public String getTitleText() {
@@ -60,7 +60,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //SubTitle
     @Step
     protected WebElement getSubtitle() {
-        return SearchElementByCss(subtitle);
+        return searchElementByCss(subtitle);
     }
     @Step
     public String getSubtitleText() {
@@ -70,7 +70,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Forgot password
     @Step
     public WebElement getForgotPasswordLink() {
-        return SearchElementByCss(forgotPasswordLink);
+        return searchElementByCss(forgotPasswordLink);
     }
     @Step
     public boolean isDisplayedForgotPasswordLink() {
@@ -80,7 +80,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Sign in with Google
     @Step
     public WebElement getSingInWithGoogleButton() {
-        return SearchElementByCss(singInWithGoogleButton);
+        return searchElementByCss(singInWithGoogleButton);
     }
     @Step
     public boolean isDisplayedSingInWithGoogleButton() {
@@ -97,7 +97,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     public WebElement getSignUpLink() {
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(singUpLink));
-        return SearchElementByCss(singUpLink);
+        return searchElementByCss(singUpLink);
     }
     @Step
     public boolean isDisplayedSignUpLink() {
@@ -112,7 +112,7 @@ public class LoginComponent extends TopPart implements StableWebElementSearch {
     //Close Sign in popup window
     @Step
     public WebElement getCloseFormButton() {
-        return SearchElementByCss(closeFormButton);
+        return searchElementByCss(closeFormButton);
     }
     @Step
     public void closeLoginComponent() {

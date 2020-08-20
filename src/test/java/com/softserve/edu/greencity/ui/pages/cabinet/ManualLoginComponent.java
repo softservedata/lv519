@@ -34,7 +34,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Email Field
     @Step
     public WebElement getEmailField() {
-        return SearchElementByCss(emailField);
+        return searchElementByCss(emailField);
     }
     @Step
     public boolean isDisplayedEmailField() {
@@ -48,7 +48,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Password field
     @Step
     public WebElement getPasswordField() {
-        return SearchElementByCss(passwordField);
+        return searchElementByCss(passwordField);
     }
     @Step
     public boolean isDisplayedPasswordField() {
@@ -56,13 +56,13 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public WebElement getPasswordFieldWrapper() {
-        return SearchElementByCss(passwordFieldWrapper);
+        return searchElementByCss(passwordFieldWrapper);
     }
 
     //Sign in button
     @Step
     public WebElement getSignInButton() {
-        return SearchElementByXpath(signInButton);
+        return searchElementByXpath(signInButton);
     }
     @Step
     public boolean isDisplayedSignInButton() {
@@ -83,7 +83,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     public WebElement getWrongEmailOrPassError() {
         wait = new WebDriverWait(driver, 4);
         wait.until(ExpectedConditions.visibilityOfElementLocated(wrongEmailOrPassError));
-        return SearchElementByCss(wrongEmailOrPassError);
+        return searchElementByCss(wrongEmailOrPassError);
     }
     @Step
     public String getWrongEmailOrPassErrorText() {
@@ -94,7 +94,7 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     //Email Validator
     @Step
     public WebElement getEmailValidationError() {
-        return SearchElementByCss(emailValidationError);
+        return searchElementByCss(emailValidationError);
     }
     @Step
     public boolean IsDisplayedEmailValidationError() {
@@ -102,17 +102,17 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public boolean isSuccessfulEmailValidation() {
-        return SearchElementByCss(successEmailValidation).isDisplayed();
+        return searchElementByCss(successEmailValidation).isDisplayed();
     }
     @Step
     public boolean isUnsuccessfulEmailValidation() {
-        return SearchElementByCss(unSuccessEmailValidation).isDisplayed();
+        return searchElementByCss(unSuccessEmailValidation).isDisplayed();
     }
 
     //Password Validator
     @Step
     public WebElement getPasswordValidationError() {
-        return SearchElementByCss(passwordValidationError);
+        return searchElementByCss(passwordValidationError);
     }
     @Step
     public boolean IsPasswordValidationError() {
@@ -120,11 +120,11 @@ public class ManualLoginComponent extends LoginComponent implements StableWebEle
     }
     @Step
     public boolean isSuccessfulPasswordValidation() {
-        return SearchElementByCss(successfulPasswordValidation).isDisplayed();
+        return searchElementByCss(successfulPasswordValidation).isDisplayed();
     }
     @Step
     public boolean isUnsuccessfulPasswordValidation() {
-        return SearchElementByCss(unSuccessPasswordValidation).isDisplayed();
+        return searchElementByCss(unSuccessPasswordValidation).isDisplayed();
     }
 
     //Fill email field

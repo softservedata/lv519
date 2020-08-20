@@ -30,26 +30,20 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     public RegisterComponent(WebDriver driver) {
         super(driver);
-        init();
     }
 
-    @Step
-    public void init() {
-        wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(getTitle()));
-    }
 
 
     // modal window
     @Step
     public WebElement getRegisterModalWindow() {
-        return SearchElementByCss(MODAL_WINDOW_CSS);
+        return searchElementByCss(MODAL_WINDOW_CSS);
     }
 
     // title
     @Step
     protected WebElement getTitle() {
-        return SearchElementByCss(TITLE_CSS);
+        return searchElementByCss(TITLE_CSS);
     }
 
     @Step
@@ -59,7 +53,7 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     protected WebElement getSubtitle() {
-        return SearchElementByCss(SUBTITLE_CSS);
+        return searchElementByCss(SUBTITLE_CSS);
     }
 
     @Step
@@ -70,14 +64,13 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     public void closeRegisterComponentModal() {
-        SearchElementByCss(closeModalButton).click();
+        searchElementByCss(closeModalButton).click();
     }
 
 
     //Register component
     @Step
     public ManualRegisterComponent getManualRegisterComponent() {
-
         return manualRegisterComponent = new ManualRegisterComponent(driver);
     }
 
@@ -96,12 +89,12 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
      */
     @Step
     protected WebElement getGoogleSignUpButton() {
-        return SearchElementByCss(GOOGLE_SIGN_UP_BUTTON_CLASS);
+        return searchElementByCss(GOOGLE_SIGN_UP_BUTTON_CLASS);
     }
 
     @Step
     protected WebElement getSignInLink() {
-        return SearchElementByCss(SIGN_IN_LINK_CSS);
+        return searchElementByCss(SIGN_IN_LINK_CSS);
     }
 
     @Step
@@ -112,7 +105,7 @@ public class RegisterComponent extends TopPart implements StableWebElementSearch
 
     @Step
     public WebElement getCongratsModal() {
-        return SearchElementByCss(CONGRATS_MODAL_CSS);
+        return searchElementByCss(CONGRATS_MODAL_CSS);
     }
 
     @Override
