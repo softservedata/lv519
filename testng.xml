@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          parallel="methods"
-          thread-count="10"
-          name="Create_News_Test.java">
+
+<suite name="EcoNewsTestSuite">
+
+    <test name="EcoNewsTest">
         <classes>
             <class name="com.softserve.edu.greencity.ui.tests.CreateNewsPositiveTest">
+                <methods>
+                    <include name="checkThatUserOnCreateNewsForm"/>
+                    <include name="checkVisibilityOfCreateNewsButtonForRegisteredUser"/>
+                    <include name="checkInvisibilityOfCreateNewsButtonForGuest"/>
+                    <include name="verifySelectAndDeselectPossibilityOfTags"/>
+                    <include name="verifyImpossibilityOfCreatingNewsWithTooShortContent"/>
+                    <include name="verifyImpossibilityOfCreatingTestWithIncorrectUrlInSourceField"/>
+                    <include name="verifyImpossibilityOfCreatingNewsWithEmptyFields"/>
+                    <include name="verifyImpossibilityOfCreatingNewsWithoutAnyTags"/>
+                    <include name="verifyImpossibilityCreateNewsWithEmptyTitle"/>
+                </methods>
             </class>
         </classes>
-    </test>
-</suite>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->

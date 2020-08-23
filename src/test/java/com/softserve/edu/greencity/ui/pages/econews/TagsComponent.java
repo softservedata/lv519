@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 /**
  * Components of CreateNewsPage & EcoNewsPage
- * Contains WebElemets that define type of news(names of news is in enum Tag)
+ * Contains WebElements that define type of news(names of news is in enum Tag)
  *
  * @author lv-492
  */
@@ -28,20 +28,15 @@ public class TagsComponent {
     }
 
     private void initElements() {
-        // init elements
-        tags = driver.findElements(By.cssSelector("div.tags > button"));  //for CreateNewsPage 
+        tags = driver.findElements(By.cssSelector("div.tags > button"));
         if (tags.size() == 0) {
-            tags = driver.findElements(By.cssSelector("ul.ul-eco-buttons > a > li")); //for EcoNewsPage
+            tags = driver.findElements(By.cssSelector("ul.ul-eco-buttons > a > li"));
         }
     }
-
-    // Page Object
 
     protected List<WebElement> getTags() {
         return tags;
     }
-
-    // Functional
 
     /**
      * Get sorted list of Strings with tags names
@@ -139,8 +134,4 @@ public class TagsComponent {
             deselectTag(current);
         }
     }
-
-
-    // Business Logic
-
 }

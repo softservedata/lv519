@@ -44,25 +44,6 @@ public abstract class TopPart implements StableWebElementSearch {
     private TopUserComponent topUserComponent;
     private GoogleAccountManagerPage googleAccountManagerPage;
 
-//    ////
-
-    private By ecoNewsButton = By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']");
-    protected WebDriverWait wait;
-
-    public WebElement getEcoNewsButton(){
-        return SearchElementByXpath(ecoNewsButton);
-    }
-
-    public EcoNewsPage clickEcoNewsButton () {
-//        wait = new WebDriverWait(driver, 10);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']")));
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='navigation-menu-left']//a[@href = '#/news']")));
-        getEcoNewsButton().click();
-        return new EcoNewsPage(driver);
-    }
-
-    ////
-
     protected WebDriver driver;
 
     public TopPart(WebDriver driver) {
@@ -270,6 +251,11 @@ public abstract class TopPart implements StableWebElementSearch {
         WindowManager windowManager = new WindowManager(driver);
 
         windowManager.maximizeWindow();
+    }
+
+    @Override
+    public WebDriver setDriver() {
+        return this.driver;
     }
 
 }

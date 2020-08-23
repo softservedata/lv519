@@ -13,121 +13,119 @@ import com.softserve.edu.greencity.ui.data.econews.NewsData;
 
 /**
  * Contains all itemsComponents that are present on page
- * Use for OnenewsPage & EcoNewsPage.
+ * Use for SingleNewsPage & EcoNewsPage.
+ *
  * @author lv-493
  */
 public class ItemsContainer {
-	
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	 
-	private WebDriver driver;
-	private List<ItemComponent> itemComponents;
-	
-	public ItemsContainer(WebDriver driver) {
-		this.driver = driver;
-		initElements();
-	}
 
-	private void initElements() {
-		
-		itemComponents = new ArrayList<>();
-		 for (WebElement current : driver
-				 .findElements(By.xpath("//div[@class=\"container\"]//ul[contains(@class, \"list\")]/li"))) {
-			 itemComponents.add(new ItemComponent(driver, current));
-	        }
-	}
-	
-	// Page Object
-	
-    //itemComponents
-	
-	private List<ItemComponent> getItemComponents() {
-    	return itemComponents;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    private WebDriver driver;
+    private List<ItemComponent> itemComponents;
+
+    public ItemsContainer(WebDriver driver) {
+        this.driver = driver;
+        initElements();
     }
 
-	// Functional
-    
+    private void initElements() {
+        itemComponents = new ArrayList<>();
+        for (WebElement current : driver
+                .findElements(By.xpath("//div[@class=\"container\"]//ul[contains(@class, \"list\")]/li"))) {
+            itemComponents.add(new ItemComponent(driver, current));
+        }
+    }
+
+    private List<ItemComponent> getItemComponents() {
+        return itemComponents;
+    }
+
     /**
      * In this method we get how many ItemComponent is displayed
-     * @return int 
+     *
+     * @return int
      */
-	public int getItemComponentsCount(){
+    public int getItemComponentsCount() {
         return getItemComponents().size();
     }
-    
+
     /**
-     * We get list of all news headers 
+     * We get list of all news headers
+     *
      * @return list itemComponentsHeader
      */
-    private List<String> getItemComponentsHeader() {  
+    private List<String> getItemComponentsHeader() {
         List<String> itemComponentsHeader = new ArrayList<>();
-        for(ItemComponent cur : getItemComponents()) {
-        	itemComponentsHeader.add(cur.getIitleText());
+        for (ItemComponent cur : getItemComponents()) {
+            itemComponentsHeader.add(cur.getTitleText());
         }
         return itemComponentsHeader;
     }
-    
+
     /**
      * Find news by header
-     * @param  String headerName
+     *
+     * @param String headerName
      * @return ItemComponent
      */
-    protected ItemComponent getItemComponentByHeader(String headerName){
-    	ItemComponent result = null;
+    protected ItemComponent getItemComponentByHeader(String headerName) {
+        ItemComponent result = null;
         for (ItemComponent cur : getItemComponents()) {
-            if (cur.getIitleText().toLowerCase()
+            if (cur.getTitleText().toLowerCase()
                     .contains(headerName.toLowerCase())) {
                 result = cur;
                 break;
             }
         }
         if (result == null) {
-        	logger.warn("News with header " + headerName + "not exist");
-        	throw new RuntimeException("HeaderName " + headerName + " not found");
+            logger.warn("News with header " + headerName + "not exist");
+            throw new RuntimeException("HeaderName " + headerName + " not found");
         }
         return result;
     }
-    
+
     /**
      * Open new page with news given by title, tags, content
+     *
      * @param OneNewsData one
      */
     protected void clickItemComponentOpenPage(NewsData news) {
 //   	getItemComponentByHeader(news.getTitle()).clickContent();
-    	findItemComponentByParameters(news).getIitle().click();
-    	
+        findItemComponentByParameters(news).getTitle().click();
+
     }
-    
-    
+
+
     /**
      * Find appropriate news by its parameters: title, list tags & content
-     * @param  OneNewsData 
+     *
+     * @param OneNewsData
      * @return ItemComponent
      */
     protected ItemComponent findItemComponentByParameters(NewsData news) {
-    	ItemComponent result = null;
-    	for(ItemComponent cur : getItemComponents() ) {
-    		if(cur.getIitleText().toLowerCase().equals(news.getTitle().toLowerCase()) 
-    				&& cur.getTagsText().equals(news.getTagsName())
-    				&& news.getContent().toLowerCase().contains(cur.getContentText().toLowerCase())) {
-    					result = cur;
-    		}
-    	}
-    	if (result == null) {
-    		logger.warn("News with parameters " + news.toString() + "not exist");
-             throw new RuntimeException("ItemComponent with parameters " + news.toString() + " not found");
-         }
-		return result;	
+        ItemComponent result = null;
+        for (ItemComponent cur : getItemComponents()) {
+            if (cur.getTitleText().toLowerCase().equals(news.getTitle().toLowerCase())
+                    && cur.getTagsText().equals(news.getTagsName())
+                    && news.getContent().toLowerCase().contains(cur.getContentText().toLowerCase())) {
+                result = cur;
+            }
+        }
+        if (result == null) {
+            logger.warn("News with parameters " + news.toString() + "not exist");
+            throw new RuntimeException("ItemComponent with parameters " + news.toString() + " not found");
+        }
+        return result;
     }
-    
+
     /**
      * this method return ItemComponent by its number
+     *
      * @param number
      * @return ItemComponent
      */
- 	protected ItemComponent chooseNewsByNumber(int number) {
- 				return getItemComponents().get(number);
-	}
-    
-	// Business Logic
- 	}
+    protected ItemComponent chooseNewsByNumber(int number) {
+        return getItemComponents().get(number);
+    }
+}

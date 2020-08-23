@@ -1,59 +1,43 @@
 package com.softserve.edu.greencity.ui.pages.common;
 
+import com.softserve.edu.greencity.ui.tools.StableWebElementSearch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainMenuDropdown {
-    private WebDriver driver;
-    //
-    private WebElement naviconButton;
-    //
-    //private WebElement menuHome;
-    private WebElement menuEcoNews;
-    private WebElement menuTipsTricks;
-    private WebElement menuMap;
-    private WebElement menuMyHabits;
-    private WebElement menuAbout;
-    //
-    private WebElement footerEcoNews;
-    private WebElement footerTipsTricks;
-    private WebElement footerPlaces;
-    private WebElement footerMyHabits;
-    private WebElement footerAbout;
+public class MainMenuDropdown implements StableWebElementSearch {
 
-    private WebDriverWait wait;
+    private WebDriver driver;
+    protected WebDriverWait wait;
+
+    private By naviconButton = By.cssSelector("div.menu-icon");
+
+    private By menuEcoNews = By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/news']");
+    private By menuTipsTricks = By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/tips']");
+    private By menuMap = By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/map']");
+    private By menuAbout = By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/about']");
+    private By menuMyHabits = By.cssSelector(".navigation-menu-left > ul > li > a[href*='/profile']");
+
+    private By footerEcoNews = By.cssSelector("app-footer a[href*='/news']");
+    private By footerTipsTricks = By.xpath("//div[@class = 'links']//a[contains(text(),'Tips & Tricks')]");
+    private By footerPlaces = By.cssSelector("app-footer a[href*='/map']");
+    private By footerMyHabits = By.cssSelector("app-footer a[href*='/profile']");
+    private By footerAbout = By.cssSelector("app-footer a[href*='/about']");
 
     public MainMenuDropdown(WebDriver driver) {
         this.driver = driver;
-        initElements();
+        checkElements();
     }
 
-    private void initElements() {
-        // init elements
-        naviconButton = driver.findElement(By.cssSelector("div.menu-icon"));
-        //menuHome = driver.findElement(By.cssSelector("ul.menu > li:first-child > a[href*='/welcome']"));
-        menuEcoNews = driver.findElement(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/news']"));
-        menuTipsTricks = driver.findElement(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/welcome']"));
-        menuMap = driver.findElement(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/map']"));
-        menuMyHabits = driver.findElement(By.cssSelector(".navigation-menu-left > ul > li > a[href*='/profile']"));
-        menuAbout = driver.findElement(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/about']"));
-        //
-        footerEcoNews = driver.findElement(By.cssSelector("div.app-footer a[href*='/news']"));
-        footerTipsTricks = driver.findElement(By.xpath("//div[@class='app-footer']//a[contains(@href, '/news')]/../following-sibling::li/a[@href='']"));
-        footerPlaces = driver.findElement(By.cssSelector("div.app-footer a[href*='/map']"));
-        footerMyHabits = driver.findElement(By.cssSelector(".app-footer a[href*='/profile']"));
-        footerAbout = driver.findElement(By.cssSelector("div.app-footer a[href*='/about']"));
+    private void checkElements() {
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(getMenuEcoNews()));
     }
-
-    // Page Object
-
-    // naviconButton
 
     public WebElement getNaviconButton() {
-        return naviconButton;
+        return SearchElementByCss(naviconButton);
     }
 
     public String getNaviconButtonText() {
@@ -71,10 +55,7 @@ public class MainMenuDropdown {
     }
 
     public WebElement getMenuEcoNews() {
-        if (!isDisplayedMenuEcoNews()) {
-            clickNaviconButton();
-        }
-        return menuEcoNews;
+        return SearchElementByCss(menuEcoNews);
     }
 
     public String getMenuEcoNewsText() {
@@ -82,28 +63,20 @@ public class MainMenuDropdown {
     }
 
     public void clickMenuEcoNews() {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/news']")));
         getMenuEcoNews().click();
     }
 
     public boolean isDisplayedMenuEcoNews() {
-        //return getMenuEcoNews().isDisplayed();
-        return menuEcoNews.isDisplayed();
+        return getMenuEcoNews().isDisplayed();
     }
 
-    // menuTipsTricks
-
     public WebElement getMenuTipsTricks() {
-        if (!isDisplayedMenuTipsTricks()) {
-            clickNaviconButton();
-        }
-
-        return menuTipsTricks;
+        return SearchElementByCss(menuTipsTricks);
     }
 
     public String getMenuTipsTricksText() {
-        wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.navigation-menu-left > ul > li > a[href*='/welcome']")));
-
         return getMenuTipsTricks().getText();
     }
 
@@ -113,17 +86,11 @@ public class MainMenuDropdown {
     }
 
     public boolean isDisplayedMenuTipsTricks() {
-        //return getMenuTipsTricks().isDisplayed();
-        return menuTipsTricks.isDisplayed();
+        return getMenuTipsTricks().isDisplayed();
     }
 
-    // menuMap
-
     public WebElement getMenuMap() {
-        if (!isDisplayedMenuMap()) {
-            clickNaviconButton();
-        }
-        return menuMap;
+        return SearchElementByCss(menuMap);
     }
 
     public String getMenuMapText() {
@@ -135,17 +102,14 @@ public class MainMenuDropdown {
     }
 
     public boolean isDisplayedMenuMap() {
-        //return getMenuMap().isDisplayed();
-        return menuMap.isDisplayed();
+        return getMenuMap().isDisplayed();
     }
-
-    // menuMyCabinet
 
     public WebElement getMenuMyHabits() {
         if (!isDisplayedMenuMyCabinet()) {
             clickNaviconButton();
         }
-        return menuMyHabits;
+        return SearchElementByCss(menuMyHabits);
     }
 
     public String getMenuMyCabinetText() {
@@ -157,17 +121,11 @@ public class MainMenuDropdown {
     }
 
     public boolean isDisplayedMenuMyCabinet() {
-        //return getMenuMycabinet().isDisplayed();
-        return menuMyHabits.isDisplayed();
+        return getMenuMyHabits().isDisplayed();
     }
 
-    // menuAbout
-
     public WebElement getMenuAbout() {
-        if (!isDisplayedMenuAbout()) {
-            clickNaviconButton();
-        }
-        return menuAbout;
+        return SearchElementByCss(menuAbout);
     }
 
     public String getMenuAboutText() {
@@ -179,14 +137,11 @@ public class MainMenuDropdown {
     }
 
     public boolean isDisplayedMenuAbout() {
-        //return getMenuAbout().isDisplayed();
-        return menuAbout.isDisplayed();
+        return getMenuAbout().isDisplayed();
     }
 
-    // footerEcoNews
-
     public WebElement getFooterEcoNews() {
-        return footerEcoNews;
+        return SearchElementByCss(footerEcoNews);
     }
 
     public String getFooterEcoNewsText() {
@@ -197,10 +152,8 @@ public class MainMenuDropdown {
         getFooterEcoNews().click();
     }
 
-    // footerTipsTricks
-
     public WebElement getFooterTipsTricks() {
-        return footerTipsTricks;
+        return SearchElementByXpath(footerTipsTricks);
     }
 
     public String getFooterTipsTricksText() {
@@ -211,10 +164,8 @@ public class MainMenuDropdown {
         getFooterTipsTricks().click();
     }
 
-    // footerMap
-
     public WebElement getFooterPlaces() {
-        return footerPlaces;
+        return SearchElementByCss(footerPlaces);
     }
 
     public String getFooterPlacesText() {
@@ -225,10 +176,8 @@ public class MainMenuDropdown {
         getFooterPlaces().click();
     }
 
-    // footerMyCabinet
-
     public WebElement getFooterMyHabits() {
-        return footerMyHabits;
+        return SearchElementByCss(footerMyHabits);
     }
 
     public String getFooterMyCabinetText() {
@@ -239,10 +188,8 @@ public class MainMenuDropdown {
         getFooterMyHabits().click();
     }
 
-    // footerAbout
-
     public WebElement getFooterAbout() {
-        return footerAbout;
+        return SearchElementByCss(footerAbout);
     }
 
     public String getFooterAboutText() {
@@ -253,8 +200,6 @@ public class MainMenuDropdown {
         getFooterAbout().click();
     }
 
-    // Functional
-
     public void closeNaviconButton() {
         if (isDisplayedNaviconButton()
                 && (isDisplayedMenuEcoNews() || isDisplayedMenuTipsTricks())) {
@@ -262,5 +207,9 @@ public class MainMenuDropdown {
         }
     }
 
-    // Business Logic
+    @Override
+    public WebDriver setDriver() {
+        return this.driver;
+    }
+
 }

@@ -20,23 +20,25 @@ import java.util.List;
  */
 public class EcoNewsPage extends TopPart implements StableWebElementSearch {
 
+    protected WebDriverWait wait;
+
     private ItemsContainer itemsContainer;
     private TagsComponent tagsComponent;
     private By createNewsButton = By.id("create-button");
     private By gridView = By.cssSelector("div.gallery-view");
     private By listView = By.cssSelector("div.list-view");
-    private By foundItems = By.cssSelector("p[class*='ng-star-inserted']");
+    private By foundItems = By.xpath("//*[@class='ng-star-inserted']");
 
     public EcoNewsPage(WebDriver driver) {
         super(driver);
-        if (driver.findElements(By.cssSelector(".sign-up-link .create-button")).size() == 0) {
-            new WebDriverWait(driver, 10)
-                    .until(ExpectedConditions.visibilityOf(getCreateNewsButton()));
-        } else {
-            new WebDriverWait(driver, 10)
-                    .until(ExpectedConditions.visibilityOf(getGridView()));
-        }
-        visualiseElements();
+        checkElements();
+//        visualiseElements();
+    }
+
+    private void checkElements(){
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(getGridView()));
+        wait.until(ExpectedConditions.visibilityOf(getListView()));
     }
 
     private void visualiseElements() {
@@ -58,7 +60,7 @@ public class EcoNewsPage extends TopPart implements StableWebElementSearch {
     }
 
     private WebElement getFoundItems() {
-        return SearchElementByCss(foundItems);
+        return SearchElementByXpath(foundItems);
     }
 
     private String getFoundItemsText() {
@@ -199,27 +201,27 @@ public class EcoNewsPage extends TopPart implements StableWebElementSearch {
     }
 
     /**
-     * Open OneNewsPage
+     * Open SingleNewsPage
      *
      * @param number
-     * @return OneNewsPage
+     * @return SingleNewsPage
      */
-    public OneNewsPage switchToSingleNewsPageByNumber(int number) {
-        scrollToElement(itemsContainer.chooseNewsByNumber(number).getIitle());
+    public SingleNewsPage switchToSingleNewsPageByNumber(int number) {
+        scrollToElement(itemsContainer.chooseNewsByNumber(number).getTitle());
         itemsContainer.chooseNewsByNumber(number).clickTitle();
-        return new OneNewsPage(driver);
+        return new SingleNewsPage(driver);
     }
 
     /**
-     * Open OneNewsPage
+     * Open SingleNewsPage
      *
      * @param news
-     * @return OneNewsPage
+     * @return SingleNewsPage
      */
-    public OneNewsPage switchToSingleNewsPageByParameters(NewsData news) {
-        scrollToElement(itemsContainer.findItemComponentByParameters(news).getIitle());
+    public SingleNewsPage switchToSingleNewsPageByParameters(NewsData news) {
+        scrollToElement(itemsContainer.findItemComponentByParameters(news).getTitle());
         itemsContainer.clickItemComponentOpenPage(news);
-        return new OneNewsPage(driver);
+        return new SingleNewsPage(driver);
     }
 
     /**

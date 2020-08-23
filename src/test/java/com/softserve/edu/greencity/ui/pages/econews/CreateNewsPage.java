@@ -20,10 +20,12 @@ import java.util.List;
  */
 public class CreateNewsPage extends TopPart implements StableWebElementSearch {
 
+    protected WebDriverWait wait;
+
     private final String VALUE_ATTRIBUTE = "value";
     private final String CLASS_ATTRIBUTE = "class";
     private TagsComponent tagsComponent;
-    private By titleField = By.cssSelector("input[formcontrolname='title']");
+    private By titleField = By.cssSelector("textarea[formcontrolname='title']");
     private By sourceField = By.cssSelector("div[formarrayname='tags']+label > input");
     private By contentField = By.cssSelector("div.textarea-wrapper > textarea");
     private By dateField = By.cssSelector("div.date > p:first-child > span");
@@ -40,10 +42,10 @@ public class CreateNewsPage extends TopPart implements StableWebElementSearch {
 
     public CreateNewsPage(WebDriver driver) {
         super(driver);
-        initElements();
+        checkElements();
     }
 
-    private void initElements() {
+    private void checkElements() {
         tagsComponent = new TagsComponent(driver);
     }
 
@@ -216,9 +218,6 @@ public class CreateNewsPage extends TopPart implements StableWebElementSearch {
         return getTagsDescription().getAttribute(CLASS_ATTRIBUTE).contains("warning");
     }
 
-    // Functional
-
-    // Drop and upload file
     public CreateNewsPage uploadFile(WebElement dropArea, String path) {
         String absolutePath = new File(path).getAbsolutePath();
         UploadFileUtil.DropFile(new File(absolutePath), dropArea, 0, 0);
@@ -236,7 +235,6 @@ public class CreateNewsPage extends TopPart implements StableWebElementSearch {
      * @param newsData
      * @return CreateNewsPage
      */
-
     public CreateNewsPage fillFields(NewsData newsData) {
         clearTitleField();
         setTitleField(newsData.getTitle());
@@ -252,7 +250,6 @@ public class CreateNewsPage extends TopPart implements StableWebElementSearch {
         }
         return this;
     }
-    // Business Logic
 
     /**
      * Method to get list of selected tags names from TagsComponent
