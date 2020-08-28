@@ -22,6 +22,35 @@
 		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>single</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profile.variable>single start</profile.variable>
+			</properties>
+		</profile>
+		<profile>
+			<id>parallel</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<profile.variable>parallel start</profile.variable>
+			</properties>
+		</profile>
+		<profile>
+			<id>ci</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<profile.variable>ci start</profile.variable>
+			</properties>
+		</profile>
+	</profiles>
 
 	<dependencies>
 
@@ -57,6 +86,32 @@
 				</configuration>
 			</plugin>
 
+			<!-- !!! move to parallel profile. TODO test not started -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>test-compile</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>test-compile</phase>
+						<configuration>
+							<executable>start.bat</executable>
+<!-- 							<executable>java</executable> -->
+<!-- 							<arguments> -->
+<!-- 								<argument>-jar</argument> -->
+<!-- 								<argument>grid.jar</argument> -->
+<!-- 								<argument>-role</argument> -->
+<!-- 								<argument>hub</argument> -->
+<!-- 							</arguments> -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -68,6 +123,9 @@
 						<surefire.application.password>
 							${application.password}
 						</surefire.application.password>
+						<surefire.application.secret>
+							${profile.variable}
+						</surefire.application.secret>
 					</systemPropertyVariables>
 					<!-- <includes> -->
 					<!-- <include>**/*.java</include> -->

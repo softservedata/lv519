@@ -7,6 +7,7 @@ public class AppTest {
     
     @Test
     public void checkApp1() {
+        System.out.println("***surefire.application.secret = " + System.getProperty("surefire.application.secret"));
         Assert.assertTrue(true);
     }
     
