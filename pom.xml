@@ -8,8 +8,9 @@
 	<artifactId>lv519mvn</artifactId>
 	<version>1.0</version>
 
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
+    <description>Project Green City Test by SoftServe ITA team Lv-519.TAQC/Java</description>
 	<name>${project.artifactId}</name>
 	<url>http://maven.apache.org</url>
 
@@ -101,5 +102,11 @@
 		</plugins>
 
 	</build>
+
+    <modules>
+        <module>core</module>
+        <module>solo</module>
+        <module>parallel</module>
+    </modules>
 
 </project>

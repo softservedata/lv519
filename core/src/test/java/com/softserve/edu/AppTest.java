@@ -7,6 +7,8 @@ public class AppTest {
     
     @Test
     public void checkApp1() {
+        //WebDriverManage wdm = new WebDriverManage();
+        //System.out.println("*** WDM status: " + wdm.init());
         Assert.assertTrue(true);
     }
     
