@@ -61,6 +61,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.14</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -100,13 +106,13 @@
 						<phase>test-compile</phase>
 						<configuration>
 							<executable>start.bat</executable>
-<!-- 							<executable>java</executable> -->
-<!-- 							<arguments> -->
-<!-- 								<argument>-jar</argument> -->
-<!-- 								<argument>grid.jar</argument> -->
-<!-- 								<argument>-role</argument> -->
-<!-- 								<argument>hub</argument> -->
-<!-- 							</arguments> -->
+							<!-- <executable>java</executable> -->
+							<!-- <arguments> -->
+							<!-- <argument>-jar</argument> -->
+							<!-- <argument>grid.jar</argument> -->
+							<!-- <argument>-role</argument> -->
+							<!-- <argument>hub</argument> -->
+							<!-- </arguments> -->
 						</configuration>
 					</execution>
 				</executions>
