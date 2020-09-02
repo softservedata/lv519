@@ -2,9 +2,12 @@ package com.softserve.edu.greencity.ui.jdbc.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class ManagerDao {
@@ -104,4 +107,18 @@ public final class ManagerDao {
         return result;
     }
 
+    public List<List<String>> parseResultSet(ResultSet resultSet) throws SQLException {
+        List<List<String>> result = new ArrayList<>();
+        int columnCount = resultSet.getMetaData().getColumnCount();
+        while (resultSet.next()) {
+            List<String> row = new ArrayList<>();
+            for (int i = 1; i <= columnCount; i++) {
+                row.add(resultSet.getString(i));
+                //System.out.print(resultSet.getString(i) + "\t");
+            }
+            result.add(row);
+            //System.out.println();
+        }
+        return result;
+    }
 }

@@ -1,25 +1,51 @@
 package com.softserve.edu.greencity.ui.jdbc.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+enum EcoNewsEntityFields {
+    ID(0),
+    CREATION_DATE(1),
+    IMAGE_PATH(2),
+    AUTHOR_ID(3),
+    TEXT(4),
+    TITLE(5);
+    
+    private int number;
+    //
+    private EcoNewsEntityFields(int number) {
+        this.number = number;
+    }
+    
+    public int getNumber() {
+        return number;
+    }
+}
+
 public class EcoNewsEntity {
+    public static final String SELECT_ALL = "SELECT * FROM eco_news;";
+    public static final String SELECT_BY_FIELD = "SELECT * FROM eco_news WHERE %s='%s';";
+    public static final String DELETE_BY_ID = "DELETE FROM eco_news WHERE id=%s;";
+    //
     private long id;
-    private long creation_date;
-    private String image_path;
-    private long author_id;
+    private String creationDate;
+    private String imagePath;
+    private long authorId;
     private String text;
     private String title;
 
     public EcoNewsEntity() {
-        creation_date = 0;
-        image_path = "";
-        author_id = 0;
+        creationDate = "";
+        imagePath = "";
+        authorId = 0;
         text = "";
         title = "";
     }
 
-    public EcoNewsEntity(long creation_date, String image_path, long author_id, String text, String title) {
-        this.creation_date = creation_date;
-        this.image_path = image_path;
-        this.author_id = author_id;
+    public EcoNewsEntity(String creationDate, String imagePath, long authorId, String text, String title) {
+        this.creationDate = creationDate;
+        this.imagePath = imagePath;
+        this.authorId = authorId;
         this.text = text;
         this.title = title;
     }
@@ -28,48 +54,83 @@ public class EcoNewsEntity {
         return id;
     }
 
-    public void setId(long id) {
+    public EcoNewsEntity setId(long id) {
         this.id = id;
+        return this;
     }
 
-    public long getCreation_date() {
-        return creation_date;
+    public String getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreation_date(long creation_date) {
-        this.creation_date = creation_date;
+    public EcoNewsEntity setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+        return this;
     }
 
-    public String getImage_path() {
-        return image_path;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setImage_path(String image_path) {
-        this.image_path = image_path;
+    public EcoNewsEntity setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+        return this;
     }
 
-    public long getAuthor_id() {
-        return author_id;
+    public long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(long author_id) {
-        this.author_id = author_id;
+    public EcoNewsEntity setAuthorId(long authorId) {
+        this.authorId = authorId;
+        return this;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
+    public EcoNewsEntity setText(String text) {
         this.text = text;
+        return this;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public EcoNewsEntity setTitle(String title) {
         this.title = title;
-    }
+        return this;
+   }
 
+    @Override
+    public String toString() {
+        return "EcoNewsEntity ["
+                + "id=" + id
+                + ", creation_date=" + creationDate
+                + ", image_path=" + imagePath
+                + ", author_id=" + authorId
+                + ", text=" + text
+                + ", title=" + title
+                + "]";
+    }
+    
+    public static EcoNewsEntity getEcoNewsEntity(List<String> row) {
+        return new EcoNewsEntity()
+                .setId(Long.valueOf(row.get(EcoNewsEntityFields.ID.getNumber())))
+                .setCreationDate(row.get(EcoNewsEntityFields.CREATION_DATE.getNumber()))
+                .setImagePath(row.get(EcoNewsEntityFields.IMAGE_PATH.getNumber()))
+                .setAuthorId(Long.valueOf(row.get(EcoNewsEntityFields.AUTHOR_ID.getNumber())))
+                .setText(row.get(EcoNewsEntityFields.TEXT.getNumber()))
+                .setTitle(row.get(EcoNewsEntityFields.TITLE.getNumber()));
+    }
+    
+    public static List<EcoNewsEntity> getListEcoNewsEntity(List<List<String>> rows) {
+        List<EcoNewsEntity> result = new ArrayList<>();
+        for (List<String> currentRow : rows) {
+            result.add(getEcoNewsEntity(currentRow));
+        }
+        return result;
+    }
 }
