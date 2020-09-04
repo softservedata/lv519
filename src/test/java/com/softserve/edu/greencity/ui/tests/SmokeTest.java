@@ -10,10 +10,11 @@ import com.softserve.edu.greencity.ui.pages.habits.MyHabitsPage;
 
 public class SmokeTest extends GreencityTestRunner {
 
-    // @Test
+    @Test
     public void checkApp() {
         System.out.println("***surefire.application.password = " + System.getProperty("surefire.application.password"));
         System.out.println("***System.getenv().MY_PASSWORD = " + System.getenv().get("MY_PASSWORD"));
+        System.out.println("***System.getenv().Eclipse_PASSWORD = " + System.getenv().get("ECLIPSE_PASSWORD"));
         Assert.assertTrue(true);
     }
 
