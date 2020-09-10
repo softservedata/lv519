@@ -5,6 +5,7 @@
 	<test name="Test11">
 		<classes>
 			<class name="com.softserve.edu.AppTest" />
+			<class name="com.softserve.edu.RestTest" />
 <!-- 			<class name="com.softserve.testng.TestNGTest2"> -->
 <!-- 				<methods> -->
 <!-- 					<include name="divisionWithException" /> -->

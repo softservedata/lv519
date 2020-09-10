@@ -33,9 +33,12 @@ public final class ManagerDao {
     }
 
     private void readProperties() {
-        username = "postgres";
-        password = "root";
-        url = "jdbc:postgresql://localhost:5432/greencity";
+//        username = "postgres";
+//        password = "root";
+//        url = "jdbc:postgresql://localhost:5432/greencity";
+        username = "greencity_admin@greencity-data";
+        password = "GbCAq5MU8asY0gxOmoQX8/V5vcbWgnRkzWAmZTZU5qo=";
+        url = "jdbc:postgresql://greencity-data.postgres.database.azure.com:5432/greencity";
     }
 
     public static ManagerDao get() {

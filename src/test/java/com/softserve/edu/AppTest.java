@@ -9,7 +9,7 @@ import com.softserve.edu.greencity.ui.jdbc.services.EcoNewsService;
 
 public class AppTest {
 
-    // @Test
+    @Test
     public void checkApp1() {
         System.out.println("***surefire.application.secret = " + System.getProperty("surefire.application.secret"));
         Assert.assertTrue(true);
@@ -53,7 +53,7 @@ public class AppTest {
         }
     }
     
-    @Test
+    ////@Test
     public void deleteNewsByTitle() {
         EcoNewsService ecoNewsService = new EcoNewsService();
         ecoNewsService.deleteNewsByTitle("asdfghjkl");
