@@ -75,8 +75,25 @@ public class ApplName {
             }
         };
         */
-        MyFunctional f1 = ApplName::xx;
+//        MyFunctional f1 = ApplName::xx;
+//        System.out.println("x2 Integral = " + app.integral(f1, a, b, n));
+        //
+        // Java-8. Add Lambda
+        MyFunctional f1 = x->x*x; // (double x) -> {...;return x*x;}
+        /*-
+        MyFunctional f1 = new MyFunctional() {
+            @Override
+            public double f(double x) {
+                return x*x;
+            }
+        };
+        */
         System.out.println("x2 Integral = " + app.integral(f1, a, b, n));
         //
+        System.out.println("x2 Integral = " + app.integral(x -> x * x, a, b, n));
+        //
+        //System.out.println("x2 Integral = " + app.integral(app::x2, a, b, n));
+        //System.out.println("mySin Integral = " + app.integral(app::mySin, a, b, n));
+
     }
 }
