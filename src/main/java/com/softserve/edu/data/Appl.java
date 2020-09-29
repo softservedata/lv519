@@ -1,5 +1,7 @@
 package com.softserve.edu.data;
 
+import java.util.List;
+
 public class Appl {
     public static void main(String[] args) {
         // 1. Classic. User Constructor
@@ -58,8 +60,11 @@ public class Appl {
 //        System.out.println("user.getLogin() = " + user.getLogin());
         //
         // 7.8. Add Singleton; Repository
-        IUser user = UserRepository.get().customer();
-        System.out.println("user.getLogin() = " + user.getLogin());
+//        IUser user = UserRepository.get().customer();
+//        System.out.println("user.getLogin() = " + user.getLogin());
+        // 9. Read from CSV
+        List<IUser> users = UserRepository.get().fromExcel();
+        System.out.println(users);
     }
 
 }

@@ -2,6 +2,9 @@ package com.softserve.edu.data;
 
 import java.util.List;
 
+import com.softserve.edu.tool.CSVReader;
+import com.softserve.edu.tool.ExcelReader;
+
 public final class UserRepository {
 
     private static UserRepository instance = null;
@@ -38,11 +41,19 @@ public final class UserRepository {
         return null;
     }
     
-    public List<IUser> csv() {
-        return null;
+    public List<IUser> fromCsv(String filename) {
+        return User.createUsers(new CSVReader(filename).getAllCells());
     }
-    
-    public List<IUser> excel() {
-        return null;
+
+    public List<IUser> fromCsv() {
+        return fromCsv("users.csv");
+    }
+
+    public List<IUser> fromExcel(String filename) {
+        return User.createUsers(new ExcelReader(filename).getAllCells());
+    }
+
+    public List<IUser> fromExcel() {
+        return fromExcel("users.xlsx");
     }
 }
